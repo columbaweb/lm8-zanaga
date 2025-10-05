@@ -1,0 +1,260 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/button" as *;
+
+.gform_wrapper {
+	:focus-visible {
+		outline: none;
+	}
+}
+
+form {
+	.gfield {
+		margin: 0 0 20px 0;
+	}
+
+	.gform_validation_container {
+		display: none;
+	}
+
+	label,
+	.gfield_label {
+		display: block;
+		font-size: 1.6rem;
+		text-transform: uppercase;
+		margin: 0 0 .4ch 0;
+		color: $moss;
+	}
+
+	.hidden_label {
+		> label,
+		> legend {
+			display: none;
+		}
+	}
+
+	input,
+	textarea,
+	select {
+		width: 100%;
+		font-family: $ff-body;
+		font-size: $font-18;
+		padding: 1.2ch 1.4rem;
+		color: $primary;
+		background: $cloud;
+		border: 1px solid rgba($moss, .25);
+		border-radius: 3px;
+		-webkit-appearance: none;
+		transition: background .18s ease-in-out, border .18s ease-in-out;
+
+		&:active,
+		&:focus {
+			outline: none !important;
+			background: $cloud;
+			border-color: rgba($moss, .45);
+			border-radius: 3px;
+		}
+
+		&[type="submit"] {
+            @include button-base;
+			max-width: 140px;
+			background: transparent;
+            cursor: pointer;
+		}
+
+		&[type="submit"],
+		&[type="text"],
+		&[type="email"],
+		&[type="checkbox"] {
+			-webkit-appearance: none;
+		}
+	}
+
+	textarea {
+		max-height: 160px;
+	}
+
+	select {
+		font-family: $ff-body;
+		background-size: 12px;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.314' height='7.071'%3E%3Cg fill='none' stroke='%23c0c1c6' stroke-width='2'%3E%3Cpath d='M10.607.707 4.95 6.364M6.364 6.364.707.707'/%3E%3C/g%3E%3C/svg%3E");
+		background-position: calc(100% - 10px) 50%;
+		background-repeat: no-repeat;
+	}
+
+	.ginput_container_consent {
+		display: flex;
+    	flex-wrap: wrap;
+		align-items: center;
+		font-size: 1.8rem;
+		line-height: 1.25;
+		margin-bottom: .6rem;
+		color: $primary;
+
+		label {
+			width: calc(100% - 22px);
+			padding-left: 1.6rem;
+			font-size: 1.6rem;
+			text-transform: none;
+			margin: 0;
+			color: $primary;
+		}
+
+		a {
+			text-decoration: underline;
+			text-decoration-color: $secondary;
+			text-decoration-thickness: 0.075rem;
+			text-underline-position: under;
+			color: $primary;
+			transition: color $speed $cb, text-decoration-color $speed $cb;
+
+			&:hover {
+				color: $moss;
+			}
+		}
+
+		input[type="checkbox"] {
+			display: block;
+			width: 22px;
+			height: 22px;
+			margin: 0;
+			padding: 0;
+            border: 1px solid rgba($moss, .25)!important;
+			border-radius: 3px!important;
+			cursor: pointer;
+			transition: background .18s ease-in-out, box-shadow .2s ease-in-out;
+
+			&:checked {
+				border: 1px solid rgba($moss, .45)!important;
+				background: $secondary;
+				box-shadow: inset 0 0 0 3px #fff;
+			}
+		}
+
+		.gfield_required_asterisk {
+			display: none;
+		}
+
+	} // consent
+
+    .gfield_description {
+        font-size: 1.6rem;
+        line-height: 1.25;
+        margin: 0 0 1.5ch 0;
+        padding: 0;
+        color: $primary;
+
+        a {
+			text-decoration: underline;
+			text-decoration-color: $secondary;
+			text-decoration-thickness: 0.075rem;
+			text-underline-position: under;
+			color: $primary;
+			transition: color $speed $cb, text-decoration-color $speed $cb;
+
+			&:hover {
+				color: $moss;
+			}
+		}
+
+        &.validation_message {
+            margin-left: 0;
+            padding: 8px 0 0 0;
+			color: $moss;
+        }
+    }
+
+	.gfield--type-fileupload {
+		margin: -15px 0 20px 0;
+	}
+	.ginput_container_fileupload {
+		.gform_fileupload_rules,
+		.validation_message--hidden-on-empty {
+			display: none;
+		}
+		input {
+			border: 1px dashed $moss;
+		}
+	} // file upload
+
+} // form
+
+.gform_required_legend {
+	display: none;
+}
+
+.gform_submission_error {
+	font-family: $ff-body;
+	font-size: $font-18;
+	font-weight: 400;
+	line-height: 1.25;
+	margin-bottom: 2ch;
+	color: $moss;
+}
+
+.validation_message {
+	display: inline-block;
+	font-size: 1.6rem;
+	margin-top: 4px;
+	color: $moss;
+}
+
+.gform_description {
+	display: block;
+	font-size: 1.8rem;
+	margin-bottom: 3ch;
+}
+
+::placeholder {
+	color: $primary;
+}
+:-ms-input-placeholder {
+	color: $primary;
+}
+::-ms-input-placeholder {
+	color: $primary;
+}
+
+
+@media (min-width: 1024px) {
+	form {
+		.gform_fields {
+			display: flex;
+			flex-wrap: wrap;
+			margin-left: -20px;
+
+			.gfield {
+				width: calc(50% - 20px);
+				margin-left: 20px;
+
+				&.fw {
+					width: calc(100% - 20px);
+				}
+			}
+		}
+	}
+}
+
+img.gform_ajax_spinner {
+	display: none !important;
+}
+
+// --- search form ---------------
+// clear the ‘X’ from Internet Explorer
+input[type=search]::-ms-clear { 
+	display: none; 
+	width: 0; 
+	height: 0; 
+}
+input[type=search]::-ms-reveal { 
+	display: none; 
+	width: 0; 
+	height: 0; 
+}
+
+// clear the ‘X’ from Chrome
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { 
+	display: none; 
+}

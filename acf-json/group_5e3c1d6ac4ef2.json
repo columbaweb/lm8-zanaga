@@ -1,0 +1,184 @@
+{
+    "key": "group_5e3c1d6ac4ef2",
+    "title": "CPT : Document",
+    "fields": [
+        {
+            "key": "field_632847f08f7de",
+            "label": "Type",
+            "name": "type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "single": "Single file",
+                "results": "Results"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5e3c1ebbceb4a",
+            "label": "File upload",
+            "name": "file",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Select or upload a file",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632847f08f7de",
+                        "operator": "==",
+                        "value": "single"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5e56833251062",
+            "label": "Custom Link Class",
+            "name": "custom_class",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Add a class to the document's anchor tag(s) (optional)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632847f08f7de",
+                        "operator": "==",
+                        "value": "single"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6328485c8f7df",
+            "label": "Report",
+            "name": "announcement",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632847f08f7de",
+                        "operator": "==",
+                        "value": "results"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6328488f8f7e0",
+            "label": "Presentation",
+            "name": "presentation",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632847f08f7de",
+                        "operator": "==",
+                        "value": "results"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_632848ec8f7e2",
+            "label": "Webcast",
+            "name": "webcast",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632847f08f7de",
+                        "operator": "==",
+                        "value": "results"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "documents"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}
+

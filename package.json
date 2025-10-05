@@ -1,0 +1,15 @@
+{
+  "name": "lm8-mosman",
+  "version": "1.0.0",
+  "scripts": {
+    "sass:watch": "concurrently \"npm run sass:theme\" \"npm run sass:editor\" \"npm run sass:core\" \"npm run sass:blocks\"",
+    "sass:theme": "sass --no-source-map --poll --watch scss/theme-styles.scss:scss/theme-styles.css",
+    "sass:editor": "sass --no-source-map --poll --watch scss/editor-styles.scss:scss/editor-styles.css",
+    "sass:core": "sass --no-source-map --poll --watch scss/core:scss/core",
+    "sass:blocks": "sass --no-source-map --poll --watch modules/blocks"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "npm-run-all": "^4.1.5"
+  }
+}

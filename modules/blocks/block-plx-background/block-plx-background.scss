@@ -1,0 +1,13 @@
+
+.plx {
+    position: absolute;
+    z-index: -1;
+
+    &-container {
+        position: relative;
+    }
+
+    &-right {
+        right: 0;
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "lmn/tab-group",
+  "title": "Tabs",
+  "category": "luminate",
+  "icon": {
+		"src": "editor-insertmore",
+		"foreground": "#BD0BBC"
+	},
+  "apiVersion": 2,
+  "keywords": ["tabs", "group", "wrap"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "./block-tab-group.php"
+  },
+  "script": "block-tabs"
+}

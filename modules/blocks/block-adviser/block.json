@@ -1,0 +1,18 @@
+{
+	"name": "lmn/adviser",
+	"title": "Adviser",
+	"category": "luminate",
+	"icon": {
+		"src": "businessman",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["adviser", "redistrar", "analyst", "Filter"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-adviser.php"
+	},
+	"supports": {
+		"align": true
+	}
+}

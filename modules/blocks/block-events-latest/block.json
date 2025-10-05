@@ -1,0 +1,15 @@
+{
+  "name": "lmn/events-latest",
+  "title": "Financial Calendar - Latest Events",
+  "category": "luminate",
+  "icon": {
+		"src": "calendar",
+		"foreground": "#09ca7f"
+	},
+  "apiVersion": 2,
+  "keywords": ["event", "calendar", "latest"],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "./block-events-latest.php"
+  }
+}

@@ -1,0 +1,16 @@
+{
+	"name": "lmn/accordion-group",
+	"title": "Accordion Group",
+	"category": "luminate",
+	"icon": {
+		"src": "align-wide",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["accordion", "toggle"],
+	
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-accordion-group.php"
+	}
+}

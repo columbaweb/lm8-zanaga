@@ -1,0 +1,139 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.link-cta {
+    display: flex;
+	flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 380px;
+	padding: 3rem 3rem 10rem 3rem;
+    background: $grad;
+    border-radius: $br;
+    overflow: hidden;
+	position: relative;
+
+
+    .bg {
+        display: block;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: .15;
+        transition: opacity .75s $ease .5s;
+
+        &:after {
+            content: "";
+            background: $primary;
+            opacity: .75;
+            position: absolute;
+            inset: 0;
+            transition: opacity .5s $ease;
+        }
+    }
+
+    &.in-view {
+        .bg {
+            opacity: .65;
+        }
+    }
+
+    &__title {
+        position: relative;
+        z-index: 3;
+
+        h2 {
+            font-size: $font-44;
+            font-weight: 400;
+            color: $white;
+        }
+
+        h3 {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            font-size: $font-20;
+            font-weight: 500;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: $white;
+
+            span {
+                display: block;
+                width: 30px;
+                height: 6px;
+                position: relative;
+            }
+
+            em {
+                display: block;
+                width: 6px;
+                height: 6px;
+                background: $moss;
+                border: 1px solid $white;
+                border-radius: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: left .6s $ease;
+            }
+
+            &.in-view {
+                em {
+                    &:nth-child(2) {
+                        left: 10px;
+                        transition-delay: .35s;
+                    }
+
+                    &:nth-child(3) {
+                        left: 20px;
+                        transition-delay: .5s;
+                    }
+                }
+            }
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        bottom: 3rem;
+        right: 3rem;
+        z-index: 3;
+    }
+
+    @media (min-width: 1024px) {
+        &.large {
+            aspect-ratio: 1/1;
+            padding: 5rem 5rem 12rem 5rem;
+
+            &__title {
+                h2 {
+                    font-size: $font-50;
+                }
+            }
+        }
+    }
+}
+
+a.link-cta {
+    transition: transform $speed $ease;
+
+    &:hover,
+    &:active,
+    &:focus {
+        transform: translateY(-6px);
+
+        .bg {
+            &:after {
+                opacity: .5;
+            }
+        }
+    }
+}
+
+    

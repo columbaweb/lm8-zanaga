@@ -1,0 +1,130 @@
+@use "../abstracts/vars" as *;
+
+// column
+.wp-block-column {
+
+    &.has-background,
+    &.has-border-color {
+        padding: $space-n;
+        
+        @media (min-width: 782px) {
+            &.p-lg {
+                padding: 6rem;
+            }
+            
+            &.pr0-lg {
+                padding-right: 0;
+            }
+        }
+    }
+
+    // &.has-purple-blue-gradient-background,
+    // &.has-blue-background-color,
+    // &.has-purple-background-color {
+    //     p, li,
+    //     h2, h3, h4, h5, h6 {
+    //         color: $white;
+    //     }
+    // }
+
+    @media (min-width: 782px) {
+        &.reorder {
+            order: -1;
+        }
+
+        &.is-style-btn-bottom {
+            display: flex;
+            flex-direction: column;
+
+            .wp-block-buttons {
+                margin-top: auto;
+                padding-top: 2rem;
+            }
+        }
+    }
+}
+
+
+// columns
+.wp-block-columns {
+    &.is-style-no-gap {
+        gap: 0;
+    }
+
+    &.is-style-sm-gap {
+        gap: 1.5rem;
+
+        + .is-style-sm-gap {
+            margin-top: 1.5rem;
+        }
+    }
+
+    &.has-background {
+        padding: $space-s;
+    }
+
+    + .wp-block-columns {
+        &:not(.mt0) {
+            margin-top: $space-l!important;
+        }
+    }
+
+     &.is-style-grid {
+        border: 1px solid rgba($moss, .2);
+        gap: 0;
+
+        > .wp-block-column {
+            padding: $space-n;
+
+            &:not(:first-child) {
+                @media (max-width: 781px) {
+                    border-top: 1px solid rgba($moss, .2);
+                }
+
+                @media (min-width: 782px) {
+                    border-left: 1px solid rgba($moss, .2);
+                }
+            }
+        }
+
+        + .is-style-grid {
+            margin-top: 0!important;
+            border-top: 0;
+        }
+    } // full grid
+
+    @media (min-width: 782px) and (max-width: 1023px) {
+        &.col-1-md {
+            flex-direction: column;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        &.is-style-lg-gap {
+            gap: $space-l;
+        }
+    }
+
+    + .wp-block-quote {
+        margin-top: $space-n;
+    }    
+
+    + p,
+    + h2, 
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top: 2.5ch!important;
+    }
+}
+
+
+.has-sidebar {
+    .wp-block-column {
+        &.has-background,
+        &.has-border-color {
+            padding: 2.5rem;
+        }
+    }
+}

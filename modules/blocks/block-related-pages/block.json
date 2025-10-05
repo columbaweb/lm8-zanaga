@@ -1,0 +1,15 @@
+{
+	"name": "lmn/related-pages",
+	"title": "Related pages",
+	"category": "luminate",
+	"icon": {
+		"src": "columns",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["page", "similar", "related", "in this section"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-related-pages.php"
+	}
+}

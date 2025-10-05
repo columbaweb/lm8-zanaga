@@ -1,0 +1,15 @@
+{
+	"name": "lmn/operations-carousel",
+	"title": "Operations Carousel",
+	"category": "luminate",
+	"icon": {
+		"src": "media-text",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["operations", "slider", "carousel", "projects"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-operations-carousel.php"
+	}
+}

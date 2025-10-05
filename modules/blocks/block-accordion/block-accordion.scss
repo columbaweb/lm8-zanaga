@@ -1,0 +1,94 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.accordion {
+    + .accordion {
+        margin-top: 0!important;
+    }
+
+    &__title {
+        display: flex;
+        flex-wrap: wrap;
+        //align-items: center;
+        gap: 2rem;
+        line-height: 1.25;
+        padding: 2rem 45px 2rem 2rem;
+        margin: 0 0 2rem 0;
+        background: rgba($moss, .05);
+        border: 1px solid rgba($moss, .075);
+        border-radius: $br;
+        position: relative;
+        cursor: pointer;
+        transition: background $speed $ease, border $speed $ease;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: $secondary;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23F5007B' stroke-linecap='square' d='M7.871 8.214v-7M7.87 8.216h7M7.87 8.217v7M7.87 8.215h-7'/%3E%3C/svg%3E");
+            mask-size: cover;
+            position: absolute;
+            //top: calc(50% - 14px);
+            top: 25px;
+            right: 2rem;
+            transition: transform $speed $ease;
+        }
+
+        .title {
+            width: calc(100% - 90px);
+            font-size: $font-22;
+            margin: 0;
+            transition: color $speed $ease;
+
+            span {
+                display: block;
+
+                &.title-top {
+                    font-family: $ff-body;
+                    font-size: $font-18;
+                    margin-bottom: .6ch;
+                    color: $moss;
+                }
+            }
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+
+            img {
+                height: auto;
+            }
+        }
+
+        &:hover {
+            .title { 
+                color: $secondary;
+            }
+        }
+
+        &.active {
+            background: rgba($white, .75);
+            border: 1px solid rgba($moss, .15);
+
+            .title { 
+                color: $secondary;
+            }
+
+            &:after {
+                transform: rotate(45deg);
+            }
+        }
+    } // acc title
+
+    &__panel {
+        display: none; 
+        overflow: hidden;
+
+        .panel-inner {
+            margin: 1.2rem 0 $space-n 0;
+        }
+    }
+}
+

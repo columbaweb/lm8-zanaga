@@ -1,0 +1,15 @@
+{
+	"name": "lmn/quicklinks",
+	"title": "Quicklinks",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-ul",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["links"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-quicklinks.php"
+	}
+}

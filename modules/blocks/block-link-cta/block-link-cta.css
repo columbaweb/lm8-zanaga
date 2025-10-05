@@ -1,0 +1,118 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.link-cta {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 380px;
+  padding: 3rem 3rem 10rem 3rem;
+  background: linear-gradient(114deg, #FF6139 -90%, #384332 75%);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.link-cta .bg {
+  display: block;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.15;
+  transition: opacity 0.75s ease-in-out 0.5s;
+}
+.link-cta .bg:after {
+  content: "";
+  background: #272928;
+  opacity: 0.75;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.link-cta.in-view .bg {
+  opacity: 0.65;
+}
+.link-cta__title {
+  position: relative;
+  z-index: 3;
+}
+.link-cta__title h2 {
+  font-size: var(--wp--preset--font-size--font-44);
+  font-weight: 400;
+  color: #fff;
+}
+.link-cta__title h3 {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--wp--preset--font-size--font-20);
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+}
+.link-cta__title h3 span {
+  display: block;
+  width: 30px;
+  height: 6px;
+  position: relative;
+}
+.link-cta__title h3 em {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #384332;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 0.6s ease-in-out;
+}
+.link-cta__title h3.in-view em:nth-child(2) {
+  left: 10px;
+  transition-delay: 0.35s;
+}
+.link-cta__title h3.in-view em:nth-child(3) {
+  left: 20px;
+  transition-delay: 0.5s;
+}
+.link-cta__title p {
+  color: #fff;
+}
+.link-cta__btn {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: 3;
+}
+@media (min-width: 1024px) {
+  .link-cta.large {
+    aspect-ratio: 1/1;
+    padding: 5rem 5rem 12rem 5rem;
+  }
+  .link-cta.large__title h2 {
+    font-size: var(--wp--preset--font-size--font-50);
+  }
+}
+
+a.link-cta {
+  transition: transform 0.35s ease-in-out;
+}
+a.link-cta:hover, a.link-cta:active, a.link-cta:focus {
+  transform: translateY(-6px);
+}
+a.link-cta:hover .bg:after, a.link-cta:active .bg:after, a.link-cta:focus .bg:after {
+  opacity: 0.5;
+}

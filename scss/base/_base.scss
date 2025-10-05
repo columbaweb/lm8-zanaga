@@ -1,0 +1,106 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
+html {
+	min-height: 100%;
+	font-size: 62.5%;
+	overscroll-behavior-y: none;
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+	&.has-nav-expanded {
+		scroll-behavior: auto;
+		overflow: hidden;
+	}
+
+	@media (min-width: 1024px) {
+		scroll-padding-top: 130px;
+	}
+}
+
+body {
+	min-height: 100vh;
+	min-height: 100dvh;
+	font-family: $ff-body;
+	font-variant-ligatures: no-common-ligatures;
+	background: $white;
+	overflow-x: hidden;
+	overscroll-behavior-y: none;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+
+	// Prevent scrolling when menu is open
+	html.menu-opened & {
+		overflow: hidden;
+	}
+
+}
+
+::-moz-selection {
+	background: rgba($moss, .35);
+}
+  
+::selection {
+	background: rgba($moss, .35);
+}
+
+@media screen and (max-width: 600px) {
+	#wpadminbar {
+		position: fixed;
+	}
+}
+
+@for $i from 0 through 10 {
+	.mt#{$i} {
+		margin-top: #{$i}rem !important;
+	}
+
+	.mb#{$i} {
+		margin-bottom: #{$i}rem !important;
+	}
+
+	.pt#{$i} {
+		padding-top: #{$i}rem !important;
+	}
+
+	.pb#{$i} {
+		padding-bottom: #{$i}rem !important;
+	}
+
+	@media (max-width: 781px) {
+		.mt#{$i}-sm {
+			margin-top: #{$i}rem !important;
+		}
+
+		.mb#{$i}-sm {
+			margin-bottom: #{$i}rem !important;
+		}
+
+		.pt#{$i}-sm {
+			padding-top: #{$i}rem !important;
+		}
+
+		.pb#{$i}-sm {
+			padding-bottom: #{$i}rem !important;
+		}
+	}
+
+	@media (min-width: 782px) {
+		.mb#{$i}-lg {
+			margin-bottom: #{$i}rem !important;
+		}
+	}
+}
+
+.hide {
+	display: none!important;
+}
+
+@media (max-width: 781px) {
+	.hide-sm {
+		display: none!important;
+	}
+}

@@ -1,0 +1,119 @@
+@use "vars" as *;
+//@use "button" as *;
+
+// --- TEXT TRUNCATE with an ellipsis
+// Usage: @include text-truncate;
+@mixin text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// --- DON'T BREAK
+// Usage: @include dontbreak();
+@mixin dontbreak() {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-all;
+	word-break: break-word;
+}
+
+// --- WP ADMIN BAR FIX
+@mixin admin-sticky-fix($offset: 0) {
+	$narrow-offset: 46px;
+	$wide-offset: 32px;
+	@if $offset != 0 and type-of($offset) == "number" {
+		$narrow-offset: $narrow-offset + $offset;
+		$wide-offset: $wide-offset + $offset;
+	}
+	.admin-bar & {
+		top: $narrow-offset;
+		@media screen and (min-width: 782px) {
+			top: $wide-offset;
+		}
+	}
+}
+
+// --- Accessibility Focus
+// Using the focus-visible pseudo class to only show focus styles when the element is focused via the keyboard
+// Usage: @include focus-visible
+@mixin focus-visible {
+	&:focus-visible {
+		outline: 1px solid rgba($secondary, .75);
+		outline-offset: 3px;
+	}
+}
+
+// Hide Visually
+// Usage: @include hidden;
+@mixin hidden {
+	display: none !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+}
+
+
+// --- burger menu
+@mixin burger-menu {
+	#nav-expander {
+		width: 26px;
+		padding: 12px 0;
+		background: none;
+		border: none;
+		outline: none;
+		position: absolute;
+		top: 18px;
+		right: 30px;
+		cursor: pointer;
+		z-index: 9999999;
+	
+		.bar {
+			display: block;
+			height: 1px;
+			background: $white;
+			transition: background 10ms 300ms ease;
+			position: relative;
+
+			&:before,
+			&:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background: $white;
+				position: absolute;
+				transition: top 300ms 350ms ease,
+        		transform 300ms 50ms ease;
+			}
+
+			&:before {
+				top: -6px;
+			}
+
+			&:after {
+				top: 6px;
+			}
+		}
+
+		&.is-active {
+			.bar {
+				background: transparent;
+
+				&:after, &:before {
+					background: #fff;
+					transition: top 300ms 50ms ease,
+					transform 300ms 350ms ease;
+					top: 0;
+				  }
+
+				  &:before {
+					transform: rotate(45deg);
+				  }
+
+				  &:after {
+					transform: rotate(-45deg);
+				  }
+			}
+		}
+	}	
+}

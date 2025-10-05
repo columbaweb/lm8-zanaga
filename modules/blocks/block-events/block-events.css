@@ -1,0 +1,200 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.financial-calendar + * {
+  margin-top: 2.5ch;
+}
+.financial-calendar p {
+  margin: 0;
+}
+.financial-calendar .event {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(39, 41, 40, 0.1);
+}
+.financial-calendar .event:first-child {
+  border-top: 1px solid rgba(39, 41, 40, 0.1);
+}
+.financial-calendar .event__title > span {
+  display: block;
+  margin: 0 0 0.5rem 0;
+}
+.financial-calendar .event__title > span:last-child {
+  margin: 0;
+}
+.financial-calendar .event__title .meta {
+  font-size: var(--wp--preset--font-size--font-16);
+  color: #272928;
+}
+.financial-calendar .event__title .title {
+  display: block;
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-22);
+  font-weight: 500;
+  letter-spacing: -0.04ch;
+  line-height: 1.25;
+  color: #272928;
+}
+.financial-calendar .event__title .location,
+.financial-calendar .event__title .info {
+  color: rgba(39, 41, 40, 0.8);
+}
+.financial-calendar .event__title .location + .info {
+  margin-top: -0.5ch;
+}
+.financial-calendar .event__actions {
+  margin: 1.5rem 0 0 0;
+  position: relative;
+}
+.financial-calendar .event__actions .btn-add-to-calendar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-18);
+  font-weight: 500;
+  letter-spacing: -0.04ch;
+  color: #272928;
+  border: none;
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: color 0.35s ease-in-out;
+}
+.financial-calendar .event__actions .btn-add-to-calendar svg {
+  width: 36px;
+  height: 36px;
+}
+.financial-calendar .event__actions .btn-add-to-calendar:hover {
+  color: #FF6139;
+}
+.financial-calendar .event__documents {
+  list-style: none;
+  margin: 1ch 0 0 0;
+  padding: 0;
+}
+.financial-calendar .event__documents li {
+  margin: 0 0.5rem 0 0;
+}
+.financial-calendar .event__documents li:last-child {
+  margin: 0;
+}
+.financial-calendar .event__documents .file {
+  display: inline-block;
+  font-size: var(--wp--preset--font-size--font-16);
+  padding-left: 20px;
+  color: #272928;
+  position: relative;
+  transition: color 0.35s ease-in-out;
+}
+.financial-calendar .event__documents .file:before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  mask: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.641' cy='5.729' r='4.5' transform='rotate(-90 5.641 5.729)' stroke='%23CD136A'/%3E%3Ccircle cx='5.641' cy='5.728' r='2.32' transform='rotate(-90 5.641 5.728)' fill='%23CD136A'/%3E%3C/svg%3E");
+  background-color: #FF6139;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  transition: background-color 0.35s ease-in-out;
+}
+.financial-calendar .event__documents .file:hover {
+  color: #FF6139;
+}
+.financial-calendar .event__documents .file:hover:before {
+  background-color: #384332;
+}
+.financial-calendar .calendar-links {
+  list-style: none;
+  margin: 0 0 0 46px;
+  padding: 0.7rem 1.5rem;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  transform: translateY(-5px);
+}
+.financial-calendar .calendar-links.show {
+  display: block;
+  z-index: 1000;
+}
+.financial-calendar .calendar-links li {
+  min-width: 100px;
+  margin: 0;
+}
+.financial-calendar .calendar-links a {
+  display: block;
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-16);
+  font-weight: 500;
+  letter-spacing: -0.025ch;
+  padding: 0.45ch 0 0.45ch 18px;
+  color: #272928;
+  position: relative;
+  transition: padding 0.35s ease-in-out;
+}
+.financial-calendar .calendar-links a:before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  mask: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.641' cy='5.729' r='4.5' transform='rotate(-90 5.641 5.729)' stroke='%23CD136A'/%3E%3Ccircle cx='5.641' cy='5.728' r='2.32' transform='rotate(-90 5.641 5.728)' fill='%23CD136A'/%3E%3C/svg%3E");
+  background: #FF6139;
+  mask-size: cover;
+  position: absolute;
+  top: 11px;
+  left: 0;
+  transition: background 0.35s ease-in-out;
+}
+.financial-calendar .calendar-links a:hover, .financial-calendar .calendar-links a:active, .financial-calendar .calendar-links a:focus {
+  padding-left: 23px;
+}
+@media (min-width: 782px) {
+  .financial-calendar .event {
+    position: relative;
+  }
+  .financial-calendar.upcoming .event {
+    padding-right: 180px;
+  }
+  .financial-calendar.upcoming .event__actions {
+    margin-top: auto;
+    padding: 0;
+    position: absolute;
+    top: 42px;
+    right: 0;
+  }
+}
+@media (min-width: 1100px) {
+  .financial-calendar .event {
+    padding-left: 220px;
+  }
+  .financial-calendar .event .meta {
+    position: absolute;
+    top: 22px;
+    left: 0;
+  }
+  .financial-calendar.upcoming .event__actions {
+    top: 15px;
+  }
+}
+@media (min-width: 1400px) {
+  .financial-calendar .event {
+    padding-left: 250px;
+  }
+}

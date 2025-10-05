@@ -1,0 +1,29 @@
+@use "../abstracts/vars" as *;
+
+.wp-block-heading {
+    
+    &.has-font-88-font-size {
+        line-height: 1;
+    }
+
+    &.is-style-small-title {
+        font-family: $ff-body;
+        font-size: $font-20;
+        font-weight: 600;
+        line-height: 1.4;
+        text-transform: uppercase;
+        padding-top: 1.2ch;
+        color: $secondary;
+        border-top: 1px solid $secondary;
+
+
+        + .is-style-intro--small {
+            margin-top: 1.5ch;
+        }
+    } // small title
+    
+    &.is-style-top-border {
+        padding-top: 1.2rem;
+        border-top: 1px solid $secondary;
+    } // is-style-top-border
+}

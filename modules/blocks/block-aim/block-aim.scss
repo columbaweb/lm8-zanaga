@@ -1,0 +1,68 @@
+@use "../../../scss/abstracts/vars" as *;
+@use "../../../scss/abstracts/button" as *;
+
+.aim {
+    margin: 0!important;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 5px;
+    
+    &:nth-child(even) {
+        background: $white;
+    }
+
+    + * {
+        &:not(.aim) {
+            margin-top: $space-n;
+        }
+    }
+
+	h3 {
+        font-size: $font-22;
+	}
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__btn {
+        @include button-base;
+        @include button-icon;
+
+        &:after {
+            order: -1;
+            margin-left: 0;
+            margin-right: 1rem;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            &:after {
+                margin-left: 0;
+            }
+        }
+    }
+
+    @media (min-width: 782px) {
+        display: flex;
+		flex-wrap: wrap;
+        gap: 40px;
+        padding: 4rem 3rem 3.5rem 3rem;
+
+        > div {
+			width: calc(50% - 20px);
+		}
+
+		h3 {
+			margin: 0;
+		}
+    }
+} // aim
+
+h2 {
+    + .aim {
+        margin-top: 2.5rem!important;
+    }
+}

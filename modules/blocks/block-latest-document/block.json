@@ -1,0 +1,15 @@
+{
+  "name": "lmn/latest-document",
+  "title": "Latest Document",
+  "category": "luminate",
+  "icon": {
+		"src": "media-text",
+		"foreground": "#09ca7f"
+	},
+  "apiVersion": 2,
+  "keywords": ["documents", "latest", "file", "pdf"],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "block-latest-document.php"
+  }
+}

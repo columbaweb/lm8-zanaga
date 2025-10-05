@@ -1,0 +1,50 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.latest-documents {
+	list-style: none;
+	margin: 0!important;
+	padding: 0;
+
+	li {
+		margin: 0 0 2.6rem 0;
+		padding: 0;
+	}
+
+	a {
+		display: block;
+		min-height: 46px;
+		padding: 0 0 0 60px;
+		position: relative;
+
+		svg {
+			position: absolute;
+			top: 2px;
+			left: 0;
+		}
+	
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+
+			h3 {
+				color: $secondary;
+			}
+		}
+	}
+
+	.meta {
+		display: block;
+		font-size: $font-16;
+		margin: 0 0 .3ch 0;
+		color: $primary;
+	}
+
+	h3 {
+		font-size: $font-22;
+		margin: 0;
+		color: $primary;
+		position: relative;
+		transition: color $speed $ease;
+	}
+}

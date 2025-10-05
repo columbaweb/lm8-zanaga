@@ -1,0 +1,51 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.latest-documents {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0;
+}
+.latest-documents li {
+  margin: 0 0 2.6rem 0;
+  padding: 0;
+}
+.latest-documents a {
+  display: block;
+  min-height: 46px;
+  padding: 0 0 0 60px;
+  position: relative;
+}
+.latest-documents a svg {
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+.latest-documents a:hover, .latest-documents a:active, .latest-documents a:focus {
+  text-decoration: none;
+}
+.latest-documents a:hover h3, .latest-documents a:active h3, .latest-documents a:focus h3 {
+  color: #FF6139;
+}
+.latest-documents .meta {
+  display: block;
+  font-size: var(--wp--preset--font-size--font-16);
+  margin: 0 0 0.3ch 0;
+  color: #272928;
+}
+.latest-documents h3 {
+  font-size: var(--wp--preset--font-size--font-22);
+  margin: 0;
+  color: #272928;
+  position: relative;
+  transition: color 0.35s ease-in-out;
+}

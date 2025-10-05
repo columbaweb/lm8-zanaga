@@ -1,0 +1,164 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/button" as *;
+
+body.interim-login {
+	background: linear-gradient(135deg, $primary 0%, $moss 100%); 
+
+	h1 a {
+		display: none!important;
+	}
+}
+
+.login-action-login,
+.login-action-lostpassword,
+.login-action-rp,
+.login-action-checkemail {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	color: $primary;
+	background: linear-gradient(135deg, $primary 0%, $moss 100%); 
+
+
+	#login {
+		padding: 25px;
+		background: $cloud;
+		border-radius: 3px;
+		box-shadow: 0 5px 5px 0 rgba(0,0,0, .15);
+
+		h1 {
+
+			a {
+				width: 200px;
+				height: 55px;
+				margin-bottom: 15px;
+				padding-bottom: 0;
+				background-size: contain;
+			} // a
+
+		} // h1
+
+	} // login
+
+	form {
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+
+		label {
+            text-transform: none;
+			padding-bottom: 3px;
+			color: $primary;
+		} // label
+
+		input {
+			border: 1px solid rgba(0,0,0, .35);
+			border-radius: 0;
+			transition: all .2s ease-in-out;
+
+			&:active,
+			&:focus {
+				border-color: $moss;
+				outline: none!important;
+				box-shadow: none!important;
+			}
+
+			&.button {
+                display: inline-flex;
+                max-width: 100px;
+				@include button-base;
+				font-size: $font-16;
+				text-transform: uppercase;
+				background: transparent;
+				
+				&:hover,
+				&:active,
+				&:focus {
+					border-color: $secondary;
+				}
+			} // button
+
+		} // input
+
+		.dashicons {
+			color: $moss;
+			transition: color .2s ease-in-out;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $secondary;
+			}
+		} // dashicons
+
+        .forgetmenot {
+            margin-top: 5px;
+        }
+
+	} // form
+
+	#nav {
+		text-align: center;
+		margin-top: 20px;
+
+		a {
+			color: $primary;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $moss;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.privacy-policy-page-link,
+	.language-switcher,
+	#backtoblog {
+		display: none;
+	}
+
+	#login_error,
+	.message,  
+	.success {
+		font-size: 1.4rem;
+        border: none;
+
+        a {
+            text-decoration: underline;
+            color: $moss;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+	}
+    
+}
+
+.login-action-lostpassword {
+    form {
+        input {
+            &.button {
+                max-width: 100%;
+            }
+        }
+    }
+
+    #nav {
+        a {
+            &.wp-login-log-in {
+                font-weight: 600;
+            }
+        }
+    }
+    
+}
+
+

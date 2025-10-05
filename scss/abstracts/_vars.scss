@@ -1,0 +1,83 @@
+$ff-body: var(--wp--preset--font-family--primary);
+$ff-title: var(--wp--preset--font-family--secondary);
+
+
+// font sizes
+$font-14: var(--wp--preset--font-size--font-14);
+$font-16: var(--wp--preset--font-size--font-16);
+$font-18: var(--wp--preset--font-size--font-18);
+$font-19: var(--wp--preset--font-size--font-19);
+$font-20: var(--wp--preset--font-size--font-20);
+$font-22: var(--wp--preset--font-size--font-22);
+$font-26: var(--wp--preset--font-size--font-26);
+$font-32: var(--wp--preset--font-size--font-32);
+$font-44: var(--wp--preset--font-size--font-44);
+$font-50: var(--wp--preset--font-size--font-50);
+$font-52: var(--wp--preset--font-size--font-52);
+$font-54: var(--wp--preset--font-size--font-54);
+$font-60: var(--wp--preset--font-size--font-60);
+$font-64: var(--wp--preset--font-size--font-64);
+$font-80: var(--wp--preset--font-size--font-80);
+$font-88: var(--wp--preset--font-size--font-80);
+
+
+// colors
+$black:			#000;
+$primary:    	#272928;
+$secondary:		#FF6139;
+$pine:			#192815;
+$moss:			#384332;
+$olive:			#6a705d;
+$sage:			#B4B49E;
+$linen:			#F5F5ED;
+$brick:			#60291B;
+$mint:			#B0D1CA;
+$cloud:			#E5EBEB;
+$stone:			#BDC1C0;
+$white: 		#fff;
+
+
+
+
+// block gaps
+$space-s: var(--wp--preset--spacing--small); // 2rem
+$space-n: var(--wp--preset--spacing--normal); // 4rem
+$space-m: var(--wp--preset--spacing--m); // 5rem
+$space-l: var(--wp--preset--spacing--l); // 8rem
+$space-xl: var(--wp--preset--spacing--xl); // 10rem
+
+$content-gap: var(--wp--preset--spacing--contentgap); // 6vw
+//$content-gap: 6vw;
+$content-width: var(--wp--style--global--content-size);
+$content-narrow-width: var(--wp--style--global--wide-size);
+
+
+:root {
+	//--sidebar-width: 22rem;
+    --sidebar-width: 31rem;
+	--layout-gap: 4rem;
+	--wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+@media (min-width: 1300px) {
+	:root {
+		//--sidebar-width: 30rem;
+        --sidebar-width: 34rem;
+		--layout-gap: 6rem;
+	}
+}
+$sidebar-width: var(--sidebar-width);
+$layout-gap: var(--layout-gap);  
+$content: calc(100% - $sidebar-width - $layout-gap);
+
+$br: 14px;
+$grad: linear-gradient(114deg, $secondary -90%, $moss 75%);
+
+
+
+// $grid: 1px solid rgba($stone, .3);
+// $grid-dash: 1px dashed rgba($stone, .3);
+
+// transition speed
+$speed: .35s;
+$cb: cubic-bezier(.4, 0, .2, 1);
+$ease: ease-in-out;

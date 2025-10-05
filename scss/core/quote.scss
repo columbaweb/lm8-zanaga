@@ -1,0 +1,59 @@
+@use "../abstracts/vars" as *;
+
+.wp-block-quote {
+
+    &:before {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 22px;
+        margin-bottom: 2.5rem;
+        background: $secondary;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='31' height='23' fill='none'%3E%3Cpath stroke='%23FF6139' d='m8.036 1.629 2.7 2.436.33.297-.256.363L8.364 8.2h4.238v14.3H.5V8.493l.146-.146 6.702-6.7.336-.336.352.318Zm17.899 0 2.7 2.436.329.297-.255.363L26.263 8.2H30.5v14.3H18.398V8.493l.147-.146 6.701-6.7.336-.336.353.318Z'/%3E%3C/svg%3E");
+        mask-size: cover;
+    }
+
+    p {
+        font-family: $ff-title;
+        font-size: $font-20;
+        font-style: italic;
+        line-height: 1.4;
+        color: $primary;
+        
+        &:first-child {
+            padding-top: 2rem;
+            border-top: 1px solid $secondary;
+        }
+    }
+
+    + * {
+        margin-top: 2.5ch!important
+    }
+    
+    cite {
+        font-size: $font-16;
+        margin-top: 2.2rem;
+        padding-top: 2.2rem;
+        border-top: 1px solid $secondary;
+    }
+    
+    &.has-background {
+        padding: $space-n;
+    }
+}
+
+
+
+
+.has-olive-background-color,
+.has-pine-background-color,
+.has-black-background-color,
+.has-primary-background-color,
+.has-moss-background-color,
+.has-brick-background-color {
+    .wp-block-quote {   
+        &:before {
+            background: $white;
+        }
+    }
+}

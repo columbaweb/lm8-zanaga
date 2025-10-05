@@ -1,0 +1,15 @@
+{
+	"name": "lmn/link-cta",
+	"title": "Link CTA",
+	"category": "luminate",
+	"icon": {
+		"src": "media-code",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["link","file", "documents", "cta"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-link-cta.php"
+	}
+}

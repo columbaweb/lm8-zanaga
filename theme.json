@@ -1,0 +1,627 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+
+    "settings": {
+        "appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+
+        "border": {
+			"radius": true,
+			"color": true,
+			"style": true,
+			"width": true
+		},
+
+        "blocks": {
+            "core/column": {
+                "border": {
+                    "radius": false
+                }
+            }
+		},
+
+        "color": {
+			"defaultDuotone": false,
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+                {
+					"slug": "black",
+					"color": "#000",
+					"name": "Black"
+				},
+                {
+                    "slug": "primary",
+                    "color": "#272928",
+                    "name": "Primary"
+                },
+                {
+                    "slug": "secondary",
+                    "color": "#FF6139",
+                    "name": "Secondary"
+                },
+                {
+                    "slug": "pine",
+                    "color": "#192815",
+                    "name": "Pine"
+                },
+                {
+                    "slug": "moss",
+                    "color": "#384332",
+                    "name": "Moss"
+                },
+                {
+                    "slug": "sage",
+                    "color": "#B4B49E",
+                    "name": "Sage"
+                },
+                {
+                    "slug": "olive",
+                    "color": "#6a705d",
+                    "name": "Olive"
+                },
+                {
+                    "slug": "linen",
+                    "color": "#F5F5ED",
+                    "name": "Linen"
+                },
+                {
+                    "slug": "brick",
+                    "color": "#60291B",
+                    "name": "Brick"
+                },
+                {
+                    "slug": "mint",
+                    "color": "#B0D1CA",
+                    "name": "Mint"
+                },
+                {
+                    "slug": "cloud",
+                    "color": "#E5EBEB",
+                    "name": "Cloud"
+                },
+                {
+					"slug": "stone",
+					"color": "#BDC1C0",
+					"name": "Stone"
+				},
+				{
+					"slug": "white",
+					"color": "#fff",
+					"name": "White"
+				}
+			],
+            "gradients": [
+                {
+                  "slug": "dark-green-top-left",
+                  "gradient": "linear-gradient(141deg, rgba(19, 33, 16, 0.97) 25.65%, rgba(25, 40, 21, 0.00) 86.6%);",
+                  "name": "Dark green top left"
+                }      
+            ]
+		},
+
+		"layout": {
+			"contentSize": "1290px",
+			"wideSize": "1400px",
+            "blockGap": "40px"
+		},
+
+        "spacing": {
+			"blockGap": true,
+            "defaultSpacingSizes": false,
+			"margin": true,
+			"padding": true,
+            "customSpacingSize": false,
+
+			"spacingScale": {
+				"steps": 0
+			},
+
+			"units": [ "rem", "px", "vh", "vw", "%" ],
+            
+            "spacingSizes": [
+                {
+					"size": "clamp(1rem, 0.714rem + 1.429vw, 2rem)",
+					"slug": "small",
+					"name": "Space S 2rem"
+                },
+				{
+					"size": "clamp(3.5rem, 2.737rem + 1.404vw, 4rem)",
+					"slug": "normal",
+					"name": "Space N 4rem"
+                },
+                {
+					"size": "clamp(3rem, 1.5rem + 5vw, 5rem)",
+					"slug": "m",
+					"name": "Space M 5rem"
+                },
+                {
+					"size": "clamp(5.5rem, 1.5rem + 5vw, 8rem)",
+					"slug": "l",
+					"name": "Space L 8rem"
+                },
+                {
+					"size": "clamp(2rem, -0.9091rem + 14.5455vw, 10rem)",
+					"slug": "xl",
+					"name": "Space XL 10rem"
+                },
+                {
+					"size": "5vw",
+					"slug": "contentgap",
+					"name": "Content Gap"
+                }
+            ]
+		},
+
+        "typography": {
+			"dropCap": false,
+			"fluid": false,
+			"writingMode": true,
+            "defaultFontSizes": false,
+			"fontSizes": [
+                {
+                    "size": "1.4rem",
+                    "slug": "font-14",
+                    "name": "Font 14"
+                },
+                {
+                    "size": "clamp(1.55rem, 1.536rem + 0.08vw, 1.6rem)",
+                    "slug": "font-16",
+                    "name": "Font 16"
+                },
+                {
+                    "size": "clamp(1.7rem, 1.671rem + 0.161vw, 1.8rem)",
+                    "slug": "font-18",
+                    "name": "Font 18"
+                },
+                {
+                    "size": "clamp(1.7rem, 1.6429rem + 0.2857vw, 1.9rem)",
+                    "slug": "font-19",
+                    "name": "Font 19"
+                },
+                {
+                    "size": "clamp(1.85rem, 1.804rem + 0.245vw, 2rem)",
+                    "slug": "font-20",
+                    "name": "Font 20"
+                },
+                {
+                    "size": "clamp(1.9rem, 1.814rem + 0.429vw, 2.2rem)",
+                    "slug": "font-22",
+                    "name": "Font 22"
+                },
+                {
+                    "size": "clamp(2.1rem, 1.9571rem + 0.7143vw, 2.6rem)",
+                    "slug": "font-26",
+                    "name": "Font 26"
+                },
+                {
+                    "size": "clamp(2.45rem, 2.2357rem + 1.0714vw, 3.2rem)",
+                    "slug": "font-32",
+                    "name": "Font 32"
+                },
+                {
+                    "size": "clamp(2.2rem, 1.5714rem + 3.1429vw, 4.4rem)",
+                    "slug": "font-44",
+                    "name": "Font 44"
+                },
+                {
+                    "size": "clamp(2.6rem, 1.7273rem + 4.3636vw, 5rem)",
+                    "slug": "font-50",
+                    "name": "Font 50"
+                },
+                {
+                    "size": "clamp(2.8rem, 2.1143rem + 3.4286vw, 5.2rem)",
+                    "slug": "font-52",
+                    "name": "Font 52"
+                },
+                {
+                    "size": "clamp(2.8rem, 2.0571rem + 3.7143vw, 5.4rem)",
+                    "slug": "font-54",
+                    "name": "Font 54"
+                },
+                {
+                    "size": "clamp(3rem, 2.1429rem + 4.2857vw, 6rem)",
+                    "slug": "font-60",
+                    "name": "Font 60"
+                },
+                {
+                    "size": "clamp(3.2rem, 2.2857rem + 4.5714vw, 6.4rem)",
+                    "slug": "font-64",
+                    "name": "Font 64"
+                },
+                {
+                    "size": "clamp(3.8rem, 2.6rem + 6vw, 8rem)",
+                    "slug": "font-80",
+                    "name": "Font 80"
+                },
+                {
+                    "size": "clamp(4rem, 2.6286rem + 6.8571vw, 8.8rem)",
+                    "slug": "font-88",
+                    "name": "Font 88"
+                }
+			],
+
+			"fontFamilies": [
+				{
+					"fontFamily": "system-ui, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+					"name": "System",
+					"slug": "system"
+				  },
+                  {
+                      "fontFamily": "'Work Sans', sans-serif",
+                      "name": "Primary",
+                      "slug": "primary",
+                      "fontFace": [{
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "100",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                                "fontFamily": "Work Sans",
+                                "fontWeight": "200",
+                                "fontStyle": "normal",
+                                "fontStretch": "normal",
+                                "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                            },
+                          {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "300",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "400",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "500",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "600",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "700",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": "800",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          },
+                          {
+                                "fontFamily": "Work Sans",
+                                "fontWeight": "900",
+                                "fontStyle": "normal",
+                                "fontStretch": "normal",
+                                "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                          }
+                      ]
+                    },
+                    {
+                      "fontFamily": "'Raleway', sans-serif",
+                      "name": "Secondary",
+                      "slug": "secondary",
+                      "fontFace": [{
+                              "fontFamily": "Raleway",
+                              "fontWeight": "100",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                                "fontFamily": "Raleway",
+                                "fontWeight": "200",
+                                "fontStyle": "normal",
+                                "fontStretch": "normal",
+                                "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                            },
+                          {
+                              "fontFamily": "Raleway",
+                              "fontWeight": "300",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Raleway",
+                              "fontWeight": "400",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Raleway",
+                              "fontWeight": "500",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Raleway",
+                              "fontWeight": "600",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Raleway",
+                              "fontWeight": "700",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                              "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                              "fontFamily": "Raleway",
+                              "fontWeight": "800",
+                              "fontStyle": "normal",
+                              "fontStretch": "normal",
+                             "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          },
+                          {
+                                "fontFamily": "Raleway",
+                                "fontWeight": "900",
+                                "fontStyle": "normal",
+                                "fontStretch": "normal",
+                                "src": [ "file:./assets/fonts/raleway/Raleway-VariableFont_wght.ttf" ]
+                          }
+                      ]
+                }
+
+			]
+		}
+    },
+
+	"styles": {
+        
+        "spacing": {
+            "padding": {
+                "left": "var(--wp--preset--spacing--contentgap)",
+                "right": "var(--wp--preset--spacing--contentgap)"
+            }
+        },
+
+        "blocks": {
+            "core/site-title": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--secondary)",
+                    "fontSize": "var(--wp--preset--font-size--font-54)",
+                    "fontWeight": "600",
+                    "lineHeight": "1.4"
+                }
+            },
+
+            "core/post-title": {
+                "color": {
+                    "text": "var(--wp--preset--color--pine)"
+                },
+                "typography": {
+					"fontFamily": "var(--wp--preset--font-family--secondary)",
+                    "fontSize": "var(--wp--preset--font-size--font-54)",
+                    "fontWeight": "600",
+                    "lineHeight": "1.25",
+                    "textTransform": "none"
+                }
+            },
+
+            "core/button": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--secondary)",
+                    "fontSize": "1.8rem",
+                    "fontWeight": "600",
+                    "lineHeight": "1.05"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "16px",
+                        "right": "3rem",
+                        "bottom": "16px",
+                        "left": "6rem"
+                    }
+                },
+                "color": {
+                    "text": "var(--wp--preset--color--black)",
+                    "background": "transparent"
+                },
+                "border": {
+                    "color": "var( --wp--preset--color--secondary)",
+                    "width": "1px",
+                    "style": "solid",
+                    "radius": "5rem"
+                },
+                
+                "variations": {
+                    "outline": {
+                        "spacing": {
+                            "padding": {
+                                "top": ".85ch",
+                                "right": "3rem",
+                                "bottom": ".95ch",
+                                "left": "3rem"
+                            }
+                        },
+                         "color": {
+                            "text": "var(--wp--preset--color--blue)",
+                            "background": "transparent"
+                        },
+                        "border": {
+                            "color": "var( --wp--preset--color--secondary)",
+                            "width": ".15rem"
+                        }
+                    }
+                }
+            },
+
+            "core/group": {
+                "spacing": {
+                    "padding": {
+                        "top": "var(--wp--preset--spacing--xl)",
+                        "bottom": "var(--wp--preset--spacing--xl)"
+                    }
+                }
+            },
+
+            "core/columns": {
+                "spacing": {
+                    "blockGap": "var(--wp--preset--spacing--normal)"
+                }
+            },
+
+            "core/paragraph": {
+                "typography": {
+                    "lineHeight": "1.5",
+                    "fontSize": "var(--wp--preset--font-size--font-19)",
+                    "fontWeight": "400"
+                },
+                "spacing": {
+                    "margin": {
+                        "bottom": "1.5ch"
+                    }
+                }
+            }
+        },
+
+        "color": {
+            "background": "var(--wp--preset--color--white)",
+            "text": "var(--wp--preset--color--primary)"
+        },
+        
+        "elements": {
+            "h1": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--secondary)",
+                    "fontSize": "var(--wp--preset--font-size--font-60)",
+                    "fontWeight": "600",
+                    "lineHeight": "1.25",
+                    "textTransform": "none"
+                },
+                "spacing": {
+                    "margin": {
+                        "bottom": ".8ch"
+                    }
+                },
+                "color": {
+                    "text": "var(--wp--preset--color--pine)"
+                }
+            },
+        "h2": {
+            "typography": {
+                "fontFamily": "var(--wp--preset--font-family--secondary)",
+                "fontSize": "var(--wp--preset--font-size--font-54)",
+                "fontWeight": "600",
+                "lineHeight": "1.25"
+            },
+            "spacing": {
+                "margin": {
+                    "bottom": "1.1ch"
+                }
+            },
+            "color": {
+                "text": "var(--wp--preset--color--pine)"
+            }
+        },
+        "h3": {
+            "typography": {
+                "fontFamily": "var(--wp--preset--font-family--secondary)",
+                "fontSize": "var(--wp--preset--font-size--font-32)",
+                "fontWeight": "500",
+                "lineHeight": "1.25"
+            },
+            "spacing": {
+                "margin": {
+                    "bottom": "1.15ch"
+                }
+            },
+            "color": {
+                "text": "var(--wp--preset--color--pine)"
+            }
+        },
+        "h4": {
+            "typography": {
+                "fontFamily": "var(--wp--preset--font-family--secondary)",
+                "fontSize": "var(--wp--preset--font-size--font-26)",
+                "fontWeight": "500",
+                "lineHeight": "1.35"
+            },
+            "spacing": {
+                "margin": {
+                    "bottom": "1.25ch"
+                }
+            },
+            "color": {
+                "text": "var(--wp--preset--color--pine)"
+            }
+        },
+        "h5": {
+            "typography": {
+                "fontFamily": "var(--wp--preset--font-family--secondary)",
+                "fontSize": "var(--wp--preset--font-size--font-22)",
+                "fontWeight": "600",
+                "lineHeight": "1.35"
+            },
+            "spacing": {
+                "margin": {
+                    "bottom": "1.5ch"
+                }
+            },
+            "color": {
+                "text": "var(--wp--preset--color--pine)"
+            }
+        },
+        "h6": {
+            "typography": {
+                "fontFamily": "var(--wp--preset--font-family--secondary)",
+                "fontSize": "var(--wp--preset--font-size--font-20)",
+                "fontWeight": "600",
+                "lineHeight": "1.45",
+                "textTransform": "none"
+            },
+            "spacing": {
+                "margin": {
+                    "bottom": "1.5ch"
+                }
+            },
+            "color": {
+                "text": "var(--wp--preset--color--pine)"
+            }
+        },
+
+        "link": {
+            "color": {
+           		"text": "var(--wp--preset--color--primary)"
+            },
+            ":hover": {
+				"color": {
+					"text": "var(--wp--preset--color--purple)"
+				}
+            }
+        }
+        },
+
+        "typography": {
+            "fontFamily": "var(--wp--preset--font-family--primary)",
+            "fontSize": "var(--wp--preset--font-size--font-18)",
+            "lineHeight": "1.5"
+        }
+    }
+
+}

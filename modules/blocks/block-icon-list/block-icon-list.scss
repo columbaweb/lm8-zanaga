@@ -1,0 +1,128 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.icon-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 80px;
+        margin: 0 0 1.5rem 0;
+        position: relative;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        br {
+            display: none;
+        }
+
+        strong {
+            display: block;
+            font-family: $ff-title;
+            font-size: $font-22;
+            font-weight: 500;
+            letter-spacing: -.05ch;
+            //color: $moss;
+            color: $moss;
+        }
+    }
+
+// ul default
+    &:not(.is-style-ol) {
+        li {
+            padding: 24px 24px 24px 102px;
+            background: rgba($moss, .1);
+            border-radius: 5px;
+
+            img {
+                width: 54px;
+                height: auto;
+                position: absolute;
+                top: 28px;
+                left: 24px;
+            }
+        }
+    }   
+    
+    &.is-style-ol {
+        counter-reset: item;
+
+        li {
+            margin: 0;
+            padding: 15px 0 15px 65px;
+
+            &:before {
+               content: "";
+               display: block;
+               width: 4px;
+               background: rgba($moss, .2);
+               position: absolute;
+               top: 0;
+               left: 21px;
+               bottom: 0;
+            }
+
+            &:after {
+                counter-increment: item;
+                content: counter(item);
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                font-family: $ff-title;
+                font-size: $font-22;
+                font-weight: 500;
+                line-height: 1;
+                color: $white;
+                //background: $grad;
+                background: linear-gradient(114deg, #CD136A -50%, #1A2A6C 165%);
+                border-radius: 100%;
+                position: absolute;
+                top: 15px;
+                left: 0;
+            }
+            
+            &:first-child {
+                &:before {
+                    top: 15px;
+                }
+            }
+            &:last-child {
+                &:before {
+                    bottom: calc(100% - 30px);
+                }
+            }
+
+            img {
+                display: none;
+            }
+        }
+    }
+
+    h2 + & {
+        margin-top: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+        &.sticky {
+            position: sticky;
+            top: 120px;
+        }
+    }
+}
+
+.wp-block-cover {
+    .icon-list {
+        li {
+            color: #fff;
+        }
+    }
+}

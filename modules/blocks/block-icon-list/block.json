@@ -1,0 +1,19 @@
+{
+	"name": "lmn/icon-list",
+	"title": "Icon List",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-ul",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["icon", "list", "cta"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-icon-list.php"
+	},
+	"styles": [
+    { "name": "default", "label": "Unordered List", "isDefault": true },
+    { "name": "ol", "label": "Ordered List" }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+    "key": "group_6570a0182a440",
+    "title": "Sidebar",
+    "fields": [
+        {
+            "key": "field_6570a7060bd5f",
+            "label": "Disable Child Links Menu",
+            "name": "disable_child_link_menu",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Turn off the auto generate child-links widget in the sidebar.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_6570a45c5b6fd",
+            "label": "Widgets To Display",
+            "name": "widgets_to_display",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Select additional custom widgets to display on page. Control click to select multiple.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sidebar": "sidebar",
+                "footer-1": "footer-1",
+                "footer-2": "footer-2",
+                "footer-3": "footer-3",
+                "footer-4": "footer-4",
+                "footer-5": "footer-5",
+                "subfooter-1": "subfooter-1",
+                "subfooter-2": "subfooter-2"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "multiple": 1,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6570a78c0bd61",
+            "label": "Apply to Child Pages",
+            "name": "apply_to_child_pages",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Apply same settings to all child pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1701882157
+}

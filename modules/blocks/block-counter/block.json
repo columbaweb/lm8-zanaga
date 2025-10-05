@@ -1,0 +1,22 @@
+{
+	"name": "lmn/counter",
+	"title": "Counter",
+	"category": "luminate",
+	"icon": {
+		"src": "cover-image",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["counter", "number", "stats"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-counter.php"
+	},
+	"supports": {
+		"align": true
+	},
+	"styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "small", "label": "Small Numbers" }
+  ]
+}

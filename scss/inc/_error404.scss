@@ -1,0 +1,15 @@
+@use "../abstracts/vars" as *;
+
+.error404 {
+    #content {
+        h3 {
+            font-size: $font-26;
+            text-align: center;
+            color: $secondary;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+}

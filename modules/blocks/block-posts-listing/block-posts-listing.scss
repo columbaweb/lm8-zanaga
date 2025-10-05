@@ -1,0 +1,63 @@
+@use "../../../scss/abstracts/vars" as *;
+@use "../../../scss/abstracts/button" as *;
+
+.posts-listing {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 4rem;
+
+	.post-item {
+		.excerpt {
+			background: $white;
+		}
+	}
+
+	@media (min-width: 680px) {
+		flex-direction: row;
+		gap: 3rem;
+
+		.post-item {
+			width: calc(50% - 1.5rem);
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.post-item {
+			width: calc(33.33% - 2rem);
+		}
+	}
+}
+
+.load-more-posts {
+	text-align: center;
+	padding: $space-m 0 0 0;
+	
+	.btn {
+		@include button-base;
+        @include button-icon;
+        
+
+        &:after {
+            transform: rotate(90deg);
+        }
+	}
+} // load more 
+
+.goverlay {
+	background: linear-gradient(114deg, #eeeff5 5%, darken($cloud, 5%) 95%)!important;
+}
+
+.glightbox-clean  {
+	.gslide-description {
+		border-radius: 0 0 $br $br;
+	}
+
+	h4.gslide-title {
+		font-family: $ff-title;
+		font-size: $font-20;
+		font-weight: 500;
+		margin-bottom: 0;
+	}
+	
+}

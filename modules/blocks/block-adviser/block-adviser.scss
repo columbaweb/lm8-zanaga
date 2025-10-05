@@ -1,0 +1,79 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.company-grid {
+
+    + * {
+        margin-top: $space-m;
+    }
+
+    &__company {
+        display: block;
+        margin: 0 0 3rem 0;
+        padding: 2.5rem;
+        background: $white;
+        border: 1px solid transparent;
+        border-radius: $br;
+
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: $font-20;
+            font-weight: 500;
+            margin-bottom: .8ch;
+            color: $primary;
+        }
+
+        p {
+            strong {
+                display: block;
+                font-family: $ff-title;
+                font-size: $font-22;
+                font-weight: 500;
+                letter-spacing: -.05ch;
+                margin-bottom: .55ch;
+                color: $moss;
+
+                + br {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }    
+    }
+
+    a.company-grid__company {
+        transition: background $speed $cb, border $speed $cb, transform $speed $ease;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: rgba($moss, .1);
+            border: 1px solid rgba($moss, .25);
+            transform: translateY(-6px);
+
+            p {
+                color: $primary;
+            }
+        }
+    }
+
+    @media (min-width: 700px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        
+        &__company {
+            width: calc(50% - 2rem);
+            margin: 0;
+            padding: 3.5rem;
+        }
+    }
+    
+}

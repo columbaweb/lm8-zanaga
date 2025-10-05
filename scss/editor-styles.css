@@ -1,0 +1,83 @@
+html.interface-interface-skeleton__html-container {
+  min-height: 100%;
+  font-size: 62.5%;
+}
+
+.is-focus-mode .block-editor-block-list__block:not(.has-child-selected) {
+  opacity: 1 !important;
+}
+
+:where(.editor-styles-wrapper) .is-root-container {
+  overflow-x: hidden;
+}
+:where(.editor-styles-wrapper) .has-global-padding {
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
+}
+:where(.editor-styles-wrapper) .has-global-padding > .alignfull {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+:where(.editor-styles-wrapper) .wp-block-post-title {
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
+}
+:where(.editor-styles-wrapper) .hide {
+  opacity: 0.35;
+}
+:where(.editor-styles-wrapper) .wp-block-spacer {
+  border: 1px dashed #e0e0e0;
+}
+:where(.editor-styles-wrapper) .wp-block-group {
+  padding: 15px !important;
+  border: 1px dashed #e0e0e0;
+}
+:where(.editor-styles-wrapper) .wp-block-group.has-black-background-color .acf-input li, :where(.editor-styles-wrapper) .wp-block-group.has-coal-background-color .acf-input li, :where(.editor-styles-wrapper) .wp-block-group.has-primary-background-color .acf-input li, :where(.editor-styles-wrapper) .wp-block-group.has-navy-background-color .acf-input li, :where(.editor-styles-wrapper) .wp-block-group.has-pine-background-color .acf-input li {
+  color: #000;
+}
+:where(.editor-styles-wrapper) .wp-block-column {
+  border: 1px dashed #e0e0e0;
+}
+:where(.editor-styles-wrapper) .wp-block-button .wp-block-button__link:hover, :where(.editor-styles-wrapper) .wp-block-button .wp-block-button__link:active, :where(.editor-styles-wrapper) .wp-block-button .wp-block-button__link:focus {
+  color: #fff;
+  background: #FF6139;
+}
+:where(.editor-styles-wrapper) .wp-block-button .wp-block-button__link:hover:before, :where(.editor-styles-wrapper) .wp-block-button .wp-block-button__link:active:before, :where(.editor-styles-wrapper) .wp-block-button .wp-block-button__link:focus:before {
+  width: 45px;
+}
+:where(.editor-styles-wrapper) .accordion {
+  border: 1px dashed #e0e0e0;
+}
+:where(.editor-styles-wrapper) .accordion__panel {
+  display: block;
+}
+:where(.editor-styles-wrapper) .timeline {
+  border: 1px dashed #e0e0e0;
+}
+:where(.editor-styles-wrapper) ul.tabs a {
+  text-decoration: none;
+}
+:where(.editor-styles-wrapper) .tab-panel > div {
+  opacity: 1;
+}
+:where(.editor-styles-wrapper) .icon-list {
+  opacity: 1;
+}
+:where(.editor-styles-wrapper) .has-olive-background-color p, :where(.editor-styles-wrapper) .has-olive-background-color li, :where(.editor-styles-wrapper) .has-olive-background-color cite,
+:where(.editor-styles-wrapper) .has-pine-background-color p,
+:where(.editor-styles-wrapper) .has-pine-background-color li,
+:where(.editor-styles-wrapper) .has-pine-background-color cite,
+:where(.editor-styles-wrapper) .has-black-background-color p,
+:where(.editor-styles-wrapper) .has-black-background-color li,
+:where(.editor-styles-wrapper) .has-black-background-color cite,
+:where(.editor-styles-wrapper) .has-primary-background-color p,
+:where(.editor-styles-wrapper) .has-primary-background-color li,
+:where(.editor-styles-wrapper) .has-primary-background-color cite,
+:where(.editor-styles-wrapper) .has-moss-background-color p,
+:where(.editor-styles-wrapper) .has-moss-background-color li,
+:where(.editor-styles-wrapper) .has-moss-background-color cite,
+:where(.editor-styles-wrapper) .has-brick-background-color p,
+:where(.editor-styles-wrapper) .has-brick-background-color li,
+:where(.editor-styles-wrapper) .has-brick-background-color cite {
+  color: #fff;
+}

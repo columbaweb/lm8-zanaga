@@ -1,0 +1,32 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/button" as *;
+
+.wp-block-button {
+	.wp-block-button__link {
+		@include button-base;
+	}
+	
+	&.is-style-white {
+		.wp-block-button__link {
+			@include button-white;
+		}
+	}
+}
+
+* + .wp-block-buttons {
+	margin-top: $space-m!important;
+}
+
+.wp-block-buttons {
+	+ .wp-block-group,
+	+ .wp-block-columns {
+		margin-top: $space-m;
+	}
+
+    + .wp-block-heading,
+    + p {
+        margin-top: 2.5ch!important;
+    }
+}
+
+

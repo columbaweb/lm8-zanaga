@@ -1,0 +1,80 @@
+@use "../../../scss/abstracts/vars";
+@use "../../../scss/abstracts/mixins";
+
+.related-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    margin: $space-l 0 0 0;
+    padding: 20px;
+    background: $moss;
+
+    li {
+        margin: 0;
+
+        a {
+            display: block;
+            padding: 20px 20px 70px 20px;
+            background: 
+            radial-gradient(circle at 0% 0%, $moss, transparent 75%),
+            $moss;
+            position: relative;
+
+            &:hover,
+            &:active,
+            &:focus {
+                .btn {
+                    background: #fff;
+                }
+            }
+        }
+
+        &.title {
+            flex: 1;
+            width: 100%;
+            padding: 20px 0 0 0;
+        }
+    }
+
+    h3 {
+        font-size: $font-20;
+        margin: 0;
+    }
+
+    h4 {
+        font-size: $font-20;
+        margin: 0;
+        color: #fff;
+    }
+
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: $moss;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transition: background $speed $ease;
+        
+        svg {
+            width: 22px;
+            height: 13px;
+        }
+    }
+
+    @media (max-width: 599px) {
+        li {
+            flex: 1 1 100%;
+        }
+    }
+
+    @media (min-width: 600px) {
+        li {
+            flex: 1;
+        }
+    }
+} 

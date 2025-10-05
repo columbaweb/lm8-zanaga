@@ -1,0 +1,62 @@
+@use "../../../scss/abstracts/vars";
+@use "../../../scss/abstracts/mixins";
+
+.link-group {
+
+    &.investors-landing {
+        padding: 0 $space-s $space-s $space-s;
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(154,194,117, .3);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    svg {
+        width: 24px;
+        height: 12px;
+    }
+
+    path {
+        transition: stroke $speed $cb;
+    }
+
+    a {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        font-size: $font-20;
+        font-weight: 500;
+        padding: 1ch 0;
+        color: $primary;
+        transition: color $speed $cb;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $moss;
+            
+            path {
+                stroke: $moss;
+            }
+        }
+    }
+
+    @media (min-width: 782px) {
+        &.investors-landing {
+            padding: $space-s $space-s $space-s 0;
+        }
+    }
+}

@@ -1,0 +1,243 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.financial-calendar {
+
+	+ * {
+		margin-top: 2.5ch;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.event {
+		padding: 2rem 0;
+		border-bottom: 1px solid rgba($primary, .1);
+
+		&:first-child {
+			border-top: 1px solid rgba($primary, .1);
+		}
+
+		&__title {
+
+			> span {
+				display: block;
+				margin: 0 0 .5rem 0;
+
+				&:last-child {
+					margin: 0;
+				}
+			}
+
+			.meta {
+				font-size: $font-16;
+				color: $primary;
+			}
+
+			.title {
+				display: block;
+				font-family: $ff-title;
+				font-size: $font-22;
+				font-weight: 500;
+				letter-spacing: -.04ch;
+				line-height: 1.25;
+				color: $primary;
+			}
+
+			.location,
+			.info {
+				color: rgba($primary, .8);
+			}
+
+			.location + .info {
+				margin-top: -.5ch;
+			}
+		} // title
+
+		&__actions {
+			margin: 1.5rem 0 0 0;
+			position: relative;
+
+			.btn-add-to-calendar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 10px;
+				font-family: $ff-title;
+				font-size: $font-18;
+				font-weight: 500;
+				letter-spacing: -.04ch;
+				color: $primary;
+				border: none;
+				border-radius: 0;
+				position: relative;
+				cursor: pointer;
+				-webkit-appearance: none;
+				transition: color $speed $ease;
+
+				svg {
+					width: 36px;
+					height: 36px;
+				}
+
+				&:hover {
+					color: $secondary;
+				}
+			} // button
+
+		} // actions
+
+		&__documents {
+			list-style: none;
+			margin: 1ch 0 0 0;
+			padding: 0;
+
+			li {
+				margin: 0 .5rem 0 0;
+
+				&:last-child {
+					margin: 0;
+				}
+			}
+
+			.file {
+				display: inline-block;
+				font-size: $font-16;
+				//font-weight: 500;
+				padding-left: 20px;
+				color: $primary;
+				position: relative;
+				transition: color $speed $ease;
+
+				&:before {
+					content: '';
+					display: block;
+					width: 11px;
+					height: 11px;
+                	mask: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.641' cy='5.729' r='4.5' transform='rotate(-90 5.641 5.729)' stroke='%23CD136A'/%3E%3Ccircle cx='5.641' cy='5.728' r='2.32' transform='rotate(-90 5.641 5.728)' fill='%23CD136A'/%3E%3C/svg%3E");
+					background-color: $secondary;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					position: absolute;
+					top: 7px;
+					left: 0;
+					transition: background-color $speed $ease;
+				}
+
+				&:hover {
+					color: $secondary;
+
+					&:before {
+						background-color: $moss;
+					}
+				}
+			}
+		}
+	} // event
+
+	.calendar-links {
+		list-style: none;
+		margin: 0 0 0 46px;
+		padding: .7rem 1.5rem;
+		background: $white;
+		border-radius: 2px;
+		box-shadow: 0 0 4px 0 rgba(0,0,0, .1);
+		opacity: 0;
+		position: absolute;
+		z-index: -1; 
+		transform: translateY(-5px); 
+
+		&.show {
+			display: block;
+			z-index: 1000; 
+		}
+
+		li {
+			min-width: 100px;
+			margin: 0;
+		}
+
+		a {
+			display: block;
+			font-family: $ff-title;
+			font-size: $font-16;
+			font-weight: 500;
+			letter-spacing: -.025ch;
+			padding: .45ch 0 .45ch 18px;
+			color: $primary;
+			position: relative;
+			transition: padding $speed $ease;
+
+			&:before {
+				content: "";
+				display: block;
+				width: 11px;
+				height: 11px;
+                mask: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.641' cy='5.729' r='4.5' transform='rotate(-90 5.641 5.729)' stroke='%23CD136A'/%3E%3Ccircle cx='5.641' cy='5.728' r='2.32' transform='rotate(-90 5.641 5.728)' fill='%23CD136A'/%3E%3C/svg%3E");
+				background: $secondary;
+				mask-size: cover;
+				position: absolute;
+				top: 11px;
+				left: 0;
+				transition: background $speed $ease;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				padding-left: 23px;
+			}
+		}
+	}
+
+	@media (min-width: 782px) {
+		
+		.event {
+			position: relative;
+		}
+
+		&.upcoming {
+			.event {
+				padding-right: 180px;
+			}
+
+			.event__actions {
+				margin-top: auto;
+				padding: 0;
+				position: absolute;
+				top: 42px;
+				right: 0;
+			}
+		}
+	} // 782
+
+	@media (min-width: 1100px) {
+		.event {
+			padding-left: 220px;
+
+			.meta {
+				position: absolute;
+				top: 22px;
+				left: 0;
+			}
+		}	
+		&.upcoming {
+			.event__actions {
+				top: 15px;
+			}
+		}
+	}
+
+	@media (min-width: 1400px) {
+		.event {
+			padding-left: 250px;
+		}
+	}
+}
+
+
+
+
+
+  

@@ -1,0 +1,64 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--normal);
+}
+.timeline + .timeline {
+  margin-top: var(--wp--preset--spacing--normal);
+}
+.timeline .col {
+  padding-top: var(--wp--preset--spacing--normal);
+  border-top: 1px dashed rgba(56, 67, 50, 0.25);
+}
+.timeline .year {
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-26);
+  margin: 0;
+  padding: 0 0 0 22px;
+  color: #384332;
+  position: relative;
+}
+.timeline .year:before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  mask: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.641' cy='5.729' r='4.5' transform='rotate(-90 5.641 5.729)' stroke='%23CD136A'/%3E%3Ccircle cx='5.641' cy='5.728' r='2.32' transform='rotate(-90 5.641 5.728)' fill='%23CD136A'/%3E%3C/svg%3E");
+  background: #FF6139;
+  mask-size: cover;
+  position: absolute;
+  top: 13px;
+  left: 0;
+  transition: background 0.35s ease-in-out;
+}
+@media (min-width: 800px) {
+  .timeline {
+    flex-direction: row;
+    gap: 5rem;
+  }
+  .timeline .col-1 {
+    flex: 1;
+  }
+  .timeline .col-2 {
+    flex: 1.3;
+  }
+}
+@media (min-width: 1024px) {
+  .timeline .col-1 .inner {
+    position: sticky;
+    top: 120px;
+  }
+}

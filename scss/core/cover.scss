@@ -1,0 +1,9 @@
+@use "../abstracts/vars" as *;
+
+.wp-block-cover {
+	padding: calc($space-n + 1rem) $space-n!important;
+	
+	+ .wp-block-columns {
+		margin-top: calc($space-n + 1rem)!important;
+	}
+}

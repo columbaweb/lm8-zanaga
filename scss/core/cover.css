@@ -1,0 +1,18 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.wp-block-cover {
+  padding: calc(var(--wp--preset--spacing--normal) + 1rem) var(--wp--preset--spacing--normal) !important;
+}
+.wp-block-cover + .wp-block-columns {
+  margin-top: calc(var(--wp--preset--spacing--normal) + 1rem) !important;
+}

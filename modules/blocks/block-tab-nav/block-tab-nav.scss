@@ -1,0 +1,125 @@
+@use "../../../scss/abstracts/vars" as *;
+@use "../../../scss/abstracts/button" as *;
+
+ul.tabs {
+	display: flex;
+    flex-wrap: wrap;
+	list-style: none;
+	margin: 0 0 2.5rem 0;
+	padding: 4px;
+	background: rgba($moss, .075);
+	border-radius: 5rem;
+	position: relative;
+
+	li {
+		margin: 0;
+		padding: 0 .5rem 0 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	a {
+		@include button-base;
+		font-size: $font-18;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		border-color: transparent;
+		transition: color $speed $ease, background $speed $ease!important;
+
+		&.active {
+			color: #fff;
+			background: $moss;
+		}
+		// &:hover,
+		// &:active,
+		// &:focus {
+		// 	color: #fff!important;
+		// 	background: $moss;
+		// 	outline: none;
+		// }
+	} // a
+
+// fixed width buttons 
+	&.fw {
+		li {
+			display: flex;
+			align-items: stretch;
+			flex-grow: 1;
+			flex-basis: 0;
+
+			a {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+		}
+	}
+} // tabs
+
+// side tabs
+.vert {
+	ul.tabs {
+		display: flex;
+		flex-direction: column;
+		width: calc(35% - 30px);
+		margin: 0 30px 0 0;
+		padding: 0;
+		background: transparent;
+		border: none;
+		border-radius: 0;
+
+		li {
+			width: 100%;
+			margin: 0 0 1rem 0;
+			padding: 0;
+		}
+
+		a {
+			display: block;
+			height: auto;
+			padding: .9ch 1.4rem;
+			color: $primary!important;
+			background: transparent;
+			border: 1px solid $moss;
+            border-radius: 4px;
+
+			&:hover,
+			&:active,
+			&:focus,
+			&.active {
+				background: rgba($moss, .05);
+				color: $moss!important;
+                cursor: pointer;
+			}
+
+		}
+	}
+
+	@media (min-width: 750px) {
+		.tab-panel {
+			width: 65%;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		ul.tabs {
+			width: 180px;
+		}
+		.tab-panel {
+			width: calc(100% - 215px);
+		}	
+	}
+}
+
+
+
+// tab > accordion on mobile
+@media (max-width: 749px) {
+	.acc {
+		ul.tabs {
+            display: none;
+        }
+	}
+}

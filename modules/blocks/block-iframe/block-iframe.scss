@@ -1,0 +1,39 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.lmn-iframe {
+	margin-top: 0!important;
+
+	+ .lmn-iframe {
+		margin-top: $space-l!important;
+	}
+
+	iframe {
+		border: 0;
+		width: 100%;
+		overflow: hidden !important;
+	}
+
+	&.hp-shareprice {
+		padding: $space-s;
+		background: #fff;
+	}
+
+	&.bx-white {
+		padding: $space-n;
+		background: #fff;
+		border: 1px solid rgba($moss, .15);
+		border-radius: $br;
+	}
+
+	&.bx-beige {
+		padding: $space-n;
+		background: $cloud;
+		border: 1px solid rgba($moss, .05);
+		border-radius: $br;
+	}
+
+	&.rns-news {
+		min-height: 1070px;
+	}
+}
+

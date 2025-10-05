@@ -1,0 +1,43 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.tab-group {
+	margin-bottom: $space-n!important;
+
+	* + & {
+		margin-top: $space-n!important;
+	}
+
+	+ .btn {
+		margin-top: -2rem!important;
+	}
+
+	+ div,
+	+ .tab-group,
+	+ p,
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6 {
+		margin-top: $space-n!important;
+	}
+
+	&.vert {
+		border-bottom: none;
+		
+		> .acf-innerblocks-container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 749px) { 
+			.accordion {
+				> input {
+					+ .acc-title {
+						padding: .9ch 40px .9ch 1.4rem;
+					}
+				}
+			}
+		}
+	}
+}

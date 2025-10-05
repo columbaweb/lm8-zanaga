@@ -1,0 +1,69 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.statistics {
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	p {
+		font-weight: 500;
+		margin: 0!important;
+
+		&.statistics__number {
+			font-size: $font-50;
+			white-space: nowrap;
+			color: $brick;
+
+			> span {
+				display: inline-block;
+
+				span {
+					display: inline-block;
+					opacity: 0;
+					transform: translateX(-.15ch);
+				}
+			}
+		} // number
+
+		&.statistics__title {
+			font-family: $ff-title;
+			font-size: $font-18;
+			letter-spacing: -.02ch;
+			line-height: 1.25;
+			margin-top: .4ch!important;
+			color: $primary;
+			animation-delay: .35s;
+		}
+	} // p
+
+// smaller numbers
+	&.is-style-small {
+		p {
+			&.statistics__number {
+				font-size: clamp(2.4rem, 2.163rem + 1.1852vw, 3.2rem);
+				//font-weight: 500;
+			}
+		}
+	}
+
+// top border
+	&.top-border {
+		margin-top: 4rem!important;
+		padding-top: 2.5rem;
+		border-top: 1px solid rgba($moss, .3);
+	}
+
+
+
+	@media (min-width: 1024px) {
+		&.square,
+		&.sq {
+			display: flex;
+			flex-wrap: wrap;
+    		flex-direction: column;
+        	justify-content: center;
+			aspect-ratio: 1 / 1;
+		}
+	}
+}

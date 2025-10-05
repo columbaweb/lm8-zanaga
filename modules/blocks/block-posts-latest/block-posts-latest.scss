@@ -1,0 +1,17 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.latest-posts {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: $space-n;
+
+	@media (min-width: 782px) {
+		flex-direction: row;
+		gap: 2rem;
+
+		.excerpt {
+			flex: 1;
+		}
+	}
+}

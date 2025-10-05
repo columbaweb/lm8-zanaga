@@ -1,0 +1,126 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.latest-document + .latest-document {
+  margin-top: 3rem;
+}
+.latest-document a {
+  display: block;
+  background: #384332;
+}
+.latest-document a .btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  background: #384332;
+}
+.latest-document a svg {
+  width: 21px;
+  height: 13px;
+}
+.latest-document a .cover-wrap {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  transition: opacity 0.35s ease-in-out;
+}
+.latest-document a .cover {
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  aspect-ratio: 11/6;
+  transition: transform 0.35s ease-in-out;
+}
+.latest-document a:hover, .latest-document a:active, .latest-document a:focus {
+  text-decoration: none;
+}
+.latest-document a:hover .cover-wrap, .latest-document a:active .cover-wrap, .latest-document a:focus .cover-wrap {
+  opacity: 0.9;
+}
+.latest-document a:hover .cover-wrap:after, .latest-document a:active .cover-wrap:after, .latest-document a:focus .cover-wrap:after {
+  opacity: 0.75;
+}
+.latest-document a:hover .cover, .latest-document a:active .cover, .latest-document a:focus .cover {
+  transform: scale(1.025);
+}
+.latest-document h3 {
+  font-size: var(--wp--preset--font-size--font-22);
+  line-height: 1.3;
+  color: #fff;
+  margin: 0;
+}
+.latest-document h3 span {
+  display: block;
+}
+.latest-document h3 em {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+}
+.latest-document .meta {
+  display: block;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #384332;
+  margin: 0.4ch 0 0 0;
+}
+.latest-document.title-bottom a .cover-wrap {
+  position: relative;
+}
+.latest-document.title-bottom .title {
+  display: flex;
+  flex-wrap: wrap;
+}
+.latest-document.title-bottom .title h3 {
+  width: calc(100% - 80px);
+  margin: 0;
+  padding: 1ch;
+}
+.latest-document.title-cover a {
+  position: relative;
+}
+.latest-document.title-cover a .cover-wrap {
+  margin: 0;
+}
+.latest-document.title-cover a .cover-wrap:after {
+  content: "";
+  display: block;
+  background: linear-gradient(140deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 0.18s ease-in-out 0.05s;
+}
+.latest-document.title-cover a .title {
+  padding: 0 10px 15px 75px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.latest-document.title-cover a .title svg {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.latest-document.title-cover a .title h3 {
+  color: #fff;
+}
+.latest-document.title-cover a .title .meta {
+  color: #fff;
+}

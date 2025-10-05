@@ -1,0 +1,166 @@
+// @use "../../../scss/abstracts/vars";
+// @use "../../../scss/abstracts/mixins";
+@use "../../../scss/abstracts/vars" as *;
+@use "../../../scss/abstracts/button" as *;
+
+@media (max-width: 749px) {
+    .tab-panel {
+        > div {
+            overflow-x: hidden;
+        }
+    }
+
+    .tab-group.acc {
+        padding: 0;
+
+        .tab-panel {
+			display: block!important;
+			width: 100%;
+            padding: 0;
+            
+            > input {
+                display: none;
+
+                + .acc-title {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    line-height: 1.25;
+                    padding: 1.3rem 45px 1.3rem 1.5rem;
+                    //margin: 0 0 2rem 0;
+                    margin: 0;
+                    background: rgba($moss, .05);
+                    border: 1px solid rgba($moss, .075);
+                    border-radius: 4px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: background $speed $ease, border $speed $ease;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 18px;
+                        height: 18px;
+                        background-color: $secondary;
+                        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23F5007B' stroke-linecap='square' d='M7.871 8.214v-7M7.87 8.216h7M7.87 8.217v7M7.87 8.215h-7'/%3E%3C/svg%3E");
+                        mask-size: cover;
+                        position: absolute;
+                        top: 15px;
+                        right: 1.4rem;
+                        transition: transform $speed $ease;
+                    }
+
+                    span {
+                        display: block;
+                        width: 100%;
+                        font-family: $ff-title;
+                        font-weight: 500;
+                        color: $primary;
+                        transition: color $speed $ease;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                        span {
+                            color: $secondary;
+                        }
+                    }
+
+                    + .acc-panel {
+                        height: 0;
+                        visibility: hidden;
+                        padding: 0;
+                        border: 1px solid transparent;
+                        transition: visibility .35s cubic-bezier(.25,.5,.5,1) .05s, height .35s cubic-bezier(.25,.5,.5,1) .05s, padding .35s cubic-bezier(.25,.5,.5,1) .05s;
+
+                        > * {
+                            opacity: 0;
+                            transition: opacity .25s cubic-bezier(.82, -.04, 1, 1);
+                        }
+
+                        .wp-block-columns {
+                            &:first-child {
+                                margin-top: 0;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    } //panel
+                    
+                } // title
+
+                &:checked {
+                    + .acc-title {
+                        span {
+                            color: $secondary;
+                        }
+
+                        &:after {
+                            background-color: $moss;
+                            mask: url(../../../assets/images/theme/acc-minus.svg) no-repeat center / contain;
+                        }
+
+                        + .acc-panel {
+                            height: auto;
+                            visibility: visible;
+                            padding: 20px 0;
+
+                            > * {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                } // active/checked
+        
+            } //input
+
+        } // tab-panel
+    } // acc
+
+    .tab-group.tabs {
+        .tab-panel {
+            > input,
+            >  label {
+                display: none;
+            }
+    
+            > div {
+                opacity: 0;
+                animation: fadeIn .45s forwards .15s;
+            }
+    
+            &.active {
+                display: block;
+        
+                > div {
+                   // animation: fadeIn .45s forwards .15s;
+                }
+            }
+        } // tab-panel
+    } // tabs view
+}
+
+@media (min-width: 750px) {
+	.tab-panel {
+		> input,
+		>  label {
+			display: none;
+		}
+
+        > div {
+            animation: fadeIn .45s forwards .15s;
+            opacity: 0;
+        }
+
+        &.active {
+            display: block;
+    
+            > div {
+                //animation: fadeIn .45s forwards .15s;
+            }
+        }
+	} // tab-panel
+}

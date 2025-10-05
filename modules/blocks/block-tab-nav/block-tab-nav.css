@@ -1,0 +1,121 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+ul.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 0 2.5rem 0;
+  padding: 4px;
+  background: rgba(56, 67, 50, 0.075);
+  border-radius: 5rem;
+  position: relative;
+}
+ul.tabs li {
+  margin: 0;
+  padding: 0 0.5rem 0 0;
+  position: relative;
+  z-index: 2;
+}
+ul.tabs a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-20);
+  font-weight: 500;
+  line-height: 1.025;
+  letter-spacing: -0.05ch;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.85ch 3rem;
+  color: #384332;
+  border: 0.15rem solid #FF6139;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: var(--wp--preset--font-size--font-18);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-color: transparent;
+  transition: color 0.35s ease-in-out, background 0.35s ease-in-out !important;
+}
+ul.tabs a:hover, ul.tabs a:active, ul.tabs a:focus {
+  color: #fff;
+  background: #FF6139;
+}
+ul.tabs a.active {
+  color: #fff;
+  background: #384332;
+}
+ul.tabs.fw li {
+  display: flex;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+ul.tabs.fw li a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.vert ul.tabs {
+  display: flex;
+  flex-direction: column;
+  width: calc(35% - 30px);
+  margin: 0 30px 0 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+.vert ul.tabs li {
+  width: 100%;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+.vert ul.tabs a {
+  display: block;
+  height: auto;
+  padding: 0.9ch 1.4rem;
+  color: #272928 !important;
+  background: transparent;
+  border: 1px solid #384332;
+  border-radius: 4px;
+}
+.vert ul.tabs a:hover, .vert ul.tabs a:active, .vert ul.tabs a:focus, .vert ul.tabs a.active {
+  background: rgba(56, 67, 50, 0.05);
+  color: #384332 !important;
+  cursor: pointer;
+}
+@media (min-width: 750px) {
+  .vert .tab-panel {
+    width: 65%;
+  }
+}
+@media (min-width: 1024px) {
+  .vert ul.tabs {
+    width: 180px;
+  }
+  .vert .tab-panel {
+    width: calc(100% - 215px);
+  }
+}
+
+@media (max-width: 749px) {
+  .acc ul.tabs {
+    display: none;
+  }
+}

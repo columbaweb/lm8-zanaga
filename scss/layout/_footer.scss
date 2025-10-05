@@ -1,0 +1,298 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/button" as *;
+
+.footer-branding {
+    padding: $space-n 0;
+    background: url(../assets/images/theme/bg-footer.jpg) center no-repeat;
+    background-size: cover;
+    
+    svg {
+        width: 60%;
+        max-width: 286px;
+        margin: 0 auto;
+    }
+} // footer branding
+
+footer {
+    padding-top: $space-xl;
+    color: $white;
+    background: $primary;
+    
+    .columns {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 4rem;
+    }
+    
+    
+    h3 {
+        font-size: $font-64;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: .6ch;
+        color: $secondary;
+    }
+    
+    h4 {
+        font-family: $ff-body;
+        font-size: $font-22;
+        font-weight: 500;
+        margin-bottom: 1.5ch;
+        color: $white;
+    }
+    
+    a:not(.wp-element-button) {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: .085rem;
+        text-underline-position: under;
+        text-underline-offset: .25ch;
+        color: $white;
+        transition: color $speed $cb, text-decoration-color $speed $cb;
+    
+        &:hover,
+        &:active
+        &:focus {
+            text-decoration-color: rgba($secondary, .5);
+        }
+    }
+    
+    .col-2,
+    .col-3 {
+        p, li {
+            font-size: $font-16!important;
+        }   
+    }
+    
+    .copyright {
+        margin-top: 3.3rem!important;
+    }
+    
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    
+        &.menu {
+            //margin-bottom: $space-m;
+    
+            li {
+                margin-bottom: 2px;
+                
+                &.current-menu-item {
+                    a:not(.wp-element-button) {
+                        text-decoration-color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+    
+    .subfooter {
+        margin-top: $space-m;
+        
+        p {
+            font-size: 1.5rem;
+        }
+    }
+    
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-s;
+        
+        svg {
+            width: 20px;
+            
+            path {
+                fill: $white;
+                transition: fill $speed $ease;
+            }
+        }
+    
+        &__link {
+            display: block;
+            
+            &:hover {
+                svg {
+                    path {
+                        fill: $secondary;
+                    }
+                }  
+            }
+        
+        }
+    } // social links
+    
+    .footer-deco {
+        padding: 20px 0;
+        position: relative;
+        
+        &:before {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background: $white;
+            position: absolute;
+            top: 50%;
+            left: 1; 
+            z-index: 1;
+        }
+        
+        &:after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 70px;
+            background: $primary;
+            border-radius: 100%;
+            position: absolute;
+            top: calc(50% - 35px);
+            left: calc(50% - 35px);
+            z-index: 2;
+        }
+        
+        svg {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+    }
+    
+    
+    @media (min-width: 450px) {
+        .subfooter {
+            
+            .wrap {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            p, li {
+                margin: 0!important;
+            }
+            
+        }
+        
+        .footer-deco {
+            width: 100%;
+        }
+    } // 450
+    
+    @media (min-width: 700px) {
+        .columns {
+            flex-direction: row;
+        }
+        
+        .col-1 {
+            width: 100%;
+            
+            p {
+                max-width: 41rem;
+            }
+        }
+        
+        .col-2,
+        .col-3 {
+            width: calc(50% - 2rem);
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        padding-bottom: 2rem;
+        
+        .col-1 {
+            width: calc(40% - 2rem);
+            
+            .wp-block-buttons {
+                margin-top: 5rem;
+            }
+        }
+        
+        .col-2,
+        .col-3 {
+            width: calc(30% - 3rem);
+        }
+        
+        .subfooter {
+            .wrap {
+                height: 118px;
+                align-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .social-links {
+                padding-right: 1.5rem;
+                background: $primary;
+                position: relative;
+                z-index: 5;
+            }
+            
+            .credit {
+                padding-left: 1.5rem;
+                background: $primary;
+                position: relative;
+                z-index: 5;
+            }
+            
+            .footer-deco {
+                padding: 15px 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                
+                &:after {
+                    width: 118px;
+                    height: 118px;
+                    top: calc(50% - 59px);
+                    left: calc(50% - 59px);
+                }
+                
+                svg {
+                    width: 88px;
+                    height: 88px;
+                }
+            }
+            
+        }
+    } // 1024
+    
+    @media (min-width: 1300px) {
+        .col-1 {
+            width: calc(50% - 2rem); 
+            
+            h3 {
+                max-width: 45rem;
+            }   
+        }
+        
+        .col-2,
+        .col-3 {
+            width: calc(25% - 3rem);
+        }
+    }
+    
+    
+    
+} // footer
+
+// back to top button
+.b2t {
+    opacity: 0;
+    position: fixed;
+    bottom: -30px;
+    right: 20px;
+    z-index: 99;
+    transition: all $speed ease-in-out;
+
+    &.active {
+        opacity: 1;
+        bottom: -2px;
+    }
+}

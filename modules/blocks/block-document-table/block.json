@@ -1,0 +1,16 @@
+{
+	"name": "lmn/document-table",
+	"title": "Document Table",
+	"category": "luminate",
+	"icon": {
+		"src": "list-view",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["documents table", "document", "file", "file table"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "./block-document-table.php"
+	},
+	"script": "tabs"
+}

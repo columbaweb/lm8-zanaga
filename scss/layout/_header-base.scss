@@ -1,0 +1,92 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
+#topbar {
+    padding: $space-m 0;
+
+    @media (min-width: 500px) {
+        .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5%;
+            justify-content: space-between;
+        }
+    }
+}
+
+header {
+    padding-top: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform .6s cubic-bezier(.25, .1, .25, 1), opacity .6s cubic-bezier(.25, .1, .25, 1), background .6s cubic-bezier(.25, .1, .25, 1);
+    @include admin-sticky-fix;
+    
+    &.nav-default {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    &.nav-hidden {
+        transform: translateY(-110%);
+        opacity: 0;
+    }
+
+    &.nav-scrolled {
+    //    background: $cloud;
+    }
+
+    &.nav-visible {
+    //    background: $cloud;
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: .2s;
+
+        > .wrap {
+            border: none;
+        }
+    }
+    
+    .inner {
+        background: rgba($black, .25);
+        padding: 1.8ch 30px;
+        border-radius: 50rem;
+        backdrop-filter: blur(20px);
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .branding {
+        width: 130px;
+        margin: 0;
+        position: relative;
+        //transition: width $speed $cb, padding $speed $ease;
+
+        a {
+            display: block;
+            @include focus-visible;
+        }
+
+        svg {
+            > path {
+                transform: fill $speed $ease;
+            }
+        }
+    }
+
+    #sitenav {
+        .menu {
+            a {
+                display: block;
+                font-size: $font-18;
+                color: $white;
+            }
+        }
+    }
+}

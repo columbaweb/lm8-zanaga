@@ -1,0 +1,16 @@
+{
+	"name": "lmn/tab-nav",
+	"title": "Tabs Navigation",
+	"category": "luminate",
+	"icon": {
+		"src": "editor-insertmore",
+		"foreground": "#BD0BBC"
+	},
+	"apiVersion": 2,
+	"keywords": ["tabs", "navigation"],
+	"parent" : ["lmn/tab-group"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "./block-tab-nav.php"
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"name": "lmn/posts-listing",
+	"title": "Media Posts",
+	"category": "luminate",
+	"icon": {
+		"src": "media-text",
+		"foreground": "#09ca7f"
+	},
+	"apiVersion": 2,
+	"keywords": ["posts", "media", "news", "blog", "articles", "press", "release"],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "block-posts-listing.php"
+	}
+}

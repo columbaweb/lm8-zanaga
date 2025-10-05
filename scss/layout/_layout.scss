@@ -1,0 +1,117 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
+.wrap {
+    max-width: $content-width;
+    margin: 0 auto;
+}
+
+.basic {
+    padding-top: $space-xl;
+    padding-bottom: calc($space-xl * 2);
+}
+
+// main {
+    // margin-top: 57px;
+// 
+    // @media (min-width: 1024px) {
+    //     margin-top: 95px;
+    // }
+// }
+
+.fw:not(.gfield):not(.tabs) {
+    padding-left: $content-gap;
+    padding-right: $content-gap;
+}
+
+.has-sidebar {
+    padding: $space-l $content-gap 0 $content-gap;
+
+    .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .alignfull {
+        margin-left: calc(-1 * $content-gap);
+        margin-right: calc(-1 * $content-gap);
+    }
+}
+
+.has-global-padding {
+    > .alignfull {
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
+}
+
+:root :where(.is-layout-constrained) > *,
+:root :where(.is-layout-flow) > * {
+    //margin-block-start: $space-s;
+    //margin-block-start: 2ch;
+    margin-block-start: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    .page-template-page-narrow {
+        #content {
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+    }
+
+    .has-sidebar {
+        padding-bottom: calc($space-xl + 5rem);
+
+        .wrap {
+            flex-direction: row;
+            gap: $layout-gap;
+        }
+
+        #content {
+            width: $content;
+        }
+
+        #sidebar {
+            width: $sidebar-width;
+        }
+        
+        &.sidebar-left {
+            .wrap {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .alignfull {
+            //width: calc(100vw + $content-gap / 2);
+            width: calc(100vw + $content-gap / 4);
+            max-width: none;
+            position: relative; 
+            left: calc(-50vw + 50% - $content-gap / 2 - $sidebar-width / 2);
+            margin-left: 0;
+            margin-right: 0;
+
+            //> div:not(.swiper) {
+            > div {
+                //margin: 0;
+                // padding-left: $content-gap;
+                // padding-right: $content-gap;
+
+                // > * {
+                //     width: 100%;
+                //     max-width: $content-width;
+                //     padding-left: calc($sidebar-width + 6rem);
+                //     padding-right: 0;
+                // }
+            }
+
+        }
+    } // sidebar
+
+    // .page-template-default {
+    //     overflow-x: hidden;
+    // }
+} // 1024px
+

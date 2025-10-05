@@ -1,0 +1,152 @@
+@use "../../../scss/abstracts/vars" as *;
+
+.latest-document {
+	+ .latest-document {
+		margin-top: 3rem;
+	}
+
+	a {
+		display: block;
+		background: $moss;
+
+		.btn {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			width: 80px;
+			background: $moss;
+		}
+
+		svg {
+			width: 21px;
+			height: 13px;
+		}
+
+		.cover-wrap {
+			display: block;
+			overflow: hidden;
+			position: relative;
+			transition: opacity $speed $ease;
+		}
+
+		.cover {
+			display: block;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			aspect-ratio: 11/6;
+			transition: transform $speed $ease;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+
+			.cover-wrap {
+				opacity: .9;
+
+				&:after {
+					opacity: .75;
+				}
+			}
+
+			.cover {
+				transform: scale(1.025);
+			}
+
+		}
+	} // a
+
+	h3 {
+		font-size: $font-22;
+		line-height: 1.3;
+		color: $white;
+		margin: 0;
+
+		span {
+			display: block;
+		}
+
+		em {
+			font-size: 1.5rem;
+			font-weight: 600;
+			font-style: normal;
+			//color: $moss;
+		}
+	}
+
+	.meta {
+		display: block;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		color: $moss;
+		margin: .4ch 0 0 0;
+	}
+
+	&.title-bottom {
+
+		a {
+			.cover-wrap {
+				position: relative;
+			}
+		}
+
+		.title {
+			display: flex;
+			flex-wrap: wrap;
+
+			h3 {
+				width: calc(100% - 80px);
+				margin: 0;
+				padding: 1ch;
+			}
+		}
+	} // bottom title
+
+	&.title-cover {
+		a {
+			position: relative;
+
+			.cover-wrap {
+				margin: 0;
+
+				&:after {
+					content: "";
+					display: block;
+					background: linear-gradient(140deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+					opacity: 1;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					transition: opacity .18s ease-in-out .05s;
+				}
+			}
+
+			.title {
+				padding: 0 10px 15px 75px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+
+				svg {
+					position: absolute;
+					bottom: 15px;
+					left: 15px;
+				}
+
+				h3 {
+					color: #fff;
+				}
+
+				.meta {
+					color: #fff;
+				}
+			}
+		}
+	}
+}

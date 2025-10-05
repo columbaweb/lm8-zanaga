@@ -1,0 +1,74 @@
+@use "../abstracts/vars" as *;
+
+.wp-block-image {
+
+    &.is-style-breakout-left {
+        img {
+            width: 100%;
+        }
+
+        @media (min-width: 782px) {
+            height: 100%;
+            margin-left: -6vw;
+
+            img {
+                width: auto;
+                height: 100%;
+                object-fit: cover;
+                object-position: 65%;
+            }
+        }
+
+        @media (min-width: 1360px) {
+            margin-left: calc(-50vw + 600px);
+
+            img {
+                width: 100%;
+                object-position: center;
+            }
+        }
+    } // breakout-left
+
+    &.is-style-breakout-right {
+        img {
+            width: 100%;
+        }
+
+        @media (min-width: 782px) {
+            height: 100%;
+            margin-right: -6vw;
+
+            img {
+                width: auto;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        @media (min-width: 1360px) {
+            margin-right: calc(-50vw + 600px);
+
+            img {
+                width: 100%;
+            }
+        }
+    } // breakout-left
+
+    @media (min-width: 782px) {
+        &.is-style-breakout-left,
+        &.is-style-breakout-right {
+            &.bottom {
+                height: calc(100% + $space-l);
+                margin-bottom: calc($space-l * -1);
+                position: relative;
+                z-index: 3;
+            }
+        }
+
+    }
+
+
+    + * {
+        margin-top: $space-n;
+    }
+} 

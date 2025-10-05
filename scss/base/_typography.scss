@@ -1,0 +1,74 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
+// links
+a {
+	text-decoration: none;
+}
+
+#content {
+	a:where(:not(.company-grid__company):not(.page-numbers):not(.btn-sm):not(.cal-link):not(.tabs-button):not(.link-grid__link):not(.company):not(.wp-element-button):not(.btn):not(.file):not(.doc):not(.post-excerpt):not(.li):not(.back):not(.excerpt):not(.client):not(.link-cta):not(.aim__btn)) {
+		display: inline-block;
+		text-decoration: underline;
+		text-decoration-color: $primary;
+		text-decoration-thickness: .085rem;
+		text-underline-position: under;
+		color: $moss;
+		cursor: pointer;
+		transition: color $speed $cb, text-decoration-color $speed $cb;
+
+		&:hover,
+		&:active
+		&:focus {
+			//color: $white;
+			text-decoration-color: $secondary;
+		}
+	}
+}
+
+// lists
+ul,
+ol {
+	padding: 0 0 0 25px;
+	margin: 0 0 1ch 0;
+
+	li {
+		margin-bottom: 10px;
+
+		&::marker {
+			color: $secondary;
+		}		  
+	}
+
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6,
+	+ p,
+	+ .wp-block-columns {
+		margin-top: 2.5ch!important;
+	}
+}
+
+ol li {
+	list-style: decimal;
+}
+
+h2, h3, h4, h5, h6 {
+	+ .is-style-intro {
+		margin-top: 2ch;
+	}
+}
+
+
+.has-olive-background-color,
+.has-pine-background-color,
+.has-black-background-color,
+.has-primary-background-color,
+.has-moss-background-color,
+.has-brick-background-color {
+	p, li, cite {
+		color: $white;
+	}
+}

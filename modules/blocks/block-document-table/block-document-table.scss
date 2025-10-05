@@ -1,0 +1,301 @@
+@use "../../../scss/abstracts/vars" as *;
+@use "../block-tab-group/block-tab-group";
+@use "../block-tab-nav/block-tab-nav";
+@use "../block-tab-panel/block-tab-panel";
+
+// file tabs
+
+.tab-group {
+	+ h2,
+	+ h3,
+	+ h4 {
+		padding-top: $space-m;
+	}
+
+	ul.tabs {
+		li.archive {
+			margin-left: auto;
+			padding-right: 0;
+		}
+	}
+}
+
+@media (max-width: 749px) {
+	.acc-panel {
+
+		.file-tabs {
+			&.acc {
+				.tab-panel {
+
+					&:last-child {
+						border-bottom: none;
+					}
+
+					> input {
+						+ .acc-title {
+							font-size: 1.7rem;
+							font-weight: 400;
+							padding: 1.2rem;
+							
+							&:after {
+								width: 20px;
+								height: 22px;
+								right: 1.2rem;
+							}
+
+							+ .acc-panel {
+								margin: 0;
+								padding: 0;
+
+								> * {
+									transition: none;
+									animation: none;
+								}
+							}
+						}
+
+						&:checked {
+							+ .acc-title {
+								+ .acc-panel {
+									padding: 10px 0;
+								}
+							}
+						}
+
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+// file table
+.file-table {
+
+	* + & {
+		margin-top: $space-s;
+	}
+	
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6 {
+		margin-top: 4ch;
+	}
+
+	.file {
+		display: flex;
+		flex-wrap: wrap;
+		text-decoration: none;
+		padding: 1.8rem;
+
+		&:nth-child(odd) {
+			background: $white;
+			border-radius: 5px;
+		}
+
+		span {
+			display: block;
+
+			&.date {
+				font-size: $font-16;
+				color: $primary;
+			}
+
+			&.format,
+			&.size {
+				font-size: $font-16;
+				text-transform: uppercase;
+				color: $primary;
+			}
+
+			&.title {
+				font-family: $ff-title;
+				font-size: $font-22;
+				font-weight: 500;
+				letter-spacing: -.04ch;
+    			line-height: 1.25;
+				color: $primary;
+				text-decoration: underline;
+				text-decoration-color: $secondary;
+				text-decoration-thickness: .085rem;
+				text-underline-position: under;
+				cursor: pointer;
+				transition: color $speed $cb, text-decoration-color $speed $cb;
+
+				&:hover,
+				&:active
+				&:focus {
+					color: $secondary;
+					text-decoration-color: transparent;
+				}
+			}
+
+			&.icon {
+				width: 38px;
+
+				svg {
+				 	width: 38px;
+					height: 38px;
+				}
+			}
+		} // span
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+		}
+
+		@media (max-width: 799px) {
+			padding-left: 72px;
+			position: relative;
+
+			span {
+				display: block;
+
+				&.date {
+					width: 100%;
+				}
+
+				&.title {
+					width: 100%;
+					padding: .5ch 0 1ch 0;
+				}
+
+				&.icon {
+					position: absolute;
+					top: 18px;
+					left: 18px;
+				}
+
+				&.format,
+				&.size {
+					padding-right: 2ch;
+				}
+			}
+		} // 781
+
+		@media (min-width: 800px) {
+			padding: 2rem;
+			align-items: center;
+			justify-content: space-between;
+			
+			span {
+				flex: 1;
+
+				&.date {
+					flex: 2;
+				}
+
+				&.title {
+					flex: 8;
+					padding-right: 2ch;
+				}
+			}
+		
+		} // 800
+
+		@media (min-width: 1100px) {
+			//padding: 1.2rem 2rem;
+
+			span {
+				&.title {
+					flex: 8;
+					padding-right: 5ch;
+				}
+			}
+		} // 1100
+
+	} // file
+
+
+	.accordion:first-of-type {
+		border-top: none;
+	}
+	.accordion:last-of-type input + .acc-title {
+		border-color: transparent;
+	}
+
+	.archived-year {
+		&:not(:first-child) {
+			margin-top: 4rem;
+		}
+
+		@media (max-width: 749px) {
+			&:first-child {
+				margin-top: 3rem;
+			}
+		}
+
+		h4 {
+			font-size: $font-22;
+			margin: 0;
+			padding: 0 0 1ch 0;
+			//border-bottom: 1px solid $lagoon;
+		}
+
+		.file {
+			&:nth-child(even) {
+				background: $white;
+			}
+
+			&:nth-child(odd) {
+				background: transparent;
+			}
+		}
+	}
+	
+} // file-table
+
+
+@media (max-width: 749px) {
+	.tab-panel {
+		+ .tab-panel {
+			margin-top: 8px;
+		}
+	}
+
+	.tab-group.acc .tab-panel > input + .acc-title + .acc-panel.file-table,
+	.tab-group.acc .tab-panel > input:checked + .acc-title + .acc-panel.file-table {
+		margin: 0;
+	}
+}
+
+// archived docs in an accordion
+.accordion {
+	.tab-group {
+		@media (max-width: 749px) {
+			&.acc .tab-panel > input:checked + .acc-title + .acc-panel {
+				opacity: 1;
+			}
+		}
+
+		@media (min-width: 750px) {
+
+			.tab-panel {
+				transition: none!important;
+				animation: fadeIn .45s forwards .15s!important;
+				
+				> input,
+				> label {
+					display: none;
+				}
+
+				.acc-panel {
+					visibility: visible;
+					transition: none!important;
+					animation: fadeIn .45s forwards .15s!important;
+				}
+
+				// &.active {
+				// 	visibility: visible!important;
+				// 	display: block!important;
+				// }
+			}
+		}
+	}
+}

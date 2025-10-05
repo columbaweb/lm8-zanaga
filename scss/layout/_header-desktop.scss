@@ -1,0 +1,272 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
+@media (min-width: 1024px) {
+    #nav-expander,
+    .sub-toggle {
+        display: none;
+    }
+
+    header {
+        
+        .inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            
+            @media (min-width: 1300px) {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+
+        .branding {
+            width: 140px;
+
+            @media (min-width: 1300px) {
+                width: 200px;
+            }
+        }
+
+        #sitenav {
+            width: calc(100% - 140px);
+            
+            @media (min-width: 1300px) {
+                width: calc(100% - 200px);
+            }
+            
+            .menu {
+                display: flex;
+                align-items: stretch;
+                justify-content: flex-end;
+                gap: 1.5rem;
+
+                @media (min-width: 1300px) {
+                    gap: 3.5rem;
+                }
+
+                li {
+                    margin: 0;
+                    
+                    a {
+                        font-size: 1.7rem;
+                        
+                        @media (min-width: 1300px) {
+                            font-size: 1.8rem;
+                        }
+                    }
+                }
+
+                > li {
+                    position: relative;
+                    transition: padding $speed $ease;
+
+                    > a {
+                        padding: 1.6rem 0;
+                    }
+
+
+                    &.menu-item-has-children {
+                        display: flex;
+                        flex-wrap:wrap;
+                        gap: .6rem;
+                        align-items: center;
+                    }
+
+                    &.current-menu-item,
+                    &.current-menu-ancestor {
+                        > a {
+                            color: $secondary;
+                        }
+                    }
+
+                    &:hover,
+                    &:active,
+                    &:focus,
+                    &:focus-visible,
+                    &.in-focus {
+
+                        > a {
+                            //color: $moss;
+                        }
+
+                        & > .child-menu {
+                            transform: translateY(0);
+                            opacity: 1;
+                            visibility: visible;
+                            pointer-events: all;
+                            
+                        }
+                    }
+                } // 1st level
+            } // menu
+        }
+
+        .child-menu { 
+            min-width: 300px;
+            padding: .6ch 0 .8ch 0!important;
+            background: darken($cloud, 5%);
+            border-radius: 0 0 3px 3px;
+            transform: translateY(1rem);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: .25s ease-in-out;
+
+             &:before {
+                content: "";
+                display: block;
+                box-shadow: 0 2px 2px 0 rgba(0,0,0, .15);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: -1;
+            }
+
+            a {
+                display: flex!important;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0;
+                font-family: $ff-body!important;
+                font-size: $font-16!important;
+                color: $primary!important;
+                padding: .8ch 1ch!important;
+                position: relative;
+                transition: color $speed $ease, gap $speed $ease;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    gap: 1rem;
+                    color: $moss;
+
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            li {
+                margin: 0;
+                padding: 0;
+                background: transparent!important;
+
+                &.current-menu-item {
+                    a {
+                        color: $moss!important;
+                    }
+                }
+
+                &:first-child {
+                    margin-top: .5rem;
+                }
+
+                &:last-child {
+                    margin-bottom: .5rem;
+                }	
+            }        
+            
+        } // submenu
+
+
+    // mega menu    
+        &.megamenu-open {
+            background: $cloud;
+            box-shadow: none;
+
+            #sitenav .menu > li > a {
+                color: $primary;
+            }
+            
+            // svg {
+            //     > path {
+            //         fill: $darkgreen;
+            //     };
+            // }
+        }
+
+        .has-megamenu {
+            gap: 0;
+
+            > li {
+                padding-right: 2.8rem;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                &.menu-item-has-children {
+                    position: static;
+                }
+            }
+
+            .child-menu { 
+                &.megamenu {
+                    width: 100vw;
+                    margin-left: -50vw;
+                    padding-top: 50px;
+                    padding-bottom: 50px;
+                    left: 50%;
+                    border-top: 1px solid $moss;
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0, .15);
+                    transform: translateY(0);
+                }
+
+                .wrap {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 50px;
+                }
+
+                .mm-featured-image {
+                    flex: 1;
+
+                    img {
+                        max-height: 200px;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+
+                .sub-menu {
+                    flex: 2;
+
+                    &.col2 {
+                        columns: 2;
+                        column-gap: 50px;
+
+                        li {
+                            max-width: 100%;
+
+                            &.first-in-col2 {
+                                border-top: 1px solid $moss;
+                            }
+                        }
+                    }
+
+                    li {
+                        max-width: 50%;
+                        margin: 0;
+                        padding: 0;
+                        border-bottom: 1px solid $moss;
+
+                        &:first-child {
+                            border-top: 1px solid $moss;
+                        }
+
+                        a {
+                            padding: .8ch 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

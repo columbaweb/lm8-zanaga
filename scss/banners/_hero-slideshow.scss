@@ -1,0 +1,123 @@
+// .banner-slideshow {
+//   // Height
+//   --slide-height: 80vh;
+//   --tablet-height: 60vh;
+//   --mobile-height: 40vh;
+
+//   // Default Overlay Opacity
+//   --overlay-opacity: 0.3;
+
+//   // Default Background position
+//   --bg-pos: center;
+
+//   // Dots
+//   --swiper-pagination-bullet-width: 2rem;
+//   --swiper-pagination-bullet-height: 2rem;
+//   --swiper-pagination-bullet-opacity: 1;
+//   --swiper-pagination-bullet-inactive-color: black;
+//   --swiper-pagination-color: white;
+//   --bullet-border: 2px solid white;
+
+//   // Arrows
+//   --swiper-navigation-color: white;
+
+//   position: relative;
+//   overflow: hidden;
+//   isolation: isolate;
+//   height: var(--slide-height);
+//   margin-bottom: 5rem;
+
+//   @include breakpoint(max-tablet) {
+//     --slide-height: var(--tablet-height);
+//   }
+
+//   @include breakpoint(max-mobile) {
+//     --slide-height: var(--mobile-height);
+//   }
+
+//   .swiper-slide {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     overflow: hidden;
+//     height: var(--slide-height);
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       z-index: 2;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       background: black;
+//       opacity: var(--overlay-opacity);
+//     }
+
+//     iframe {
+//       pointer-events: none;
+//       position: absolute;
+//       overflow: hidden;
+//       border: 0;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       z-index: 0;
+//     }
+
+//     .slide-media {
+//       position: absolute;
+//       z-index: 1;
+//       height: 100%;
+//       width: 100%;
+//       object-fit: cover;
+//       object-position: var(--bg-pos);
+//     }
+
+//     .wrap {
+//       position: relative;
+//       z-index: 3;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       flex-direction: column;
+//       padding: 6rem 0;
+//       color: white;
+
+//       h2 {
+//         text-align: center;
+//         font-size: $xLarge;
+//       }
+
+//       p {
+//         text-align: center;
+//       }
+
+//       .wp-block-buttons {
+//         display: flex;
+//         gap: 2rem;
+//         justify-content: center;
+//         margin-top: 2rem;
+//       }
+//     }
+//   }
+
+//   .swiper-pagination {
+//     margin: 2rem 0;
+
+//     .swiper-pagination-bullet {
+//       border: var(--bullet-border);
+//       transition: 0.15s ease-out;
+//       border-radius: 50px !important;
+
+//       &:focus-visible,
+//       &:hover {
+//         opacity: 1;
+//         background: var(--swiper-pagination-color);
+//       }
+
+//       @include focus-visible;
+//     }
+//   }
+// }

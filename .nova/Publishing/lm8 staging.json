@@ -1,0 +1,15 @@
+{
+  "identifier" : "3A0FB5AB-FB98-41B6-9D46-C0EA8DE274F8",
+  "ignoredFilePatterns" : [
+    ".git",
+    ".gitignore",
+    ".nova",
+    "node_modules",
+    "package-lock.json",
+    "package.json"
+  ],
+  "remotePath" : "\/public_html\/zanaga\/wp-content\/themes\/lm8-zanaga",
+  "remoteURL" : "https:\/\/zanaga.luminated.co.uk\/",
+  "server" : "lm8 staging",
+  "usesPublishing" : true
+}

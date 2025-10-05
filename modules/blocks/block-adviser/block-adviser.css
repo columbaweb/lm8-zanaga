@@ -1,0 +1,72 @@
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.company-grid + * {
+  margin-top: var(--wp--preset--spacing--m);
+}
+.company-grid__company {
+  display: block;
+  margin: 0 0 3rem 0;
+  padding: 2.5rem;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 14px;
+}
+.company-grid__company img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+.company-grid__company h2 {
+  font-size: var(--wp--preset--font-size--font-20);
+  font-weight: 500;
+  margin-bottom: 0.8ch;
+  color: #272928;
+}
+.company-grid__company p strong {
+  display: block;
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-22);
+  font-weight: 500;
+  letter-spacing: -0.05ch;
+  margin-bottom: 0.55ch;
+  color: #384332;
+}
+.company-grid__company p strong + br {
+  display: none;
+}
+.company-grid__company p:last-child {
+  margin-bottom: 0;
+}
+.company-grid a.company-grid__company {
+  transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s ease-in-out;
+}
+.company-grid a.company-grid__company:hover, .company-grid a.company-grid__company:active, .company-grid a.company-grid__company:focus {
+  background: rgba(56, 67, 50, 0.1);
+  border: 1px solid rgba(56, 67, 50, 0.25);
+  transform: translateY(-6px);
+}
+.company-grid a.company-grid__company:hover p, .company-grid a.company-grid__company:active p, .company-grid a.company-grid__company:focus p {
+  color: #272928;
+}
+@media (min-width: 700px) {
+  .company-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+  .company-grid__company {
+    width: calc(50% - 2rem);
+    margin: 0;
+    padding: 3.5rem;
+  }
+}

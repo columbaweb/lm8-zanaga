@@ -1,0 +1,149 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+	all: unset;
+	display: revert;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	-webkit-backface-visibility: hidden;
+}
+
+a,
+button {
+	cursor: revert;
+}
+
+img {
+	max-width: 100%;
+}
+
+svg {
+	display: block;
+	height: auto;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input,
+textarea {
+	-webkit-user-select: auto;
+}
+
+textarea {
+	white-space: revert;
+}
+
+meter {
+	-webkit-appearance: revert;
+	appearance: revert;
+}
+
+strong, b {
+	font-weight: 600;
+}
+
+em, i {
+	font-style: italic;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -.5em;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+::placeholder {
+	color: rgba($primary, .8);
+}
+
+:where([hidden]) {
+	display: none;
+}
+
+:where([contenteditable]:not([contenteditable="false"])) {
+	-moz-user-modify: read-write;
+	-webkit-user-modify: read-write;
+	overflow-wrap: break-word;
+	-webkit-line-break: after-white-space;
+	-webkit-user-select: auto;
+}
+
+:where([draggable="true"]) {
+	-webkit-user-drag: element;
+}
+
+:active,
+:focus,
+:-internal-direct-focus {
+	outline: none;
+	outline-color: transparent;
+}
+
+::focus-visible {
+	@include focus-visible;
+}
+
+.skip-link {
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 1;
+	text-transform: uppercase;
+    padding: 7px 12px;
+	color: $moss;
+	background-color: darken($cloud, 15%);
+	border-radius: .2rem;
+	position: absolute;
+	top: -400px;
+	left: 10px;
+	z-index: 999999;
+	opacity: 0;
+	transition: opacity $speed ease-in-out;
+
+	&:focus {
+		top: -63px;
+		opacity: 1;
+	}
+
+	@media (max-width: 1023px) {
+		display: none;
+	}
+}
+
+a,
+button,
+input {
+	@include focus-visible;
+}
+
+iframe {
+	display: block;
+	width: 100%;
+	margin: 0;
+	border: none;
+	overflow: hidden!important;
+
+	&.map {
+		max-width: 100%;
+		margin: 0;
+		//filter: grayscale(85%);
+		filter: sepia(18%) hue-rotate(300deg) saturate(20%);
+	}
+}
