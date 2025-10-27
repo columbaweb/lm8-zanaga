@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 1,
         spaceBetween: 0,
         effect: "fade",
+        fadeEffect: { crossFade: true },
 
         keyboard: {
             enabled: true,

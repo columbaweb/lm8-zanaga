@@ -1,6 +1,6 @@
 <?php
 	$id = !empty($block['anchor']) ? $block['anchor'] : 'latest-documents-' . $block['id'];
-	$className = 'latest-document';
+	$className = 'file';
 
 	if (!empty($block['className'])) { $className .= ' ' . $block['className']; }
 	if (!empty($block['align'])) { $className .= ' align' . $block['align']; }
@@ -25,27 +25,27 @@
 	$sub = get_field('subtitle');
 ?>
 
-<div class="<?= esc_attr($className); ?>">
+<div class="latest-document">
     <?php if ($type === 'single') { ?>
-        <a class="file" href="<?= esc_url($file); ?>" target="<?= esc_attr($target); ?>" title="<?= $sub; ?> <?= $title; ?>">
+        <a class="<?= esc_attr($className); ?>" href="<?= esc_url($file); ?>" target="<?= esc_attr($target); ?>">
+            <span class="cover" style="background-image: url('<?= esc_url($cover); ?>');"></span>
             
-			<span class="cover-wrap">
-                <span class="cover" style="background-image: url('<?= esc_url($cover); ?>');"></span>
-            </span>
-            
-			<div class="title">
-                <?php if ($title) { ?>
-					<h3 class="e1">
-						<span class="name"><?= $title; ?></span>
-						<?php 
-							if ($sub) {
-								echo '<span class="meta">' . $sub . '</span>';
-							} 
-						?>
-					</h3>
+			<div class="inner">
+				<?php if ($title) { ?>
+					<h3><?= $title; ?></h3>
 				<?php } ?>
-				<?= '<span class="btn">'.file_get_contents(get_template_directory() . '/assets/images/theme/arrow-right.svg').'</span>'; ?>
-            </div>
+				
+				<div class="title">
+					<?php if ($date) { ?>
+						<span class="date"><?= $date; ?></span>
+					<?php } ?> 
+					
+					<?php if ($sub) { ?>
+						<span class="name e1"><?= $sub; ?></span>
+					<?php } ?> 
+					<?= '<span class="btn">'.file_get_contents(get_template_directory() . '/assets/images/theme/icon-plus.svg').'</span>'; ?>
+				</div>
+			</div>
         </a>
     <?php } else { ?> 
 		
@@ -80,26 +80,24 @@
 			}
 		?>
 
-		<a class="file" href="<?= $url; ?>" target="_blank">
-			<span class="cover-wrap">
-				<span class="cover" style="background-image: url('<?= $cover; ?>');"></span>
-			</span>
+		<a class="<?= esc_attr($className); ?>" href="<?= $url; ?>" target="_blank">
+			<span class="cover" style="background-image: url('<?= esc_url($cover); ?>');"></span>
 			
-			<div class="title">
-				<h3 class="e1">
-					<span class="name">
-						<?php if ($title) { 
-							echo $title; 
-						} else { 
-							the_title();
-						} 						
-							echo '<span class="meta">' . get_the_date('F j, Y') . '</span>';
-						?>
+			<div class="inner">
+				<?php if ($title) { ?>
+					<h3><?= $title; ?></h3>
+				<?php } ?>
+				
+				<div class="title">
+					<?php echo '<span class="meta">' . get_the_date('F j, Y') . '</span>'; ?> 
+					
+					<span class="name e1">
+						<?php the_title(); ?>
 					</span>
-				</h3>
-
-				<?= '<span class="btn">'.file_get_contents(get_template_directory() . '/assets/images/theme/arrow-right.svg').'</span>'; ?>
-            </div>
+					
+					<?= '<span class="btn">'.file_get_contents(get_template_directory() . '/assets/images/theme/icon-plus.svg').'</span>'; ?>
+				</div>
+			</div>
 		</a>
 
 		<?php endwhile; endif; wp_reset_query(); ?>

@@ -26,12 +26,16 @@ header {
     
     &.nav-default {
         transform: translateY(0);
-        opacity: 1;
+        //opacity: 1;
+        
+        .inner {
+            background: rgba($black, .45);
+        }
     }
 
     &.nav-hidden {
         transform: translateY(-110%);
-        opacity: 0;
+        //opacity: 0;
     }
 
     &.nav-scrolled {
@@ -39,21 +43,26 @@ header {
     }
 
     &.nav-visible {
-    //    background: $cloud;
         transform: translateY(0);
-        opacity: 1;
-        transition-delay: .2s;
-
-        > .wrap {
-            border: none;
+        //opacity: 1;
+        transition-delay: .5s;
+        
+        .inner {
+            background: rgba($black, .75);
         }
     }
     
     .inner {
-        background: rgba($black, .25);
+        background: rgba($black, .45);
         padding: 1.8ch 30px;
         border-radius: 50rem;
         backdrop-filter: blur(20px);
+        position: relative;
+        transition: $speed $ease;
+        will-change: backdrop-filter, transform, opacity;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        isolation: isolate;
     }
 
     ul {

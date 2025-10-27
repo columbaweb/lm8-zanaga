@@ -62,6 +62,9 @@
 .wp-block-button .wp-block-button__link:hover:before, .wp-block-button .wp-block-button__link:active:before, .wp-block-button .wp-block-button__link:focus:before {
   width: calc(100% - 6px);
 }
+.wp-block-button .wp-block-button__link[href$=".pdf"]:after {
+  transform: rotate(90deg);
+}
 .wp-block-button.is-style-white .wp-block-button__link {
   color: #fff;
   border-color: #fff;

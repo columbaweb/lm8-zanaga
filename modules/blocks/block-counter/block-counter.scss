@@ -37,12 +37,20 @@
 		}
 	} // p
 
+// green
+	&.green {
+		p {
+			&.statistics__number {
+				color: $pine;
+			}
+		}
+	}
+
 // smaller numbers
 	&.is-style-small {
 		p {
 			&.statistics__number {
 				font-size: clamp(2.4rem, 2.163rem + 1.1852vw, 3.2rem);
-				//font-weight: 500;
 			}
 		}
 	}

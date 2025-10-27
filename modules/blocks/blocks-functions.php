@@ -30,3 +30,12 @@ function lmn_block_category( $block_categories, $block_editor_context ) {
 	);
 }
 add_filter( 'block_categories_all', 'lmn_block_category', 10, 2 );
+
+
+# ------------------------------------------
+# ACF BLOCK VERSION UPDATE FOR ALL BLOCKS 
+# ------------------------------------------
+function lmn_block_version( $version, $block ) {
+	return 3;
+}
+#add_filter( 'acf/blocks/default_block_version', 'lmn_block_version', 10, 2 );

@@ -6,170 +6,124 @@
     .swiper-slide {
         line-height: 0;
     }
-
+    
     img {
         width: 100%;
         height: auto;
         line-height: 0;
-        border-radius: $br;
-        aspect-ratio: 1 / .7;
         object-fit: cover;
-
-        @media (min-width: 782px) {
-            aspect-ratio: 1 / .55;
+        
+        @media (max-width: 781px) {
+            aspect-ratio: 1 / .65;
         }
     }
-
+    
+    .btn {
+        @include button-base;
+        margin-top: $space-m;
+    }
+    
     .slide-content {
-        margin-top: 1rem;
-        background: $cloud;
-        border-radius: $br;
-        overflow: hidden;
-
         .col-1 {
-            background: $grad;
-            padding: 3rem;
-            position: relative;
-
-            h3 {
-                font-size: $font-26;
-                font-weight: 400;
-                color: $white;
-                position: relative;
-                z-index: 3;
-            }
-
-            .btn {
-                @include button-base;
-                @include button-icon-white;
-                margin-top: 3rem;
-                position: relative;
-                z-index: 3;
-            }
-
-            &:after {
-                content: "";
-                background-image: url("data:image/svg+xml,%3Csvg width='700' height='420' viewBox='0 0 700 420' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_194_142' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='700' height='420'%3E%3CforeignObject x='0' y='0' width='0' height='0'%3E%3Cdiv xmlns='http://www.w3.org/1999/xhtml' style='backdrop-filter:blur(12.5px);clip-path:url(%23bgblur_0_194_142_clip_path);height:100%25;width:100%25'%3E%3C/div%3E%3C/foreignObject%3E%3Cpath data-figma-bg-blur-radius='25' d='M0 10C0 4.47716 4.47715 0 10 0H700V420H9.99998C4.47713 420 0 415.523 0 410V10Z' fill='%231226B8'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_194_142)'%3E%3Cg opacity='0.03'%3E%3Cpath d='M827.385 503.368C827.383 449.542 813.898 399.049 790.196 354.878C788.368 351.472 789.546 347.205 792.911 345.302L896.269 286.84C899.634 284.937 903.91 286.119 905.76 289.514C940.423 353.106 960.1 426.038 960.102 503.368C960.102 748.101 763.568 946.959 519.729 950.714C515.864 950.774 512.701 947.634 512.701 943.768V825.052C512.701 821.186 515.859 818.059 519.724 817.975C690.263 814.24 827.385 674.803 827.385 503.368ZM65.3333 503.368C65.3382 258.643 261.842 59.8143 505.673 56.0542C509.539 55.9946 512.701 59.1341 512.701 63.0001V181.717C512.701 185.583 509.544 188.709 505.679 188.794C335.147 192.533 198.055 331.94 198.05 503.368C198.05 558.736 212.307 610.593 237.294 655.664C239.168 659.045 238.05 663.327 234.712 665.277L132.196 725.157C128.858 727.107 124.565 725.984 122.668 722.615C86.1569 657.772 65.3333 582.898 65.3333 503.368Z' fill='%23F2F2F0'/%3E%3Ccircle cx='512.887' cy='506.745' r='182.485' fill='%23F2F2F0'/%3E%3Ccircle cx='697.334' cy='185.529' r='107.832' fill='%23F2F2F0'/%3E%3C/g%3E%3Cg opacity='0.05'%3E%3Cpath d='M896.515 287.275C899.641 285.507 903.607 286.608 905.322 289.753C939.945 353.273 959.6 426.123 959.602 503.368C959.602 747.827 763.288 946.462 519.722 950.214C516.138 950.269 513.202 947.358 513.201 943.769V825.052C513.201 821.467 516.132 818.554 519.735 818.475C690.545 814.734 827.885 675.076 827.885 503.368C827.884 449.458 814.377 398.884 790.637 354.642C788.934 351.468 790.035 347.503 793.158 345.737L896.515 287.275ZM505.681 56.5537C509.265 56.4985 512.201 59.4108 512.201 63V181.717C512.201 185.302 509.271 188.215 505.668 188.294C334.865 192.039 197.555 331.668 197.55 503.368C197.55 558.823 211.829 610.764 236.857 655.907C238.602 659.056 237.556 663.036 234.459 664.845L131.945 724.726C128.843 726.537 124.861 725.49 123.104 722.369C86.6336 657.6 65.8334 582.81 65.8333 503.368L65.8421 500.506C67.3719 257.368 263.074 60.295 505.681 56.5537Z' stroke='%23F2F2F0'/%3E%3Ccircle cx='512.887' cy='506.745' r='181.985' stroke='%23F2F2F0'/%3E%3Ccircle cx='697.334' cy='185.529' r='107.332' stroke='%23F2F2F0'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='bgblur_0_194_142_clip_path' transform='translate(0 0)'%3E%3Cpath d='M0 10C0 4.47716 4.47715 0 10 0H700V420H9.99998C4.47713 420 0 415.523 0 410V10Z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: bottom right;
-                position: absolute;
-                inset: 0;
-                z-index: 1;
-            }
+            padding-top: $space-m;
         }
-
+        
         .col-2 {
-            padding: 3rem;
-
-            p {
-                margin: 0;
-            }
+            position: relative;
         }
-
-        @media (min-width: 560px) {
+        
+        @media (min-width: 782px) {
             display: flex;
             flex-wrap: wrap;
-
+        
             > div {
-                flex: 1;
+                width: 50%;
             }
             
             .col-1 {
-                display: flex;
-                flex-direction: column;
-
+                order: -1;
+                padding-top: $space-xl;
+                padding-bottom: $space-xl;
+                position: relative;
+                
                 .btn {
-                    margin: auto auto 0 0;
+                    position: absolute;
+                    bottom: 4rem;
+                }
+            }
+            
+            .col-1-inner {
+                padding: 0 $space-m 4rem 0;
+            }
+            
+            .col-2 {
+                img {
+                    height: 100%;
                 }
             }
         }
-
-        @media (min-width: 782px) {
-            > div {
-                flex: unset;
-            }
-
-            .col-1 {
-                width: 320px;
-            }
-
-            .col-2 {
-                width: calc(100% - 320px);
+        
+        @media (min-width: 1024px) {
+            h3 {
+                font-size: $font-54;
+                line-height: 1.14;
             }
         }
-    } // slide content
+        
+    } // .slide-content 
+    
+    @media (min-width: 782px) {
+        margin-top: calc($space-xl * -1)!important;
+        margin-bottom: calc($space-xl * -1)!important;
+    }
 
     .slider-controls {
-        width: 100px;
-        height: 44px;
+        width: 118px;
+        height: 54px;
         position: absolute;
-        top: 2rem;
+        bottom: 2rem;
         right: 2rem;
-
+    
         .swiper-button-next, 
         .swiper-button-prev {
-            width: 44px;
-            height: 44px;
-
+            width: 54px;
+            height: 54px;
+    
             &:after {
                 display: none;
             }
-
+    
              &:hover {
-                circle {
+                .circle {
+                    fill: $white;
+                }
+                
+                .arrow {
                     stroke: $secondary;
                 }
             }
         }
-
+    
         .swiper-button-next {
             right: 0;
         }
-
+    
         .swiper-button-prev {
             left: 0;
         }
-
-        circle {
-            stroke: $white;
+    
+        .circle {
+            transition: fill $speed $ease;
+        }
+        
+        .arrow {
             transition: stroke $speed $ease;
         }
+        
+        @media (min-width: 782px) {
+            bottom: 4rem;
+            right: calc(100% - 16rem);
+        }
+        
     } // controls
-
-    @media (min-width: 900px) {
-        img {
-            aspect-ratio: 1 / .6;
-        }
-
-        .slide-content {
-            width: calc(100% - 6rem);
-            max-width: 78rem;
-            margin: 0;
-            position: absolute;
-            top: 3rem;
-            left: 3rem;
-        }
-
-        .slider-controls {
-            top: calc(100% - 7.4rem);
-            right: 3rem;
-        }
-    }
-
-    @media (min-width: 1250px) {
-        img {
-            aspect-ratio: auto;
-        }
-
-        .slide-content {
-            top: 5rem;
-            right: 5rem;
-        }
-
-        .slider-controls {
-            top: calc(100% - 9.4rem);
-            right: 5rem;
-        }
-    }
 }

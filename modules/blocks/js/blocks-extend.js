@@ -123,6 +123,14 @@ wp.blocks.registerBlockStyle("core/group", {
 	label: "Linen to sage horisontal",
 });
 wp.blocks.registerBlockStyle("core/group", {
+	name: "sage-linen",
+	label: "Sage to linen horisontal",
+});
+wp.blocks.registerBlockStyle("core/group", {
 	name: "pine-green",
 	label: "Pine to green vertical",
+});
+wp.blocks.registerBlockStyle("core/group", {
+	name: "green-pine",
+	label: "Green to pine vertical",
 });

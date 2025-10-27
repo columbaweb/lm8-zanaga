@@ -19,7 +19,7 @@ $link_target = !empty($link['target']) && $link['target'] === '_blank' ? '_blank
             <a class="aim__btn" 
                href="<?= esc_url($link_url) ?>" 
                target="<?= esc_attr($link_target) ?>">
-                <?= esc_html($link['title'] ?? 'Read More') ?>
+                <strong><?= esc_html($link['title'] ?? 'Read More') ?></strong>
             </a>
         <?php endif; ?>
     </div>

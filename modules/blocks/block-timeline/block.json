@@ -7,9 +7,9 @@
 		"foreground": "#09ca7f"
 	},
 	"apiVersion": 2,
-	"keywords": ["timeline", "history", "journey"],
+	"keywords": ["timeline", "history", "journey", "events"],
 	"acf": {
-		"mode": "preview",
+		"mode": "auto",
 		"renderTemplate": "block-timeline.php"
 	}
 }

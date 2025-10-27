@@ -2,12 +2,14 @@
 @use "../../../scss/abstracts/button" as *;
 
 .aim {
-    margin: 0!important;
-    padding: 2.5rem 2.5rem 2rem 2.5rem;
-    border-radius: 5px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid $stone;
     
-    &:nth-child(even) {
-        background: $white;
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
     }
 
     + * {
@@ -17,7 +19,8 @@
     }
 
 	h3 {
-        font-size: $font-22;
+        font-size: $font-26;
+        color: $pine;
 	}
 
     p {
@@ -28,20 +31,20 @@
 
     &__btn {
         @include button-base;
-        @include button-icon;
-
+        min-height: 38px;
+        padding: 10px 2.5rem 9px 4.8rem;
+        border-color: transparent;
+        
+        &:before,
         &:after {
-            order: -1;
-            margin-left: 0;
-            margin-right: 1rem;
+            width: 38px;
+            height: 38px;
+            top: 0;
+            left: 0;
         }
-
-        &:hover,
-        &:active,
-        &:focus {
-            &:after {
-                margin-left: 0;
-            }
+        
+        &:after {
+            mask-size: 18px;
         }
     }
 
@@ -49,20 +52,22 @@
         display: flex;
 		flex-wrap: wrap;
         gap: 40px;
-        padding: 4rem 3rem 3.5rem 3rem;
+        //padding: 4rem 3rem 3.5rem 3rem;
 
         > div {
 			width: calc(50% - 20px);
 		}
 
 		h3 {
+            font-size: $font-20;
 			margin: 0;
 		}
     }
 } // aim
 
-h2 {
+h2,
+.is-style-intro {
     + .aim {
-        margin-top: 2.5rem!important;
+        margin-top: 4.5rem!important;
     }
 }

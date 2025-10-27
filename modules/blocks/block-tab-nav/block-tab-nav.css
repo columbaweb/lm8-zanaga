@@ -14,48 +14,31 @@ ul.tabs {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 0 2.5rem 0;
-  padding: 4px;
-  background: rgba(56, 67, 50, 0.075);
-  border-radius: 5rem;
+  margin: 0 0 3rem 0;
+  padding: 0;
+  border-top: 1px solid #FF6139;
   position: relative;
 }
 ul.tabs li {
   margin: 0;
-  padding: 0 0.5rem 0 0;
+  padding: 0 2.2rem 0 0;
   position: relative;
   z-index: 2;
 }
+ul.tabs li:last-child {
+  padding: 0;
+}
 ul.tabs a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--font-20);
-  font-weight: 500;
-  line-height: 1.025;
-  letter-spacing: -0.05ch;
-  text-align: center;
-  text-decoration: none;
-  padding: 0.85ch 3rem;
-  color: #384332;
-  border: 0.15rem solid #FF6139;
-  border-radius: 5rem;
-  cursor: pointer;
-  transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
   font-size: var(--wp--preset--font-size--font-18);
-  padding-left: 2rem;
-  padding-right: 2rem;
-  border-color: transparent;
-  transition: color 0.35s ease-in-out, background 0.35s ease-in-out !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1rem 0 0 0;
+  color: #000;
+  transition: color 0.35s ease-in-out;
 }
-ul.tabs a:hover, ul.tabs a:active, ul.tabs a:focus {
-  color: #fff;
-  background: #FF6139;
-}
-ul.tabs a.active {
-  color: #fff;
-  background: #384332;
+ul.tabs a.active, ul.tabs a:hover, ul.tabs a:active, ul.tabs a:focus {
+  color: #FF6139;
 }
 ul.tabs.fw li {
   display: flex;

@@ -1,6 +1,8 @@
 <?php
 
 $id = (!empty($block['anchor'])) ? $block['anchor'] : 'block-' . $block['id'];
+$short_id = substr(md5($id), 0, 6);
+
 $className = 'file-table acc-panel';
 $className .= (!empty($block['className'])) ? ' ' . $block['className'] : '';
 $className .= (!empty($block['align'])) ? ' align' . $block['align'] : '';
@@ -72,7 +74,7 @@ if (!function_exists('unique_display_document')) {
             echo '<span class="icon">';
             $icon = 'icon-announcement.svg'; // default
             if (!empty($post['terms']) && in_array('presentations', $post['terms'])) {
-                $icon = 'icon-presentation.svg';
+                $icon = 'icon-announcement.svg';
             }
             echo file_get_contents(get_template_directory() . '/assets/images/theme/' . $icon);
             echo '</span>';
@@ -123,14 +125,12 @@ if ($display_by_year) {
     <?php
     for ($i = 0; $i < count($years); $i++) {
         if ($i < $yearbreak) {
-            //echo '<li class="tab-label"><a class="tabs-button" href="#y-' . $years[$i] . '">' . $years[$i] . '</a></li>';
-            echo '<li class="tab-label"><a class="tabs-button" href="#' . esc_attr($id) . '-y-' . $years[$i] . '">' . $years[$i] . '</a></li>';
+            echo '<li class="tab-label"><a class="tabs-button" href="#y-' . $years[$i] . '-'.$short_id.'">' . $years[$i] . '</a></li>';
         }
     }
 
     if ($archive_has_content) {
-        //echo '<li class="tab-label archive"><a class="tabs-button" href="#archive">Archive</a></li>';
-        echo '<li class="tab-label archive"><a class="tabs-button" href="#' . esc_attr($id) . '-archive">Archive</a></li>';
+        echo '<li class="tab-label archive"><a class="tabs-button" href="#archive-'.$short_id.'">Archive</a></li>';
     }
     ?>
     </ul>
@@ -140,8 +140,7 @@ if ($display_by_year) {
     for ($i = 0; $i < count($years); $i++) {
         if ($i < $yearbreak) {
             $uniqieID = $years[$i] . '-' . uniqid();
-            //echo '<div id="y-' . $years[$i] . '" class="tab-panel">';
-            echo '<div id="' . esc_attr($id) . '-y-' . $years[$i] . '" class="tab-panel">';
+            echo '<div id="y-' . $years[$i] . '-'.$short_id.'" class="tab-panel">';
             echo '<input id="p-' . $uniqieID . '" type="checkbox"/>';
             echo '<label for="p-' . $uniqieID . '" class="acc-title"><span>' . $years[$i] . '</span></label>';
             echo '<div class="' . esc_attr($className) . '">';
@@ -153,8 +152,7 @@ if ($display_by_year) {
             $archive_has_content = true; 
             if ($first_year_div) {
                 $uniqieAID = 'archive-' . uniqid();
-                //echo '<div id="archive" class="tab-panel">';
-                echo '<div id="' . esc_attr($id) . '-archive" class="tab-panel">';
+                echo '<div id="archive-'.$short_id.'" class="tab-panel">';
                 echo '<input id="p-archive-' . $uniqieAID . '" type="checkbox"/>';
                 echo '<label for="p-archive-' . $uniqieAID . '" class="acc-title"><span>Archive</span></label>';
                 echo '<div class="' . esc_attr($className) . '">';

@@ -249,67 +249,67 @@
 					"slug": "system"
 				  },
                   {
-                      "fontFamily": "'Work Sans', sans-serif",
+                      "fontFamily": "'Nunito', sans-serif",
                       "name": "Primary",
                       "slug": "primary",
                       "fontFace": [{
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "100",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                                "fontFamily": "Work Sans",
+                                "fontFamily": "Nunito",
                                 "fontWeight": "200",
                                 "fontStyle": "normal",
                                 "fontStretch": "normal",
-                                "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                                "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                             },
                           {
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "300",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "400",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "500",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "600",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "700",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                              "fontFamily": "Work Sans",
+                              "fontFamily": "Nunito",
                               "fontWeight": "800",
                               "fontStyle": "normal",
                               "fontStretch": "normal",
-                              "src": [ "file:./assets/fonts/work-sans/WorkSans-VariableFont_wght.ttf" ]
+                              "src": [ "file:./assets/fonts/nunito/Nunito-VariableFont_wght.ttf" ]
                           },
                           {
-                                "fontFamily": "Work Sans",
+                                "fontFamily": "Nunito",
                                 "fontWeight": "900",
                                 "fontStyle": "normal",
                                 "fontStretch": "normal",
@@ -544,7 +544,7 @@
                 "fontFamily": "var(--wp--preset--font-family--secondary)",
                 "fontSize": "var(--wp--preset--font-size--font-32)",
                 "fontWeight": "500",
-                "lineHeight": "1.25"
+                "lineHeight": "1.35"
             },
             "spacing": {
                 "margin": {

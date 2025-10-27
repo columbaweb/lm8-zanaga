@@ -10,9 +10,9 @@
 @use "layout/footer";
 @use "layout/sidebar";
 @use "inc/post";
-// @use "inc/forms";
-// @use "inc/error404";
-// @use "inc/login";
+@use "inc/forms";
+// @use "inc/error404"; 
+@use "inc/login";
 // @use "inc/gdpr";
 // 
 @use "banners/banners";

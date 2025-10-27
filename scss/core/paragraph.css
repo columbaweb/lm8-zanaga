@@ -17,7 +17,8 @@ p.is-style-intro {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--font-26);
   line-height: 1.45;
-  color: #000;
+  font-weight: 500;
+  color: #384332;
 }
 p.is-style-footnote {
   font-size: var(--wp--preset--font-size--font-16);

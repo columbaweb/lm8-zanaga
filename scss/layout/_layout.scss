@@ -11,14 +11,6 @@
     padding-bottom: calc($space-xl * 2);
 }
 
-// main {
-    // margin-top: 57px;
-// 
-    // @media (min-width: 1024px) {
-    //     margin-top: 95px;
-    // }
-// }
-
 .fw:not(.gfield):not(.tabs) {
     padding-left: $content-gap;
     padding-right: $content-gap;
@@ -52,6 +44,18 @@
     //margin-block-start: $space-s;
     //margin-block-start: 2ch;
     margin-block-start: 2.5rem;
+}
+
+.home {
+    #content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero {
+        position: relative;
+        z-index: 2;
+    }
 }
 
 @media (min-width: 1024px) {

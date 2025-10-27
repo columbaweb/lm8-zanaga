@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fade-in Animation on Scroll
     // ========================
     (function animateOnScroll() {
-        const elements = document.querySelectorAll('.is-style-small-title, .fade, .fade-in-up, .fade-in, .zoom-in, .zoom-in-sm, .fade-in-left, .fade-in-right, .wp-block-cover, .wp-block-columns, .operations-info .inner');
+        const elements = document.querySelectorAll('.is-style-small-title, .fade, .fade-in-up, .fade-in, .zoom-in, .zoom-in-sm, .zoom-out, .fade-in-left, .fade-in-right, .wp-block-cover, .wp-block-columns, .sp-circle, .operations-info .inner, #content, #sidebar');
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -165,19 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
         elements.forEach(el => observer.observe(el));
     })();
 
-    // ========================
-    // Anchor Smooth Scroll
-    // ========================
-    // (function smoothAnchorScroll() {
-    //     const hash = window.location.hash;
-    //     if (hash) {
-    //         window.location.hash = '';
-    //         setTimeout(() => {
-    //             const target = document.querySelector(hash);
-    //             if (target) target.scrollIntoView({ behavior: 'smooth' });
-    //         }, 500);
-    //     }
-    // })();
     document.addEventListener("DOMContentLoaded", function () {
         const hash = window.location.hash;
 
@@ -223,18 +210,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     })();
-
-    // ========================
-    // Wrap small titles in span
-    // ========================
-    (function wrapSmallTitles() {
-        const headings = document.querySelectorAll('.wp-block-heading.is-style-small-title');
-        headings.forEach(heading => {
-            if (!heading.querySelector('span')) {
-                heading.innerHTML = `<strong>${heading.textContent}<span><em></em><em></em><em></em></span></strong>`;
-            }
-        });
-    })();
 });
 
 // ========================
@@ -262,8 +237,10 @@ document.addEventListener('DOMContentLoaded', function () {
         { className: "e1", breakpoint: 782 },
         { className: "e2", breakpoint: 782 },
         { className: "e3", breakpoint: 782 },
-        { className: "sh", breakpoint: 420 },  
-        //{ className: "team-head", breakpoint: 420 },      
+        { className: "excerpt__title", breakpoint: 782 },  
+        { className: "link-cta__title", breakpoint: 782 }, 
+        { className: "sh", breakpoint: 420 },    
+        { className: "sh-box", breakpoint: 1024 },  
     ];
 
     function applyEqualHeights() {
@@ -272,6 +249,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('load', applyEqualHeights);
     window.addEventListener('resize', applyEqualHeights);
+})();
+
+
+// Expose helper to re-run equal height just for .sh-box (containing iframe)
+(function exposeShBoxEqualizer() {
+  function equalizeRowHeights(className, breakpoint) {
+    const els = document.getElementsByClassName(className);
+    if (!els.length) return;
+
+    if (window.innerWidth < breakpoint) {
+      Array.from(els).forEach(el => el.style.height = 'auto');
+      return;
+    }
+
+    let max = 0;
+    Array.from(els).forEach(el => el.style.height = 'auto');
+    Array.from(els).forEach(el => { if (el.clientHeight > max) max = el.clientHeight; });
+    Array.from(els).forEach(el => el.style.height = `${max}px`);
+  }
+
+  function debounce(fn, wait = 150) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+  }
+
+  window.equalizeShBox = debounce(() => equalizeRowHeights('sh-box', 1024), 50);
+})();
+
+//Observe size changes and re-equalize sh-box automatically
+(function observeDynamicHeights() {
+  if (!('ResizeObserver' in window)) return;
+
+  const ro = new ResizeObserver(() => {
+    if (typeof window.equalizeShBox === 'function') window.equalizeShBox();
+  });
+
+  document.querySelectorAll('.sh-box').forEach(el => ro.observe(el));
+  document.querySelectorAll('.sh-box iframe').forEach(fr => ro.observe(fr));
+
+  window.addEventListener('load', () => setTimeout(() => {
+    if (typeof window.equalizeShBox === 'function') window.equalizeShBox();
+  }, 300));
 })();
 
 
@@ -291,3 +309,40 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 });
+
+// Parent page: receive height from iframe and set its height
+(function handleIframeHeights() {
+  const ALLOWED_ORIGINS = []; // or leave empty to allow all
+
+  function isAllowedOrigin(origin) {
+    return !ALLOWED_ORIGINS.length || ALLOWED_ORIGINS.includes(origin);
+  }
+
+  function debounce(fn, wait = 100) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+  }
+
+  const onMessage = debounce(function (event) {
+    if (!event || !event.data) return;
+    if (!isAllowedOrigin(event.origin)) return;
+
+    const { type, height } = event.data;
+    if (type !== "IFRAME_HEIGHT" || !Number.isFinite(height)) return;
+
+    const frames = document.getElementsByTagName('iframe');
+    for (let i = 0; i < frames.length; i++) {
+      if (frames[i].contentWindow === event.source) {
+        frames[i].style.height = height + 'px';
+
+        if (typeof window.equalizeShBox === 'function') {
+          requestAnimationFrame(() => window.equalizeShBox());
+        }
+
+        document.dispatchEvent(new CustomEvent('iframes:resized'));
+        break;
+      }
+    }
+  }, 50);
+
+  window.addEventListener('message', onMessage, false);
+})();

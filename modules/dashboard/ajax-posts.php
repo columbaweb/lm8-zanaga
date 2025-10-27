@@ -34,46 +34,13 @@ add_action( 'save_post', 'save_external_link_meta_field' );
 
 
 // ------------------------------------------
-// AJAX callback: load WP posts with filters
+// AJAX callback: load WP posts (category only)
 // ------------------------------------------
 function load_wp_posts_callback() {
     $offset   = isset($_POST['offset'])         ? intval($_POST['offset']) : 0;
     $per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 12;
     $category = isset($_POST['category'])       ? sanitize_text_field($_POST['category']) : '';
-    $tag      = isset($_POST['tag'])            ? sanitize_text_field($_POST['tag']) : '';
-    $year     = isset($_POST['year'])           ? intval($_POST['year']) : '';
-    $search   = !empty($_POST['search'])        ? sanitize_text_field($_POST['search']) : '';
 
-    $tag_post_ids = [];
-
-    // step 1: find posts with tag name matching search term
-    if ($search) {
-        $matching_tags = get_terms([
-            'taxonomy'   => 'post_tag',
-            'hide_empty' => false,
-            'name__like' => $search,
-        ]);
-
-        if (!is_wp_error($matching_tags) && $matching_tags) {
-            $tag_ids = wp_list_pluck($matching_tags, 'term_id');
-
-            $tag_posts = get_posts([
-                'post_type'   => 'post',
-                'post_status' => 'publish',
-                'fields'      => 'ids',
-                'numberposts' => -1,
-                'tax_query'   => [[
-                    'taxonomy' => 'post_tag',
-                    'field'    => 'term_id',
-                    'terms'    => $tag_ids,
-                ]],
-            ]);
-
-            $tag_post_ids = $tag_posts;
-        }
-    }
-
-    // step 2: build main query args
     $args = [
         'post_type'      => 'post',
         'post_status'    => 'publish',
@@ -81,41 +48,11 @@ function load_wp_posts_callback() {
         'offset'         => $offset,
     ];
 
-    if ($category) {
+    if ($category !== '') {
+        // category is a slug
         $args['category_name'] = $category;
     }
 
-    if ($tag) {
-        $args['tag'] = $tag;
-    }
-
-    if ($year) {
-        $args['year'] = $year;
-    }
-
-    if ($search) {
-        $content_ids = get_posts([
-            'post_type'   => 'post',
-            'post_status' => 'publish',
-            'fields'      => 'ids',
-            's'           => $search,
-            'numberposts' => -1,
-        ]);
-    
-        $merged_ids = array_unique(array_merge($content_ids, $tag_post_ids));
-    
-        // If no matches, return immediately with 0 posts
-        if (empty($merged_ids)) {
-            wp_send_json([
-                'posts' => [],
-                'total' => 0,
-            ]);
-        }
-    
-        $args['post__in'] = $merged_ids;
-    }
-
-    // step 4: run query and output posts
     $query = new WP_Query($args);
     $posts = [];
 
@@ -123,21 +60,115 @@ function load_wp_posts_callback() {
         while ($query->have_posts()) {
             $query->the_post();
             ob_start();
-            get_template_part('/parts/part', 'excerpt'); // Adjust this to match your template
+            get_template_part('/parts/part', 'excerpt'); // adjust to your template
             $posts[] = [
                 'id'      => get_the_ID(),
                 'content' => ob_get_clean(),
             ];
         }
     }
-
     wp_reset_postdata();
 
-    //wp_send_json(['posts' => $posts]);
     wp_send_json([
         'posts' => $posts,
-        'total' => $query->found_posts,
+        'total' => (int) $query->found_posts,
     ]);
 }
 add_action('wp_ajax_load_wp_posts', 'load_wp_posts_callback');
 add_action('wp_ajax_nopriv_load_wp_posts', 'load_wp_posts_callback');
+
+
+// ------------------------------------------
+// AJAX callback: load all team members, with first_name + last_name + HTML
+// ------------------------------------------
+function load_team_members_callback() {
+    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $args = [
+        'post_type'      => 'team',
+        'posts_per_page' => -1,
+        'order'          => 'ASC',
+        'orderby'        => 'menu_order',
+    ];
+
+    if ($category) {
+        $args['tax_query'] = [[
+            'taxonomy' => 'team-category',
+            'field'    => 'term_id',
+            'terms'    => intval($category),
+        ]];
+    }
+
+    $query = new WP_Query($args);
+    $members = [];
+
+    while ($query->have_posts()) {
+        $query->the_post();
+
+        $title = get_the_title();
+        $first_name = strtok($title, ' ');
+        $last_name  = trim(substr($title, strlen($first_name)));
+
+        $team_type_terms = get_the_terms(get_the_ID(), 'team-type');
+        $team_type = $team_type_terms && !is_wp_error($team_type_terms) ? $team_type_terms[0]->name : '';
+
+        ob_start(); ?>
+        <div class="team-member">
+          <div class="profile">
+            <div class="image">
+              <?php if (has_post_thumbnail()): ?>
+                <?php the_post_thumbnail('team-member'); ?>
+              <?php else: ?>
+                <img src="<?= esc_url(get_template_directory_uri().'/assets/images/theme/profile.svg'); ?>"
+                     alt="<?= esc_attr($title); ?>">
+              <?php endif; ?>
+            </div>
+            <div class="title">
+              <h3><?= esc_html($title); ?></h3>
+              <p class="meta"><?= esc_html(get_field('position')); ?></p>
+            </div>
+          </div>
+          <div class="bio">
+            <div class="bio-content">
+              <?php 
+                $phone = get_field('contact_number');
+                $linkedin = get_field('linkedin_profile');
+                if ($phone || $linkedin):
+              ?>
+                <ul class="contact-details">
+                  <?php if ($phone): 
+                    $tel_link = preg_replace('/[^0-9+]/','',$phone); ?>
+                    <li><a class="phone" href="tel:<?= esc_attr($tel_link) ?>"
+                           rel="noopener noreferrer">Call <?= esc_html($phone) ?></a></li>
+                  <?php endif; ?>
+                  <?php if ($linkedin): ?>
+                    <?php $fn = sanitize_text_field($first_name); ?>
+                    <li><a class="li" href="<?= esc_url($linkedin) ?>"
+                           rel="noopener noreferrer">View <?= esc_html($fn) ?> on LinkedIn</a></li>
+                  <?php endif; ?>
+                </ul>
+              <?php endif; ?>
+              <?php the_content(); ?>
+            </div>
+          </div>
+        </div>
+        <?php
+        $html = ob_get_clean();
+
+        $members[] = [
+            'id'         => get_the_ID(),
+            'title'      => $title,
+            'first_name' => $first_name,
+            'last_name'  => $last_name,
+            'position'   => get_field('position'),
+            'team_type'  => $team_type,
+            'html'       => $html,
+        ];
+    }
+    wp_reset_postdata();
+
+    wp_send_json(['members' => $members]);
+}
+add_action('wp_ajax_load_team_members','load_team_members_callback');
+add_action('wp_ajax_nopriv_load_team_members','load_team_members_callback');
+
+

@@ -284,15 +284,22 @@ footer {
 
 // back to top button
 .b2t {
-    opacity: 0;
-    position: fixed;
-    bottom: -30px;
-    right: 20px;
-    z-index: 99;
-    transition: all $speed ease-in-out;
-
-    &.active {
-        opacity: 1;
-        bottom: -2px;
+    cursor: pointer;
+    transition: transform $speed $ease;
+    
+    path {
+        transition: fill $speed $ease;
+    }
+    
+    &:hover {
+        transform: scale(1.05);
+        
+        .circle {
+            fill: $secondary;
+        }
+        
+        :not(.circle) {
+            fill: $white;
+        }
     }
 }

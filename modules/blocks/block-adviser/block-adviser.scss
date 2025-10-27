@@ -10,9 +10,8 @@
         display: block;
         margin: 0 0 3rem 0;
         padding: 2.5rem;
-        background: $white;
-        border: 1px solid transparent;
-        border-radius: $br;
+        background: rgba($sage, .1);
+        border: 1px solid $cloud;
 
         img {
             width: 100%;
@@ -21,21 +20,23 @@
         }
 
         h2 {
+            font-family: $ff-body;
             font-size: $font-20;
-            font-weight: 500;
-            margin-bottom: .8ch;
-            color: $primary;
+            font-weight: 700;
+            line-height: 1.4;
+            text-transform: uppercase;
+            padding-top: 2ch;
+            color: $secondary;
+            border-top: 1px solid $secondary;
         }
 
         p {
             strong {
                 display: block;
                 font-family: $ff-title;
-                font-size: $font-22;
+                font-size: $font-26;
                 font-weight: 500;
-                letter-spacing: -.05ch;
-                margin-bottom: .55ch;
-                color: $moss;
+                margin-bottom: .8ch;
 
                 + br {
                     display: none;
@@ -45,22 +46,21 @@
             &:last-child {
                 margin-bottom: 0;
             }
+            
+            + p {
+                margin-top: 0!important;
+            }
         }    
     }
 
     a.company-grid__company {
-        transition: background $speed $cb, border $speed $cb, transform $speed $ease;
+        transition: background $speed $cb, border $speed $cb;
 
         &:hover,
         &:active,
         &:focus {
-            background: rgba($moss, .1);
-            border: 1px solid rgba($moss, .25);
-            transform: translateY(-6px);
-
-            p {
-                color: $primary;
-            }
+            background: rgba($sage, .2);
+            border: 1px solid $secondary;
         }
     }
 
@@ -72,7 +72,7 @@
         &__company {
             width: calc(50% - 2rem);
             margin: 0;
-            padding: 3.5rem;
+            padding: 3rem;
         }
     }
     

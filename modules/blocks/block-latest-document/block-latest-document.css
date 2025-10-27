@@ -13,114 +13,93 @@
 .latest-document + .latest-document {
   margin-top: 3rem;
 }
-.latest-document a {
-  display: block;
-  background: #384332;
-}
-.latest-document a .btn {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  background: #384332;
-}
-.latest-document a svg {
-  width: 21px;
-  height: 13px;
-}
-.latest-document a .cover-wrap {
-  display: block;
-  overflow: hidden;
-  position: relative;
-  transition: opacity 0.35s ease-in-out;
-}
-.latest-document a .cover {
+.latest-document .cover {
   display: block;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  aspect-ratio: 11/6;
   transition: transform 0.35s ease-in-out;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
-.latest-document a:hover, .latest-document a:active, .latest-document a:focus {
-  text-decoration: none;
-}
-.latest-document a:hover .cover-wrap, .latest-document a:active .cover-wrap, .latest-document a:focus .cover-wrap {
-  opacity: 0.9;
-}
-.latest-document a:hover .cover-wrap:after, .latest-document a:active .cover-wrap:after, .latest-document a:focus .cover-wrap:after {
-  opacity: 0.75;
-}
-.latest-document a:hover .cover, .latest-document a:active .cover, .latest-document a:focus .cover {
-  transform: scale(1.025);
-}
-.latest-document h3 {
-  font-size: var(--wp--preset--font-size--font-22);
-  line-height: 1.3;
-  color: #fff;
-  margin: 0;
-}
-.latest-document h3 span {
-  display: block;
-}
-.latest-document h3 em {
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-style: normal;
-}
-.latest-document .meta {
-  display: block;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  color: #384332;
-  margin: 0.4ch 0 0 0;
-}
-.latest-document.title-bottom a .cover-wrap {
-  position: relative;
-}
-.latest-document.title-bottom .title {
-  display: flex;
-  flex-wrap: wrap;
-}
-.latest-document.title-bottom .title h3 {
-  width: calc(100% - 80px);
-  margin: 0;
-  padding: 1ch;
-}
-.latest-document.title-cover a {
-  position: relative;
-}
-.latest-document.title-cover a .cover-wrap {
-  margin: 0;
-}
-.latest-document.title-cover a .cover-wrap:after {
+.latest-document .cover:after {
   content: "";
   display: block;
-  background: linear-gradient(140deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
-  opacity: 1;
+  background: #000;
+  opacity: 0.5;
+  transition: opacity 0.35s ease-in-out;
+  position: absolute;
+  inset: 0;
+}
+.latest-document .inner {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--wp--preset--spacing--normal);
+  position: relative;
+  z-index: 3;
+}
+.latest-document h3 {
+  font-size: var(--wp--preset--font-size--font-32);
+  font-weight: 600;
+  line-height: 1.25;
+  padding-top: 0.5ch;
+  color: #fff;
+  border-top: 1px solid #FF6139;
+}
+@media (max-width: 1023px) {
+  .latest-document h3 {
+    margin-bottom: calc(5ch + 15vw);
+  }
+}
+.latest-document .title {
+  min-wheight: 54px;
+  padding: 0 0 0 70px;
+  position: relative;
+}
+.latest-document .title span {
+  display: block;
+  color: #fff;
+}
+.latest-document .title span.name {
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-20);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.latest-document .title svg {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
-  transition: opacity 0.18s ease-in-out 0.05s;
 }
-.latest-document.title-cover a .title {
-  padding: 0 10px 15px 75px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.latest-document .title svg .circle {
+  transition: fill 0.35s ease-in-out;
 }
-.latest-document.title-cover a .title svg {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
+.latest-document .title svg .arrow {
+  transition: stroke 0.35s ease-in-out;
 }
-.latest-document.title-cover a .title h3 {
-  color: #fff;
+.latest-document a {
+  display: block;
+  position: relative;
+  overflow: hidden;
 }
-.latest-document.title-cover a .title .meta {
-  color: #fff;
+.latest-document a:hover .cover {
+  transform: scale(1.025);
+}
+.latest-document a:hover .cover:after {
+  opacity: 0.3;
+}
+.latest-document a:hover .title svg .circle {
+  fill: #FF6139;
+}
+.latest-document a:hover .title svg .arrow {
+  stroke: #fff;
+}
+.latest-document a:not(.sh-box) .inner {
+  aspect-ratio: 1/1.2;
+}
+.latest-document a.sh-box .inner {
+  height: 100%;
 }

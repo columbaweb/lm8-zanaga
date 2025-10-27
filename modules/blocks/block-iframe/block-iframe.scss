@@ -13,27 +13,56 @@
 		overflow: hidden !important;
 	}
 
-	&.hp-shareprice {
-		padding: $space-s;
-		background: #fff;
-	}
-
-	&.bx-white {
-		padding: $space-n;
-		background: #fff;
-		border: 1px solid rgba($moss, .15);
-		border-radius: $br;
-	}
-
-	&.bx-beige {
-		padding: $space-n;
-		background: $cloud;
-		border: 1px solid rgba($moss, .05);
-		border-radius: $br;
-	}
-
 	&.rns-news {
 		min-height: 1070px;
 	}
+	
+	&.sp-circle {
+		width: 98%;
+		max-width: 340px;
+		aspect-ratio: 1/1;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		border: 1px solid $secondary;
+		border-radius: 100%;
+		opacity: 0;
+		position: relative;
+		z-index: 3;
+		
+		&:before {
+			content: "";
+			display: block;
+			background: $secondary;
+			border-radius: 100%;
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+		
+		&.in-view {
+			animation: fadeIn 1.25s forwards .35s;
+			
+			&:before {
+				animation: inset 1.75s forwards .15s;
+			}
+		}
+		
+		iframe {
+			position: relative;
+			z-index: 5;
+		}
+	}
+	
+	
+	
+	
+	
+	
+}
+
+* + .lmn-iframe {
+	margin-top: $space-n!important;
 }
 

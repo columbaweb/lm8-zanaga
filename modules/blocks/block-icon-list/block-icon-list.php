@@ -10,11 +10,21 @@ $className = 'icon-list'
 <ul class="<?= $className; ?> fade-in">
     <?php while (have_rows('icon_list')): the_row(); 
         $title = get_sub_field('title');
+        $subtitle = get_sub_field('subtitle');
         $icon = get_sub_field('icon');
     ?>
         <li class="icon-list-item">
             <?= wp_get_attachment_image($icon, 'full'); ?>
-            <?= $title; ?>
+            
+            <span class="list-content">
+                <?php if ($title) {
+                    echo '<h3>'.$title.'</h3>';  
+                } ?>
+                
+                <?php if ($subtitle) {
+                    echo $subtitle;  
+                } ?>
+            </span>
         </li>
     <?php endwhile; ?>
 </ul>

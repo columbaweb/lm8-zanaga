@@ -10,55 +10,172 @@
     --layout-gap: 6rem;
   }
 }
-.timeline {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: var(--wp--preset--spacing--normal);
+.timeline .event {
+  margin-bottom: 3rem;
+  color: #272928;
 }
-.timeline + .timeline {
-  margin-top: var(--wp--preset--spacing--normal);
+.timeline .event:last-child {
+  margin-bottom: 0;
 }
-.timeline .col {
-  padding-top: var(--wp--preset--spacing--normal);
-  border-top: 1px dashed rgba(56, 67, 50, 0.25);
+.timeline .event > *:last-child {
+  margin-bottom: 0;
 }
-.timeline .year {
-  font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--font-26);
-  margin: 0;
-  padding: 0 0 0 22px;
-  color: #384332;
+.timeline__date {
+  margin: 0 0 1.5ch 0;
+}
+.timeline__event-block {
+  padding-bottom: 5rem;
   position: relative;
 }
-.timeline .year:before {
+.timeline__event-block:last-child {
+  padding-bottom: 0;
+}
+.timeline__event-block:before {
   content: "";
   display: block;
-  width: 11px;
-  height: 11px;
-  mask: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.641' cy='5.729' r='4.5' transform='rotate(-90 5.641 5.729)' stroke='%23CD136A'/%3E%3Ccircle cx='5.641' cy='5.728' r='2.32' transform='rotate(-90 5.641 5.728)' fill='%23CD136A'/%3E%3C/svg%3E");
+  width: 16px;
+  height: 16px;
   background: #FF6139;
-  mask-size: cover;
+  border-radius: 100%;
   position: absolute;
-  top: 13px;
+  top: 10px;
   left: 0;
-  transition: background 0.35s ease-in-out;
+  z-index: 3;
+  transition: background 0.7s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
-@media (min-width: 800px) {
+.timeline__event-block:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 97, 57, 0.2);
+  position: absolute;
+  top: 0;
+  left: 8px;
+  z-index: 1;
+}
+.timeline__event-block h2 {
+  font-size: var(--wp--preset--font-size--font-54);
+  font-weight: 600;
+  margin: 0;
+  color: #6a705d;
+}
+.timeline__event-block ul, .timeline__event-block ol {
+  list-style: none;
+  padding-left: 15px;
+  margin: 0;
+}
+.timeline__event-block ul li, .timeline__event-block ol li {
+  margin: 0 0 1rem 0;
+  padding: 2.5rem;
+  background: rgba(180, 180, 158, 0.15);
+}
+.timeline__event-block ul li:nth-child(even), .timeline__event-block ol li:nth-child(even) {
+  background: rgba(180, 180, 158, 0.25);
+}
+.timeline__event-block img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.timeline__event-block.active:before {
+  background: #fff;
+  box-shadow: 0 0 0 5px #FF6139;
+}
+.timeline__event-block .divider {
+  display: block;
+  width: 1px;
+  background: #FF6139;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+@media (max-width: 599px) {
+  .timeline__event-block {
+    padding-left: 36px;
+  }
+  .timeline__event-block .divider {
+    left: 8px;
+  }
+}
+@media (min-width: 600px) {
+  .timeline__event-block:before {
+    top: 5px;
+    left: calc(35% - 8px);
+  }
+  .timeline__event-block:after {
+    left: 35%;
+  }
+  .timeline__event-block .divider {
+    left: 35%;
+  }
+}
+@media (max-width: 599px) {
   .timeline {
-    flex-direction: row;
-    gap: 5rem;
+    padding-left: 6px;
   }
-  .timeline .col-1 {
-    flex: 1;
+}
+@media (min-width: 600px) {
+  .timeline__event-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
   }
-  .timeline .col-2 {
-    flex: 1.3;
+  .timeline__event-block > div.timeline__date {
+    width: calc(35% - 30px);
+  }
+  .timeline__event-block > div.timeline__events {
+    width: calc(65% - 30px);
   }
 }
 @media (min-width: 1024px) {
-  .timeline .col-1 .inner {
+  .timeline__event-block .inner {
     position: sticky;
-    top: 120px;
+    top: 130px;
   }
+  .timeline__event-block .timeline__date {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-tabs ul.tabs {
+  justify-content: center;
+  margin: 0 0 var(--wp--preset--spacing--m) 0;
+  background: transparent;
+  border-radius: 0;
+  position: relative;
+}
+.timeline-tabs ul.tabs:before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, #FF6139 0%, #FF6139 50%, #B4B49E 50%, #B4B49E 100%);
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+.timeline-tabs ul.tabs a {
+  height: auto;
+  font-size: var(--wp--preset--font-size--font-26);
+  font-weight: 300;
+  background: #fff !important;
+  border-radius: 0;
+  transition: font-weight 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.timeline-tabs ul.tabs a.active, .timeline-tabs ul.tabs a:hover, .timeline-tabs ul.tabs a:active, .timeline-tabs ul.tabs a:focus {
+  font-weight: 400;
+}
+.timeline-tabs ul.tabs li {
+  margin: 0;
+  padding: 0;
+}
+.timeline-tabs ul.tabs li:first-child a {
+  padding: 0 0.8ch 0 1.6ch;
+  color: #272928 !important;
+}
+.timeline-tabs ul.tabs li:last-child a {
+  padding: 0 1.6ch 0 0.8ch;
+  color: #FF6139 !important;
 }

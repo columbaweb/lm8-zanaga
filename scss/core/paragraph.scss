@@ -10,7 +10,8 @@ p {
 		font-family: $ff-title;
 		font-size: $font-26;
 		line-height: 1.45;
-		color: $black;		
+		font-weight: 500;
+		color: $moss;		
 	}
 
 	&.is-style-footnote {
@@ -34,18 +35,6 @@ p {
 			top: 4px;
 			left: 0;
 		}
-
-		// a {
-		// 	color: #fff;
-		// 	transition: all $speed $ease;
-
-		// 	&:hover,
-		// 	&:active,
-		// 	&:focus {
-		// 		padding-left: 2px;
-		// 		color: $mint;
-		// 	}
-		// }
 	}
 
 	&.is-style-email {
@@ -64,16 +53,6 @@ p {
 			top: 4px;
 			left: 0;
 		}
-
-		// a {
-		// 	color: #fff!important;
-
-		// 	&:hover,
-		// 	&:active,
-		// 	&:focus {
-		// 		color: $mint!important;
-		// 	}
-		// }
 	}
 
 	&.is-style-phone {
@@ -111,18 +90,7 @@ p {
 			top: 3px;
 			left: 0;
 		}
-
-		// a {
-		// 	color: #fff!important;
-
-		// 	&:hover,
-		// 	&:active,
-		// 	&:focus {
-		// 		color: $mint!important;
-		// 	}
-		// }
 	}
-
 
 	@media (min-width: 1024px) {
 		&.maxwidth,
@@ -144,9 +112,4 @@ p {
 	+ .accordion {
 		margin-top: 3.5ch!important;
 	}
-
-	// + .wp-block-group,
-	// + .wp-block-columns {
-	// 	margin-top: $space-m;
-	// }
 }

@@ -27,7 +27,7 @@
             <span class="date"> <?= esc_html(get_the_time('j F Y')); ?> </span>
         </div>
 
-        <h3 class="equal"><?php the_title(); ?></h3>
+        <h3 class="excerpt__title"><?php the_title(); ?></h3>
 
         <span class="btn">
         <?php if ($is_lightbox_video) {

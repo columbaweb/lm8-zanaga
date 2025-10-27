@@ -5,13 +5,10 @@
 	flex-wrap: wrap;
     flex-direction: column;
     min-height: 380px;
-	padding: 3rem 3rem 10rem 3rem;
-    background: $grad;
-    border-radius: $br;
+	padding: $space-n;
     overflow: hidden;
-	position: relative;
-
-
+    position: relative;
+    
     .bg {
         display: block;
         background-position: center;
@@ -19,22 +16,16 @@
         position: absolute;
         inset: 0;
         z-index: 1;
-        opacity: .15;
-        transition: opacity .75s $ease .5s;
+        transition: transform $speed $ease;
 
         &:after {
+            display: block;
             content: "";
-            background: $primary;
-            opacity: .75;
+            background: $pine;
+            opacity: .55;
             position: absolute;
             inset: 0;
             transition: opacity .5s $ease;
-        }
-    }
-
-    &.in-view {
-        .bg {
-            opacity: .65;
         }
     }
 
@@ -44,54 +35,20 @@
 
         h2 {
             font-size: $font-44;
-            font-weight: 400;
+            font-weight: 500;
             color: $white;
+            margin: 2.5rem 0;
         }
 
         h3 {
-            display: inline-flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
+            font-family: $ff-body;
             font-size: $font-20;
-            font-weight: 500;
+            font-weight: 700;
             line-height: 1.1;
             text-transform: uppercase;
+            padding-top: 1.2ch;
             color: $white;
-
-            span {
-                display: block;
-                width: 30px;
-                height: 6px;
-                position: relative;
-            }
-
-            em {
-                display: block;
-                width: 6px;
-                height: 6px;
-                background: $moss;
-                border: 1px solid $white;
-                border-radius: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                transition: left .6s $ease;
-            }
-
-            &.in-view {
-                em {
-                    &:nth-child(2) {
-                        left: 10px;
-                        transition-delay: .35s;
-                    }
-
-                    &:nth-child(3) {
-                        left: 20px;
-                        transition-delay: .5s;
-                    }
-                }
-            }
+            border-top: 1px solid $secondary;
         }
 
         p {
@@ -99,24 +56,8 @@
         }
     }
 
-    &__btn {
-        position: absolute;
-        bottom: 3rem;
-        right: 3rem;
+    .wp-block-buttons {
         z-index: 3;
-    }
-
-    @media (min-width: 1024px) {
-        &.large {
-            aspect-ratio: 1/1;
-            padding: 5rem 5rem 12rem 5rem;
-
-            &__title {
-                h2 {
-                    font-size: $font-50;
-                }
-            }
-        }
     }
 }
 
@@ -126,11 +67,22 @@ a.link-cta {
     &:hover,
     &:active,
     &:focus {
-        transform: translateY(-6px);
 
         .bg {
+            transform: scale(1.025);
+            
             &:after {
-                opacity: .5;
+                opacity: .3;
+            }
+        }
+        
+        .wp-block-button  {
+            .wp-block-button__link {
+                color: $black;
+                
+                &:before {
+                    width: calc(100% - 6px);
+                }   
             }
         }
     }

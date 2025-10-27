@@ -32,14 +32,11 @@ $target_attr = $is_external ? '_blank' : '_self';
 <?php if (($title) || ($subtitle)) : ?>
     <div class="link-cta__title">
     <?php if ($title): ?>
-        <h3 class="is-style-small-title">
-            <?= esc_html($title); ?>
-            <span><em></em><em></em><em></em></span>
-        </h3>
+        <h3 class="is-style-small-title"><?= esc_html($title); ?></h3>
     <?php endif; ?>
 
     <?php if ($heading): ?>
-        <h2><?= esc_html($heading); ?></h2>
+        <h2><?= $heading; ?></h2>
     <?php endif; ?>
 
     <?= $subtitle; ?>
@@ -47,14 +44,19 @@ $target_attr = $is_external ? '_blank' : '_self';
 <?php endif; ?>
 
 <?php if ($link): ?>
-    <div class="link-cta__btn">
-        <?php 
-        if ($is_pdf): 
-            echo file_get_contents(get_template_directory() . '/assets/images/theme/arrow-download.svg'); 
-        else: 
-            echo file_get_contents(get_template_directory() . '/assets/images/theme/arrow-right.svg'); 
-        endif; 
-        ?>
+    
+    <div class="wp-block-buttons">
+        <div class="wp-block-button is-style-white">
+            <span class="wp-block-button__link wp-element-button"><strong>
+                <?php 
+                if ($is_pdf): 
+                    echo 'View file';
+                else: 
+                    echo 'Read more';
+                endif; 
+                ?>
+            </strong></span>
+        </div>
     </div>
 <?php endif; ?>
 

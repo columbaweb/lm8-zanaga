@@ -1,4 +1,4 @@
-@import "../../../scss/abstracts/vars";
+@use "../../../scss/abstracts/vars" as *;
 
 .is-style-accordion-wrap {
     .accordion {
@@ -14,7 +14,7 @@
             line-height: 1.25;
             padding: 2ch 45px 2ch 0;
             margin: 0;
-            border-bottom: $grid;
+            border-bottom: 1px solid $stone;
             position: relative;
             cursor: pointer;
             transition: color $speed $ease;
@@ -22,11 +22,10 @@
             &:after {
                 content: "";
                 display: block;
-                width: 20px;
-                height: 20px;
-                background-color: $secondary;
-                mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23F5007B' stroke-linecap='square' d='M7.871 8.214v-7M7.87 8.216h7M7.87 8.217v7M7.87 8.215h-7'/%3E%3C/svg%3E");
-                mask-size: cover;
+                width: 40px;
+                height: 40px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='51' fill='none'%3E%3Cpath stroke='%23FF6139' d='M25.262 50.2h.311c13.386-.168 24.189-11.072 24.189-24.495 0-9.687-5.624-18.062-13.787-22.037h-.001a23.611 23.611 0 0 0-1.957-.847 24.17 24.17 0 0 0-8.755-1.616c-2.955 0-5.782.53-8.407 1.489l-.521.197a24.526 24.526 0 0 0-8.393 5.496A24.395 24.395 0 0 0 .76 25.705c0 .588.03 1.172.071 1.756v.001c.046.662.11 1.315.209 1.957l.001.002c.098.657.233 1.306.387 1.956A24.504 24.504 0 0 0 9.312 44.29a24.376 24.376 0 0 0 15.95 5.912Z'/%3E%3Cpath fill='%23F5F5ED' d='M25.263 46.416a20.611 20.611 0 0 1-13.486-4.997 20.717 20.717 0 0 1-6.665-10.917 20.168 20.168 0 0 1-.327-1.656 20.063 20.063 0 0 1-.177-1.655c-.035-.49-.06-.985-.06-1.485 0-5.721 2.321-10.897 6.07-14.642a20.69 20.69 0 0 1 14.644-6.072c2.666 0 5.104.486 7.403 1.366.564.216 1.117.452 1.656.717 6.901 3.36 11.657 10.44 11.657 18.63 0 11.44-9.278 20.715-20.718 20.715l.003-.004Z'/%3E%3Cpath fill='%23FF6139' d='M25.138 33.824a1 1 0 0 0 1-1v-6.118h7.243a1 1 0 0 0 0-2h-7.243v-6.118a1 1 0 1 0-2 0v6.118h-6.993a1 1 0 0 0 0 2h6.993v6.118a1 1 0 0 0 1 1Z'/%3E%3C/svg%3E");
+                background-size: cover;
                 position: absolute;
                 top: calc(50% - 14px);
                 right: 0;
@@ -35,14 +34,23 @@
 
             .title {
                 width: calc(100% - 90px);
-                font-size: $font-20;
                 margin: 0;
 
                 span {
                     display: block;
 
                     &.title-top {
-                        color: $mint;
+                        font-family: $ff-body;
+                        font-size: $font-16;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin: 0 0 .4ch 0;
+                        color: $secondary;
+                    }
+                    
+                    &.title-bottom {
+                        font-size: $font-22;
+                        color: $black;
                     }
                 }
             }
@@ -58,12 +66,12 @@
             }
 
             &:hover .title {
-                color: $green;
+                //color: $green;
             }
 
             &.active {
                 .title {
-                    color: $green;
+                    //color: $green;
                 }
 
                 &:after {
@@ -77,11 +85,11 @@
             overflow: hidden;
 
             .panel-inner {
-                margin: $space-n 0;
-                padding: $space-n $space-n calc($space-n - 1ch) $space-n;
-                background: linear-gradient(180deg, $ink 0%, $coal 100%);
-                border: $grid;
-                border-radius: $br;
+                margin: $space-s 0;
+                padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+                //background: rgba($sage, .1);
+                background: rgba($linen, .5);
+                border: 1px solid rgba($sage, .35);
             }
 
             ul {
@@ -92,7 +100,7 @@
                 li {
                     margin: 0;
                     padding: 2rem 0 2rem 5rem;
-                    border-bottom: $grid-dash;
+                    border-bottom: 1px solid $stone;
                     position: relative;
 
                     &:last-child {

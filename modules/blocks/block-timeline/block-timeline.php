@@ -5,41 +5,42 @@ $className = 'timeline' .
     (!empty($block['className']) ? ' ' . $block['className'] : '') .
     (!empty($block['align']) ? ' align' . $block['align'] : '');
 
-// Get ACF fields
-$year = get_field('year');
-$title = get_field('title');
-$image = get_field('featured_image');
-
-// Add has-img class if image exists
-$col1_classes = 'col col-1' . (!empty($image) ? ' has-img' : '');
 ?>
 
-<div class="<?= esc_attr($className); ?>">
-    <div class="<?= esc_attr($col1_classes); ?>">
-        <div class="inner">
-            <?php if (!empty($year)): ?>
-                <p class="year"><?= wp_kses_post($year); ?></p>
-            <?php endif; ?>
+<?php if (have_rows('timeline_event')): ?>
+<div class="<?= esc_attr($className) ?>">
 
-            <?php if ( (!empty($title)) || (!empty($image)) ): ?>
-            <div class="feat">
-            <?php endif; ?>
+    <?php while (have_rows('timeline_event')): the_row(); ?>
+    <div class="timeline__event-block">
 
-            <?php if (!empty($title)): ?>
-                <h3><?= wp_kses_post($title); ?></h3>
-            <?php endif; ?>
-
-            <?php if (!empty($image)): ?>
-                <?= wp_get_attachment_image($image, 'full'); ?>
-            <?php endif; ?>
-
-            <?php if ( (!empty($title)) || (!empty($image)) ): ?>
+        <?php if ($date = get_sub_field('date')): ?>
+        <div class="timeline__date">
+            <div class="inner">
+                <h2><?= esc_html($date) ?></h2>
+                <?php
+                $image = get_sub_field('featured_image');
+                $size = 'full';
+                if( $image ) {
+                    echo wp_get_attachment_image( $image, $size );
+                } ?>
             </div>
-            <?php endif; ?>
         </div>
-    </div>
+        <?php endif; ?>
 
-    <div class="col col-2">
-        <InnerBlocks />
+        <?php if (have_rows('events')): ?>
+        <div class="timeline__events">
+            <?php while (have_rows('events')): the_row(); ?>
+                <div class="event">
+                    <?php the_sub_field('event'); ?>
+                </div>
+            <?php endwhile; ?>
+        </div>
+        <?php endif; ?>
+
+        <span class="divider"></span>
+
     </div>
+    <?php endwhile; ?>
+
 </div>
+<?php endif; ?>

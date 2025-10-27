@@ -17,9 +17,8 @@
   display: block;
   margin: 0 0 3rem 0;
   padding: 2.5rem;
-  background: #fff;
-  border: 1px solid transparent;
-  border-radius: 14px;
+  background: rgba(180, 180, 158, 0.1);
+  border: 1px solid #E5EBEB;
 }
 .company-grid__company img {
   width: 100%;
@@ -27,19 +26,21 @@
   margin-bottom: 1.5rem;
 }
 .company-grid__company h2 {
+  font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--font-20);
-  font-weight: 500;
-  margin-bottom: 0.8ch;
-  color: #272928;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+  padding-top: 2ch;
+  color: #FF6139;
+  border-top: 1px solid #FF6139;
 }
 .company-grid__company p strong {
   display: block;
   font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--font-22);
+  font-size: var(--wp--preset--font-size--font-26);
   font-weight: 500;
-  letter-spacing: -0.05ch;
-  margin-bottom: 0.55ch;
-  color: #384332;
+  margin-bottom: 0.8ch;
 }
 .company-grid__company p strong + br {
   display: none;
@@ -47,16 +48,15 @@
 .company-grid__company p:last-child {
   margin-bottom: 0;
 }
+.company-grid__company p + p {
+  margin-top: 0 !important;
+}
 .company-grid a.company-grid__company {
-  transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s ease-in-out;
+  transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1), border 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .company-grid a.company-grid__company:hover, .company-grid a.company-grid__company:active, .company-grid a.company-grid__company:focus {
-  background: rgba(56, 67, 50, 0.1);
-  border: 1px solid rgba(56, 67, 50, 0.25);
-  transform: translateY(-6px);
-}
-.company-grid a.company-grid__company:hover p, .company-grid a.company-grid__company:active p, .company-grid a.company-grid__company:focus p {
-  color: #272928;
+  background: rgba(180, 180, 158, 0.2);
+  border: 1px solid #FF6139;
 }
 @media (min-width: 700px) {
   .company-grid {
@@ -67,6 +67,6 @@
   .company-grid__company {
     width: calc(50% - 2rem);
     margin: 0;
-    padding: 3.5rem;
+    padding: 3rem;
   }
 }

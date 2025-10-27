@@ -21,22 +21,43 @@
   width: 100%;
   overflow: hidden !important;
 }
-.lmn-iframe.hp-shareprice {
-  padding: var(--wp--preset--spacing--small);
-  background: #fff;
-}
-.lmn-iframe.bx-white {
-  padding: var(--wp--preset--spacing--normal);
-  background: #fff;
-  border: 1px solid rgba(56, 67, 50, 0.15);
-  border-radius: 14px;
-}
-.lmn-iframe.bx-beige {
-  padding: var(--wp--preset--spacing--normal);
-  background: #E5EBEB;
-  border: 1px solid rgba(56, 67, 50, 0.05);
-  border-radius: 14px;
-}
 .lmn-iframe.rns-news {
   min-height: 1070px;
+}
+.lmn-iframe.sp-circle {
+  width: 98%;
+  max-width: 340px;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid #FF6139;
+  border-radius: 100%;
+  opacity: 0;
+  position: relative;
+  z-index: 3;
+}
+.lmn-iframe.sp-circle:before {
+  content: "";
+  display: block;
+  background: #FF6139;
+  border-radius: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.lmn-iframe.sp-circle.in-view {
+  animation: fadeIn 1.25s forwards 0.35s;
+}
+.lmn-iframe.sp-circle.in-view:before {
+  animation: inset 1.75s forwards 0.15s;
+}
+.lmn-iframe.sp-circle iframe {
+  position: relative;
+  z-index: 5;
+}
+
+* + .lmn-iframe {
+  margin-top: var(--wp--preset--spacing--normal) !important;
 }

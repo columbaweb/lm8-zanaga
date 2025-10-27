@@ -90,11 +90,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		text-decoration: none;
-		padding: 1.8rem;
-
-		&:nth-child(odd) {
-			background: $white;
-			border-radius: 5px;
+		margin-bottom: 1.8rem;
+		padding-bottom: 1.8rem;
+		border-bottom: 1px solid $stone;
+		
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
 		}
 
 		span {
@@ -114,15 +117,11 @@
 
 			&.title {
 				font-family: $ff-title;
-				font-size: $font-22;
+				font-size: $font-19;
 				font-weight: 500;
 				letter-spacing: -.04ch;
     			line-height: 1.25;
-				color: $primary;
-				text-decoration: underline;
-				text-decoration-color: $secondary;
-				text-decoration-thickness: .085rem;
-				text-underline-position: under;
+				color: $pine;
 				cursor: pointer;
 				transition: color $speed $cb, text-decoration-color $speed $cb;
 
@@ -130,7 +129,6 @@
 				&:active
 				&:focus {
 					color: $secondary;
-					text-decoration-color: transparent;
 				}
 			}
 
@@ -151,7 +149,7 @@
 		}
 
 		@media (max-width: 799px) {
-			padding-left: 72px;
+			padding-left: 52px;
 			position: relative;
 
 			span {
@@ -159,6 +157,7 @@
 
 				&.date {
 					width: 100%;
+					color: $olive;
 				}
 
 				&.title {
@@ -168,19 +167,19 @@
 
 				&.icon {
 					position: absolute;
-					top: 18px;
-					left: 18px;
+					top: 0;
+					left: 0;
 				}
 
 				&.format,
 				&.size {
 					padding-right: 2ch;
+					color: $olive;
 				}
 			}
 		} // 781
 
 		@media (min-width: 800px) {
-			padding: 2rem;
 			align-items: center;
 			justify-content: space-between;
 			
@@ -192,23 +191,13 @@
 				}
 
 				&.title {
-					flex: 8;
+					flex: 6;
 					padding-right: 2ch;
+					padding-left: 2ch;
 				}
 			}
 		
 		} // 800
-
-		@media (min-width: 1100px) {
-			//padding: 1.2rem 2rem;
-
-			span {
-				&.title {
-					flex: 8;
-					padding-right: 5ch;
-				}
-			}
-		} // 1100
 
 	} // file
 
@@ -232,20 +221,10 @@
 		}
 
 		h4 {
-			font-size: $font-22;
-			margin: 0;
-			padding: 0 0 1ch 0;
-			//border-bottom: 1px solid $lagoon;
-		}
-
-		.file {
-			&:nth-child(even) {
-				background: $white;
-			}
-
-			&:nth-child(odd) {
-				background: transparent;
-			}
+			font-size: $font-26;
+			margin: 0 0 2ch 0;
+			padding: 0 0 .3ch 0;
+			border-bottom: 1px solid $sage;
 		}
 	}
 	
@@ -291,10 +270,6 @@
 					animation: fadeIn .45s forwards .15s!important;
 				}
 
-				// &.active {
-				// 	visibility: visible!important;
-				// 	display: block!important;
-				// }
 			}
 		}
 	}

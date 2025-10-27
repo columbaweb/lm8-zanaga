@@ -16,56 +16,57 @@
   padding: 0;
   opacity: 0;
 }
+.icon-list + .icon-list {
+  margin-top: 3rem;
+}
 .icon-list li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   min-height: 80px;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
+  padding: 0 0 0 70px;
   position: relative;
 }
-.icon-list li:last-child {
-  margin: 0;
+.icon-list li .list-content {
+  display: block;
+  width: 100%;
+  padding-bottom: 2.7rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #FF6139;
 }
 .icon-list li br {
   display: none;
 }
-.icon-list li strong {
-  display: block;
-  font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--font-22);
-  font-weight: 500;
-  letter-spacing: -0.05ch;
-  color: #384332;
+.icon-list li h3 {
+  font-size: var(--wp--preset--font-size--font-26);
+  font-weight: 600;
+  margin: 0 0 0.5ch 0;
+  color: #192815;
+}
+.icon-list li P:last-child {
+  margin-bottom: 0;
+}
+.icon-list li:last-child {
+  margin: 0;
+}
+.icon-list li:last-child .list-content {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
 }
 .icon-list:not(.is-style-ol) li {
-  padding: 24px 24px 24px 102px;
-  background: rgba(56, 67, 50, 0.1);
-  border-radius: 5px;
+  padding-left: 95px;
 }
 .icon-list:not(.is-style-ol) li img {
-  width: 54px;
+  width: 70px;
   height: auto;
   position: absolute;
-  top: 28px;
-  left: 24px;
+  top: 0;
+  left: 0;
 }
 .icon-list.is-style-ol {
   counter-reset: item;
-}
-.icon-list.is-style-ol li {
-  margin: 0;
-  padding: 15px 0 15px 65px;
-}
-.icon-list.is-style-ol li:before {
-  content: "";
-  display: block;
-  width: 4px;
-  background: rgba(56, 67, 50, 0.2);
-  position: absolute;
-  top: 0;
-  left: 21px;
-  bottom: 0;
 }
 .icon-list.is-style-ol li:after {
   counter-increment: item;
@@ -81,10 +82,10 @@
   font-weight: 500;
   line-height: 1;
   color: #fff;
-  background: linear-gradient(114deg, #CD136A -50%, #1A2A6C 165%);
+  background: #FF6139;
   border-radius: 100%;
   position: absolute;
-  top: 15px;
+  top: 0;
   left: 0;
 }
 .icon-list.is-style-ol li:first-child:before {
@@ -96,8 +97,9 @@
 .icon-list.is-style-ol li img {
   display: none;
 }
-h2 + .icon-list {
-  margin-top: 4rem;
+* + .icon-list,
+.icon-list + * {
+  margin-top: 4ch !important;
 }
 @media (min-width: 1024px) {
   .icon-list.sticky {

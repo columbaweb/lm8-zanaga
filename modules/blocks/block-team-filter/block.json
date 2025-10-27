@@ -1,6 +1,6 @@
 {
-  "name": "lmn/team-listing",
-  "title": "Team Listing",
+  "name": "lmn/team-filter",
+  "title": "Team Filter",
   "category": "luminate",
   "icon": {
 		"src": "admin-users",
@@ -10,6 +10,6 @@
   "keywords": ["team", "people"],
   "acf": {
     "mode": "auto",
-    "renderTemplate": "block-team-listing.php"
+    "renderTemplate": "block-team-filter.php"
   }
 }

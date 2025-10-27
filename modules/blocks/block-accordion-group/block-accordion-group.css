@@ -1,17 +1,113 @@
-/* Error: Undefined variable.
- *    ,
- * 17 |             border-bottom: $grid;
- *    |                            ^^^^^
- *    '
- *   modules/blocks/block-accordion-group/block-accordion-group.scss 17:28  root stylesheet */
+:root {
+  --sidebar-width: 31rem;
+  --layout-gap: 4rem;
+  --wp--style--block-gap: clamp(3.5rem, 2.737rem + 1.404vw, 4rem);
+}
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
+@media (min-width: 1300px) {
+  :root {
+    --sidebar-width: 34rem;
+    --layout-gap: 6rem;
+  }
+}
+.is-style-accordion-wrap .accordion:not(:first-child) {
+  margin-top: 0 !important;
+}
+.is-style-accordion-wrap .accordion__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  line-height: 1.25;
+  padding: 2ch 45px 2ch 0;
+  margin: 0;
+  border-bottom: 1px solid #BDC1C0;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.35s ease-in-out;
+}
+.is-style-accordion-wrap .accordion__title:after {
+  content: "";
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 17 \2502              border-bottom: $grid;\a    \2502                             ^^^^^\a    \2575 \a   modules/blocks/block-accordion-group/block-accordion-group.scss 17:28  root stylesheet";
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='51' fill='none'%3E%3Cpath stroke='%23FF6139' d='M25.262 50.2h.311c13.386-.168 24.189-11.072 24.189-24.495 0-9.687-5.624-18.062-13.787-22.037h-.001a23.611 23.611 0 0 0-1.957-.847 24.17 24.17 0 0 0-8.755-1.616c-2.955 0-5.782.53-8.407 1.489l-.521.197a24.526 24.526 0 0 0-8.393 5.496A24.395 24.395 0 0 0 .76 25.705c0 .588.03 1.172.071 1.756v.001c.046.662.11 1.315.209 1.957l.001.002c.098.657.233 1.306.387 1.956A24.504 24.504 0 0 0 9.312 44.29a24.376 24.376 0 0 0 15.95 5.912Z'/%3E%3Cpath fill='%23F5F5ED' d='M25.263 46.416a20.611 20.611 0 0 1-13.486-4.997 20.717 20.717 0 0 1-6.665-10.917 20.168 20.168 0 0 1-.327-1.656 20.063 20.063 0 0 1-.177-1.655c-.035-.49-.06-.985-.06-1.485 0-5.721 2.321-10.897 6.07-14.642a20.69 20.69 0 0 1 14.644-6.072c2.666 0 5.104.486 7.403 1.366.564.216 1.117.452 1.656.717 6.901 3.36 11.657 10.44 11.657 18.63 0 11.44-9.278 20.715-20.718 20.715l.003-.004Z'/%3E%3Cpath fill='%23FF6139' d='M25.138 33.824a1 1 0 0 0 1-1v-6.118h7.243a1 1 0 0 0 0-2h-7.243v-6.118a1 1 0 1 0-2 0v6.118h-6.993a1 1 0 0 0 0 2h6.993v6.118a1 1 0 0 0 1 1Z'/%3E%3C/svg%3E");
+  background-size: cover;
+  position: absolute;
+  top: calc(50% - 14px);
+  right: 0;
+  transition: transform 0.35s ease-in-out;
+}
+.is-style-accordion-wrap .accordion__title .title {
+  width: calc(100% - 90px);
+  margin: 0;
+}
+.is-style-accordion-wrap .accordion__title .title span {
+  display: block;
+}
+.is-style-accordion-wrap .accordion__title .title span.title-top {
+  font-family: var(--wp--preset--font-family--primary);
+  font-size: var(--wp--preset--font-size--font-16);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 0.4ch 0;
+  color: #FF6139;
+}
+.is-style-accordion-wrap .accordion__title .title span.title-bottom {
+  font-size: var(--wp--preset--font-size--font-22);
+  color: #000;
+}
+.is-style-accordion-wrap .accordion__title .icon {
+  width: 40px;
+  height: 40px;
+}
+.is-style-accordion-wrap .accordion__title .icon img {
+  height: auto;
+  max-width: 100%;
+}
+.is-style-accordion-wrap .accordion__title.active:after {
+  transform: rotate(45deg);
+}
+.is-style-accordion-wrap .accordion__panel {
+  display: none;
+  overflow: hidden;
+}
+.is-style-accordion-wrap .accordion__panel .panel-inner {
+  margin: var(--wp--preset--spacing--small) 0;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  background: rgba(245, 245, 237, 0.5);
+  border: 1px solid rgba(180, 180, 158, 0.35);
+}
+.is-style-accordion-wrap .accordion__panel ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0;
+}
+.is-style-accordion-wrap .accordion__panel ul li {
+  margin: 0;
+  padding: 2rem 0 2rem 5rem;
+  border-bottom: 1px solid #BDC1C0;
+  position: relative;
+}
+.is-style-accordion-wrap .accordion__panel ul li:last-child {
+  border-bottom: none;
+}
+.is-style-accordion-wrap .accordion__panel ul li:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='31' height='30' fill='none'%3E%3Cpath fill='%23F5007B' d='M28.919 8.513a15 15 0 1 1-3.36-4.548L29.354.17a.6.6 0 0 1 .847.847L15.825 15.393a.6.6 0 0 1-.848-.847l4.643-4.643a6.59 6.59 0 1 0 2.363 4.688.6.6 0 0 1 1.198-.07 7.787 7.787 0 1 1-2.71-5.467l4.244-4.243a13.778 13.778 0 0 0-19.048 19.9A13.778 13.778 0 0 0 27.83 9.03a.6.6 0 1 1 1.082-.516h.006Z'/%3E%3C/svg%3E");
+  background-size: cover;
+  position: absolute;
+  top: 2.25rem;
+  left: 0;
+}
+.is-style-accordion-wrap .accordion__panel ul li strong {
+  font-family: var(--wp--preset--font-family--secondary);
+  font-size: var(--wp--preset--font-size--font-20);
+  color: #fff;
+}
+.is-style-accordion-wrap .accordion.no-border .accordion__title {
+  border-bottom: none;
 }

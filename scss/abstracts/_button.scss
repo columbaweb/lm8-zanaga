@@ -60,6 +60,12 @@
             width: calc(100% - 6px);
         }
     }
+    
+    &[href$=".pdf"] {
+        &:after {
+            transform: rotate(90deg);
+        }
+    }
 }
 
 @mixin button-white {

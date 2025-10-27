@@ -3,8 +3,9 @@
 
 
 #sidebar {
-    padding-top: 3rem;
-    padding-bottom: 5rem;
+    margin: $space-m 0 $space-xl 0;
+    padding: 3.5rem;
+    background: $linen;
 
     ul {
         list-style: none;
@@ -12,58 +13,75 @@
         padding: 0;
 
         li {
-            margin: 0 0 .5rem 0;
+            margin: 0 0 2rem 0;
             padding: 0;
             position: relative;
 
             &.current_page_item {
                 a {
-                    gap: 1rem;
-                    color: $moss;
-                    background: rgba($moss, .1);
-
-                    &:after {
+                    font-weight: 600;
+                    color: $black;
+                    
+                    &:before {
                         opacity: 1;
+                        left: -20px;
                     }
                 }
             }
-        }
+            
+            &.menu-item-has-children  {
+                margin-bottom: 3.6rem;
+                
+                a {
+                    font-size: $font-20;
+                    font-weight: 700;
+                    line-height: 1.4;
+                    text-transform: uppercase;
+                    padding-top: 1.2ch;
+                    color: $secondary;
+                    border-top: 1px solid $secondary;
+                    transition: color $speed $ease;
+                    
+                    &:before {
+                        display: none;
+                    }
+                    
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        color: $black;
+                    }
+                }
+            }
+        } // li
 
         a {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0;
-            font-size: 1.7rem;
+            display: block;
+            font-size: 1.8rem;
             font-weight: 500;
             color: $primary;
-            padding: .9ch 1ch;
-            background: rgba($moss, .05);
-            border-radius: 3px;
             position: relative;
-            transition: color $speed $ease, gap $speed $ease, background $speed $ease;
-
-            &:after {
+            
+            &:before {
                 content: "";
                 display: block;
-                width: 16px;
-                height: 17px;
-                mask: url("data:image/svg+xml,%3Csvg width='15' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m7.338 15.445 7.108-6.969-7.108-7.03' stroke='%23CD136A' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.015 8.48H.912' stroke='%23CED0D3' stroke-linecap='round'/%3E%3C/svg%3E");
-                mask-size: cover;
+                width: 10px;
+                height: 10px;
                 background: $secondary;
+                border-radius: 100%;
                 opacity: 0;
-                transition: opacity $speed $cb;
+                position: absolute;
+                top: .8rem;
+                left: -16px;
+                transition: $speed $ease;
             }
-
+            
             &:hover,
             &:active,
             &:focus {
-                gap: 1rem;
-                color: $moss;
-                background: rgba($moss, .085);
-
-                &:after {
-                    opacity: 1;
+                &:before {
+                    opacity: .6;
+                    left: -20px;
                 }
             }
         }
@@ -120,21 +138,40 @@
     // } // post-navigation
 
     @media (min-width: 1024px) {
-        padding-top: 0;
-        border-top: none;
-
+        margin-top: 0;
+        padding: 0;
+        background: transparent;
+        
         .inner {
-            height: 100%;
-            padding: 0 3rem;
-            //border-left: $grid-dash;
-            //border-right: $grid-dash;
-
-            .widget-area {
-                &:nth-child(1) {
-                    position: sticky;
-                    top: 120px;
-                }
+            padding: 0 3rem $space-l 0;
+            position: relative;
+            
+            &:before {
+                content: "";
+                width: 50vw;
+                display: block;
+                background: $linen;
+                position: absolute;
+                top: calc($space-l * -1);
+                right: 0;
+                bottom: 0;
             }
         }
+        // padding-top: 0;
+        // border-top: none;
+// 
+        // .inner {
+        //     height: 100%;
+        //     padding: 0 3rem;
+        //     //border-left: $grid-dash;
+        //     //border-right: $grid-dash;
+// 
+        //     .widget-area {
+        //         &:nth-child(1) {
+        //             position: sticky;
+        //             top: 120px;
+        //         }
+        //     }
+        // }
     }
 }

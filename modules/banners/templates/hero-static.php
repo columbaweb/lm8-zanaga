@@ -108,7 +108,7 @@ if (is_front_page()) {
     echo '<div class="has-global-padding">';
     echo '<div class="wrap">';
     
-    echo '<div class="content-inner">';
+    echo '<div class="content-inner zoom-out">';
         if ($title) {
             echo '<h2 class="hero-image__title">' . wp_kses_post($title) . '</h2>';
         }
@@ -132,7 +132,7 @@ if (is_front_page()) {
     echo '</div>';
     
     if ($iframe) {
-        echo '<div class="content-iframe"><div class="inner">' . $iframe . '</div></div>';
+        echo '<div class="content-iframe"><div class="lmn-iframe"><div class="inner"><iframe src="' . $iframe . '" title="Zanaga Iron Ore share price tool"></iframe></div></div></div>';
     }
     
     echo '<svg id="scrolldown" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 62 62" fill="none"><path class="outline" stroke="#FF6139" d="M60.667 31v.378C60.462 47.59 47.257 60.672 31 60.672c-11.73 0-21.874-6.81-26.687-16.697h-.001a28.606 28.606 0 0 1-1.025-2.372 29.276 29.276 0 0 1-1.958-10.604c0-3.816.732-7.458 2.043-10.812v.001a29.706 29.706 0 0 1 6.655-10.165v-.001C15.394 4.65 22.806 1.328 31 1.328c.713 0 1.42.034 2.127.085h.001c.8.055 1.592.135 2.37.254h.003c.796.118 1.582.283 2.37.468a29.668 29.668 0 0 1 15.257 9.113l.38.434A29.523 29.523 0 0 1 60.668 31Z"/><path fill="#FF6139" d="M55.996 31c0-6.218-2.271-11.902-6.032-16.276A25.004 25.004 0 0 0 36.788 6.68a24.356 24.356 0 0 0-1.998-.395c-.659-.1-1.326-.167-1.998-.214A25.273 25.273 0 0 0 31 6c-6.905 0-13.15 2.8-17.671 7.326A24.97 24.97 0 0 0 6 31c0 3.216.588 6.159 1.65 8.934.26.68.545 1.347.864 1.998C12.57 50.262 21.115 56 31 56c13.805 0 25-11.197 25-25.004l-.004.004Z"/><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M25.824 36.912 30.854 42 36 36.912"/><path stroke="#fff" stroke-linecap="round" stroke-width="2" d="M30.912 41V21"/></svg>';

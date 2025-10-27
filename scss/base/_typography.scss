@@ -13,14 +13,14 @@ a {
 		text-decoration-color: $primary;
 		text-decoration-thickness: .085rem;
 		text-underline-position: under;
-		color: $moss;
+		color: $brick;
 		cursor: pointer;
 		transition: color $speed $cb, text-decoration-color $speed $cb;
 
 		&:hover,
 		&:active
 		&:focus {
-			//color: $white;
+			color: $black;
 			text-decoration-color: $secondary;
 		}
 	}
@@ -61,14 +61,27 @@ h2, h3, h4, h5, h6 {
 	}
 }
 
+#content {
+	.has-olive-background-color,
+	.has-pine-background-color,
+	.has-black-background-color,
+	.has-primary-background-color,
+	.has-moss-background-color,
+	.has-brick-background-color {
+		p, li, cite {
+			color: $white;
+		}
+		
+		a:where(:not(.company-grid__company):not(.page-numbers):not(.btn-sm):not(.cal-link):not(.tabs-button):not(.link-grid__link):not(.company):not(.wp-element-button):not(.btn):not(.file):not(.doc):not(.post-excerpt):not(.li):not(.back):not(.excerpt):not(.client):not(.link-cta):not(.aim__btn)) {
+			text-decoration-color: $sage;
+			color: $linen;
 
-.has-olive-background-color,
-.has-pine-background-color,
-.has-black-background-color,
-.has-primary-background-color,
-.has-moss-background-color,
-.has-brick-background-color {
-	p, li, cite {
-		color: $white;
+			&:hover,
+			&:active
+			&:focus {
+				color: $white;
+				text-decoration-color: $secondary;
+			}
+		}
 	}
 }
