@@ -27,6 +27,12 @@
     + p {
         margin-top: 2.5ch!important;
     }
+	
+	@media (max-width: 781px) {
+		&.is-content-justification-right {
+			justify-content: flex-start!important;
+		}
+	}
 }
 
 

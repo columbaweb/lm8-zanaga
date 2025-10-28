@@ -91,3 +91,8 @@
 .wp-block-buttons + p {
   margin-top: 2.5ch !important;
 }
+@media (max-width: 781px) {
+  .wp-block-buttons.is-content-justification-right {
+    justify-content: flex-start !important;
+  }
+}

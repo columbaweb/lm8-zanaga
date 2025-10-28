@@ -66,6 +66,7 @@
 		right: 30px;
 		cursor: pointer;
 		z-index: 9999999;
+		transition: right $speed $ease;
 	
 		.bar {
 			display: block;

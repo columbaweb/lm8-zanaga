@@ -26,4 +26,10 @@
         padding-top: 1.2rem;
         border-top: 1px solid $secondary;
     } // is-style-top-border
+    
+    @media (min-width: 782px) and (max-width: 1023px) {
+        &.font-lg-md {
+            font-size: 3.8rem!important;
+        }
+    }
 }

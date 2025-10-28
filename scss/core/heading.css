@@ -30,3 +30,8 @@
   padding-top: 1.2rem;
   border-top: 1px solid #FF6139;
 }
+@media (min-width: 782px) and (max-width: 1023px) {
+  .wp-block-heading.font-lg-md {
+    font-size: 3.8rem !important;
+  }
+}

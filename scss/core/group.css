@@ -120,6 +120,11 @@
   color: #fff;
 }
 @media (max-width: 781px) {
+  .wp-block-group.is-style-pine-green:before, .wp-block-group.is-style-pine-green:after {
+    height: 30%;
+  }
+}
+@media (max-width: 781px) {
   .wp-block-group.is-style-sage-linen {
     background: linear-gradient(to bottom, #F5F5ED 0%, rgb(249.5535714286, 249.5535714286, 245.1964285714) 100%);
   }

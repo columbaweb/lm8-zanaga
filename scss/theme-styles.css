@@ -600,6 +600,9 @@ html.menu-opened body {
   .hide-sm {
     display: none !important;
   }
+  .mt-n-sm {
+    margin-top: var(--wp--preset--spacing--normal) !important;
+  }
 }
 a {
   text-decoration: none;
@@ -903,6 +906,7 @@ header #sitenav .menu a {
     right: 30px;
     cursor: pointer;
     z-index: 9999999;
+    transition: right 0.35s ease-in-out;
   }
   #nav-expander .bar {
     display: block;
@@ -956,12 +960,12 @@ header #sitenav .menu a {
     display: block;
     width: 100vw;
     height: 100vh;
-    padding: 60px 6vw 30px 6vw;
+    padding: 75px var(--wp--preset--spacing--contentgap) 30px var(--wp--preset--spacing--contentgap);
     background: radial-gradient(circle at 0% 0%, #272928, transparent 75%), #384332;
     position: fixed;
-    top: 0;
+    top: -2rem;
     bottom: 0;
-    left: 0;
+    left: calc(var(--wp--preset--spacing--contentgap) * -1);
     right: 0;
     visibility: hidden;
     opacity: 0;
@@ -974,7 +978,6 @@ header #sitenav .menu a {
   }
   header #sitenav .menu li {
     margin: 0;
-    background: transparent !important;
   }
   header #sitenav .menu li.current-menu-item a, header #sitenav .menu li.current-menu-parent a {
     font-weight: 500;
@@ -984,7 +987,16 @@ header #sitenav .menu a {
     display: none;
   }
   header #sitenav .menu > li {
-    padding: 0.7ch 0;
+    margin-bottom: 10px;
+    padding: 0.9ch 1ch;
+    background: rgba(56, 67, 50, 0.55);
+    border-radius: 2px;
+  }
+  header #sitenav .menu > li > a {
+    transition: padding 0.35s ease-in-out;
+  }
+  header #sitenav .menu > li > a:hover {
+    padding-left: 0.5ch;
   }
   header #sitenav .menu > li.menu-item-has-children {
     display: flex;
@@ -997,27 +1009,33 @@ header #sitenav .menu a {
   header #sitenav .menu > li.menu-item-has-children > .child-menu {
     width: 100%;
     max-height: 0;
+    margin-top: 0;
+    border-left: 1px solid #FF6139;
     z-index: -1;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
   header #sitenav .menu > li.menu-item-has-children > .child-menu .mm-featured-image,
   header #sitenav .menu > li.menu-item-has-children > .child-menu .mm-description {
     display: none;
   }
   header #sitenav .menu > li.menu-item-has-children > .child-menu li {
-    margin: 0.7ch 0;
+    margin: 0.5ch 0;
   }
   header #sitenav .menu > li.menu-item-has-children > .child-menu li.current-menu-item a {
     font-weight: 500;
-    color: white;
+    color: #FF6139;
   }
   header #sitenav .menu > li.menu-item-has-children > .child-menu li a {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     font-weight: 400;
-    padding-left: 1.5ch;
-    color: #E5EBEB;
+    padding-left: 1.2ch;
+    color: #fff;
+    transition: padding 0.35s ease-in-out;
+  }
+  header #sitenav .menu > li.menu-item-has-children > .child-menu li a:hover {
+    padding-left: 1.6ch;
   }
   header #sitenav .menu > li.menu-item-has-children > .sub-toggle {
     display: block;
@@ -1037,12 +1055,20 @@ header #sitenav .menu a {
     z-index: 1;
     opacity: 1;
     visibility: visible;
+    margin-top: 0.7ch;
   }
   header.menu-open .branding {
     z-index: 9;
   }
   header.menu-open .branding path {
     fill: #fff;
+  }
+  header.menu-open .inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  header.menu-open #nav-expander {
+    right: 0;
   }
   header.menu-open > .wrap:before {
     content: "";
@@ -1056,7 +1082,7 @@ header #sitenav .menu a {
     right: -15px;
   }
   header.menu-open #sitenav {
-    padding-top: 70px;
+    padding-top: 90px;
     visibility: visible;
     opacity: 1;
     pointer-events: all;
@@ -1933,18 +1959,18 @@ body.interim-login h1 a {
 .login-action-lostpassword #login,
 .login-action-rp #login,
 .login-action-checkemail #login {
-  padding: 25px;
-  background: #E5EBEB;
-  border-radius: 3px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 .login-action-login #login h1 a,
 .login-action-lostpassword #login h1 a,
 .login-action-rp #login h1 a,
 .login-action-checkemail #login h1 a {
-  width: 200px;
-  height: 55px;
-  margin-bottom: 15px;
+  width: 320px;
+  height: 45px;
+  margin-bottom: 45px;
   padding-bottom: 0;
   background-size: contain;
 }
@@ -1965,7 +1991,7 @@ body.interim-login h1 a {
 .login-action-checkemail form label {
   text-transform: none;
   padding-bottom: 3px;
-  color: #272928;
+  color: #fff;
 }
 .login-action-login form input,
 .login-action-lostpassword form input,
@@ -2009,9 +2035,11 @@ body.interim-login h1 a {
   cursor: pointer;
   position: relative;
   transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
   font-size: var(--wp--preset--font-size--font-16);
   text-transform: uppercase;
   background: transparent;
+  transition: 0.35s ease-in-out;
 }
 .login-action-login form input.button strong,
 .login-action-lostpassword form input.button strong,
@@ -2095,6 +2123,7 @@ body.interim-login h1 a {
 .login-action-checkemail form input.button:hover,
 .login-action-checkemail form input.button:active,
 .login-action-checkemail form input.button:focus {
+  background: #FF6139;
   border-color: #FF6139;
 }
 .login-action-login form .dashicons,
@@ -2133,7 +2162,8 @@ body.interim-login h1 a {
 .login-action-lostpassword #nav a,
 .login-action-rp #nav a,
 .login-action-checkemail #nav a {
-  color: #272928;
+  color: #fff;
+  transition: color 0.35s ease-in-out;
 }
 .login-action-login #nav a:hover, .login-action-login #nav a:active, .login-action-login #nav a:focus,
 .login-action-lostpassword #nav a:hover,
@@ -2145,8 +2175,7 @@ body.interim-login h1 a {
 .login-action-checkemail #nav a:hover,
 .login-action-checkemail #nav a:active,
 .login-action-checkemail #nav a:focus {
-  color: #384332;
-  text-decoration: underline;
+  color: #FF6139;
 }
 .login-action-login .privacy-policy-page-link,
 .login-action-login .language-switcher,
@@ -2369,6 +2398,11 @@ body.interim-login h1 a {
 }
 .hero-static:not(.home) .hero-static__image img {
   max-height: 58rem;
+}
+@media (max-width: 782px) {
+  .hero-static:not(.home) .hero-static__image img {
+    height: 300px;
+  }
 }
 .hero-static:not(.home) h1 {
   font-size: var(--wp--preset--font-size--font-60);

@@ -27,7 +27,7 @@ function lmn_login_logo() { ?>
         body.login.login-action-login div#login h1 a,
         body.login.login-action-lostpassword div#login h1 a,
         body.login-action-checkemail div#login h1 a {
-            <?php $login_logo = get_stylesheet_directory_uri() . '/assets/images/theme/logo.svg'; ?>
+            <?php $login_logo = get_stylesheet_directory_uri() . '/assets/images/theme/login-logo.svg'; ?>
             background-image: url('<?= esc_url($login_logo); ?>');
         }
     </style>

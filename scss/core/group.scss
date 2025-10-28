@@ -143,6 +143,13 @@
         h2 {
             color: $white;
         }
+        
+        @media (max-width: 781px) {
+            &:before,
+            &:after {
+                height: 30%;
+            }
+        } 
     } // pine to green
     
     

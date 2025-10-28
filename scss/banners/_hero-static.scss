@@ -194,6 +194,10 @@
 		.hero-static__image {
 			img {
 				max-height: 58rem;
+				
+				@media (max-width: 782px) {
+					height: 300px;
+				}
 			}
 		}
 		

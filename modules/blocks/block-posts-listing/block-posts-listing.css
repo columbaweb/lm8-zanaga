@@ -84,6 +84,39 @@
     marign-left: auto;
   }
 }
+@media (max-width: 599px) {
+  .posts-filter .category-buttons {
+    min-height: 34px;
+    gap: 0.2rem;
+  }
+  .posts-filter .category-buttons .cat-btn {
+    min-height: 24px;
+    line-height: 1;
+    padding: 0 10px 0 35px;
+  }
+  .posts-filter .category-buttons .cat-btn:before, .posts-filter .category-buttons .cat-btn:after {
+    width: 24px;
+    height: 24px;
+  }
+  .posts-filter .category-buttons .cat-btn:after {
+    mask-size: 12px;
+  }
+  .posts-filter .category-buttons .cat-btn span {
+    font-size: 1.5rem;
+    white-space: pre;
+  }
+}
+@media (max-width: 399px) {
+  .posts-filter .category-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    background: transparent;
+    border-radius: 0;
+  }
+  .posts-filter .category-buttons .cat-btn {
+    min-height: 34px;
+  }
+}
 .posts-filter .posts-listing {
   transition: opacity 200ms ease;
   opacity: 1;

@@ -23,17 +23,17 @@ body.interim-login {
 
 
 	#login {
-		padding: 25px;
-		background: $cloud;
-		border-radius: 3px;
-		box-shadow: 0 5px 5px 0 rgba(0,0,0, .15);
+		padding: 0;
+		background: transparent;
+		border-radius: 0;
+		box-shadow: none;
 
 		h1 {
 
 			a {
-				width: 200px;
-				height: 55px;
-				margin-bottom: 15px;
+				width: 320px;
+				height: 45px;
+				margin-bottom: 45px;
 				padding-bottom: 0;
 				background-size: contain;
 			} // a
@@ -53,7 +53,7 @@ body.interim-login {
 		label {
             text-transform: none;
 			padding-bottom: 3px;
-			color: $primary;
+			color: #fff;
 		} // label
 
 		input {
@@ -72,13 +72,16 @@ body.interim-login {
                 display: inline-flex;
                 max-width: 100px;
 				@include button-base;
+				color: #fff;
 				font-size: $font-16;
 				text-transform: uppercase;
 				background: transparent;
+				transition: $speed $ease;
 				
 				&:hover,
 				&:active,
 				&:focus {
+					background: $secondary;
 					border-color: $secondary;
 				}
 			} // button
@@ -107,13 +110,13 @@ body.interim-login {
 		margin-top: 20px;
 
 		a {
-			color: $primary;
+			color: #fff;
+			transition: color $speed $ease;
 
 			&:hover,
 			&:active,
 			&:focus {
-				color: $moss;
-				text-decoration: underline;
+				color: $secondary;
 			}
 		}
 	}
