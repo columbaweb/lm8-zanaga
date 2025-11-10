@@ -346,3 +346,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener('message', onMessage, false);
 })();
+
+// table tweaks
+document.addEventListener("DOMContentLoaded", function () {
+  const strategyTables = document.querySelectorAll('.wp-block-table.strategy table thead');
+
+  strategyTables.forEach(thead => {
+    const firstRow = thead.querySelector('tr');
+    const ths = firstRow.querySelectorAll('th');
+
+    if (ths.length >= 3) {
+      ths[1].colSpan = 2;
+      ths[2].remove();
+    }
+  });
+});

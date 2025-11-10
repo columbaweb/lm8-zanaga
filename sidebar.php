@@ -56,16 +56,49 @@ if ($post->post_parent && get_field('apply_to_child_pages', $parent)) {
         
         <?php elseif (is_singular('post')): ?>
             
-            <div class="widget-area b2blog">
-                <h5>Read more articles</h5>
-                <a class="btn" href="<?= esc_url(home_url('/media/')); ?>">Go to media</a>
-            </div>
+            <p class="meta post-cat">
+                <?php 
+                    // Get category names
+                    $categories = get_the_category();
+                    $category_names = array();
+            
+                    if ($categories) {
+                        foreach ($categories as $category) {
+                            $category_names[] = esc_html($category->cat_name);
+                        }
+                    }
+            
+                    // Calculate read time if no external link
+                    if (empty($external_link)) {
+                        $content = get_post_field('post_content', get_the_ID());
+                        $word_count = str_word_count(strip_tags($content));
+                        $minutes = ceil($word_count / 200);
+                        $read_time = $minutes . ' min read';
+                    }
+            
+                    // Combine into one line
+                    $output = implode(', ', $category_names);
+                    if (!empty($read_time)) {
+                        $output .= ' &middot; ' . esc_html($read_time);
+                    }
+            
+                    echo $output;
+                ?>
+            </p>
+            
+            <p class="meta post-date">
+                <span class="date"><?= esc_html(get_the_time('d F Y')); ?></span>
+            </p>
 
             <div class="widget-area">
                 <?php the_post_navigation([
                     'prev_text' => __('<span>Previous</span> <strong>%title</strong>', 'ir'),
                     'next_text' => __('<span>Next</span> <strong>%title</strong>', 'ir'),
                 ]); ?>
+            </div>
+            
+            <div class="widget-area b2blog">
+                <a class="btn" href="<?= esc_url(home_url('/media/')); ?>"><strong>Back to media</strong></a>
             </div>
 
         <?php endif; ?>

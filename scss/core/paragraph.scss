@@ -95,7 +95,9 @@ p {
 	@media (min-width: 1024px) {
 		&.maxwidth,
 		&.is-style-maxwidth {
-			padding-right: 35%;
+			//padding-right: 35%;
+			width: 90%;
+			max-width: 75rem;
 		}
 	}
 

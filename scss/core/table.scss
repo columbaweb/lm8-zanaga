@@ -83,6 +83,38 @@
 			}
 		}
 	}
+	
+	&.strategy {
+		thead {
+
+			th {
+				width: 20%;
+				
+				&:nth-child(2) {
+					background: $cloud;
+				}
+			}
+			
+			tr {
+				&:nth-child(2) {
+					th {
+						&:nth-child(3) {
+							background: $cloud;
+						}
+					}
+				}
+			}
+		}
+		
+		tbody {
+			td {
+				&:nth-child(2),
+				&:nth-child(3) {
+					background: $cloud;
+				}
+			}
+		}
+	}
 }
 
 h2, h3, h4, h5, h6, p, ul, ol {
@@ -112,6 +144,12 @@ table {
 			padding: .8rem 2rem!important;
 			color: $brick;
 			border: none!important;
+		}
+		
+		tr {
+			+ tr {
+				border-top: 1px solid rgba($moss, .15);
+			}
 		}
     }
 

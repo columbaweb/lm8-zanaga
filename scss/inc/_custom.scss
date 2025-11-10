@@ -1,0 +1,14 @@
+@use "../abstracts/vars" as *;
+
+.wp-block-wpdatatables-wpdatacharts-gutenberg-block {
+	margin-bottom: $space-n;
+	padding: 2rem;
+	background: $linen;
+	
+	* + & {
+		margin-top: $space-n;
+	}
+}
+
+
+

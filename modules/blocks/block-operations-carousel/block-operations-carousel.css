@@ -77,6 +77,9 @@
 .operations-carousel .btn:hover:before, .operations-carousel .btn:active:before, .operations-carousel .btn:focus:before {
   width: calc(100% - 6px);
 }
+.operations-carousel .btn[href$=".pdf"]:after {
+  transform: rotate(90deg);
+}
 .operations-carousel .slide-content .col-1 {
   padding-top: var(--wp--preset--spacing--m);
 }

@@ -1,5 +1,5 @@
 @use "../abstracts/vars" as *;
-@use "../abstracts/mixins" as *;
+@use "../abstracts/button" as *;
 
 // post excerpt
 .excerpt {
@@ -37,7 +37,7 @@
         
         .btn {
             position: absolute;
-            bottom: 0;
+            top: 55px;
             right: 0;
             
             path {
@@ -48,6 +48,16 @@
             
         }
     } // body
+    
+    &[target="_self"] {
+        
+        
+        .excerpt__body {
+            .btn {
+                transform: rotate(30deg);        
+            }
+        }
+    }
 
     &:hover,
     &:active,
@@ -69,15 +79,14 @@
 
 
 
-// // single post
-// .single {
-//     #content {
-//         .btn {
-//             @include button;
-//             margin-top: 3ch;
-//         }
-//     }
-// }
+// single post
+.single {
+    
+    .btn {
+        @include button-base;
+        margin-top: 3rem;
+    }
+}
 
 // // post : pagination
 // .pagination {

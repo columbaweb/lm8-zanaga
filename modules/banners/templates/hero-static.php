@@ -60,28 +60,18 @@ if ($banner_title && !is_front_page()) {
         echo '<p class="hero-image__subtitle">' . wp_kses_post($subtitle) . '</p>';
     }
 
-    if (is_singular('post')) {
-        if (empty($external_link)) {
-            $content = get_post_field('post_content', get_the_ID());
-            $word_count = str_word_count(strip_tags($content));
-            $minutes = ceil($word_count / 200);
-            $read_time = $minutes . ' min read';
-        }
-
-        echo '<p class="hero-image__subtitle">' 
-            . esc_html(get_the_time('j F Y')) 
-            . ($read_time ? ' <span class="read-time">' . esc_html($read_time) . '</span>' : '') 
-            . '</p>';
+    //if (is_singular('post')) {
+       
     
-        $tags = get_the_tags();
-        if ($tags) {
-            echo '<ul class="post-tags">';
-            foreach ($tags as $tag) {
-                echo '<li class="post-tag">' . esc_html($tag->name) . '</li>';
-            }
-            echo '</ul>';
-        }
-    }
+        // $tags = get_the_tags();
+        // if ($tags) {
+        //     echo '<ul class="post-tags">';
+        //     foreach ($tags as $tag) {
+        //         echo '<li class="post-tag">' . esc_html($tag->name) . '</li>';
+        //     }
+        //     echo '</ul>';
+        // }
+    //}
 
     if( $buttons ) {
         echo '<ul class="hero__buttons">';

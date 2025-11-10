@@ -91,7 +91,8 @@ p.is-style-location:before {
 }
 @media (min-width: 1024px) {
   p.maxwidth, p.is-style-maxwidth {
-    padding-right: 35%;
+    width: 90%;
+    max-width: 75rem;
   }
 }
 p + h2,

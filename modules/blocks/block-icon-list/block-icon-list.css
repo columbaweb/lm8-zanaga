@@ -19,6 +19,10 @@
 .icon-list + .icon-list {
   margin-top: 3rem;
 }
+.icon-list.box {
+  padding: 2.5ch;
+  background: #F5F5ED;
+}
 .icon-list li {
   display: flex;
   flex-wrap: wrap;
@@ -46,6 +50,9 @@
 }
 .icon-list li P:last-child {
   margin-bottom: 0;
+}
+.icon-list li P + p {
+  margin-top: -0.8ch !important;
 }
 .icon-list li:last-child {
   margin: 0;

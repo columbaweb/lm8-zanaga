@@ -89,6 +89,18 @@
     border-radius: 10px;
   }
 }
+.wp-block-table.strategy thead th {
+  width: 20%;
+}
+.wp-block-table.strategy thead th:nth-child(2) {
+  background: #E5EBEB;
+}
+.wp-block-table.strategy thead tr:nth-child(2) th:nth-child(3) {
+  background: #E5EBEB;
+}
+.wp-block-table.strategy tbody td:nth-child(2), .wp-block-table.strategy tbody td:nth-child(3) {
+  background: #E5EBEB;
+}
 
 h2 + .wp-block-table, h3 + .wp-block-table, h4 + .wp-block-table, h5 + .wp-block-table, h6 + .wp-block-table, p + .wp-block-table, ul + .wp-block-table, ol + .wp-block-table {
   margin-top: 2.5ch;
@@ -114,6 +126,9 @@ table thead th {
   padding: 0.8rem 2rem !important;
   color: #60291B;
   border: none !important;
+}
+table thead tr + tr {
+  border-top: 1px solid rgba(56, 67, 50, 0.15);
 }
 table td {
   padding: 1rem 2rem !important;

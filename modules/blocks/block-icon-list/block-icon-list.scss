@@ -9,6 +9,11 @@
     + .icon-list {
         margin-top: 3rem;
     }
+    
+    &.box {
+        padding: 2.5ch;
+        background: $linen;
+    }
 
     li {
         display: flex;
@@ -41,6 +46,10 @@
         P {
             &:last-child {
                 margin-bottom: 0;
+            }
+            
+            + p {
+                margin-top: -.8ch!important;
             }
         }
         
