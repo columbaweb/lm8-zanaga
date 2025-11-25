@@ -2609,224 +2609,456 @@ body.interim-login h1 a {
   animation: fadeIn 0.75s ease-out forwards 0.65s;
 }
 
+.hero-video {
+  position: relative;
+}
 .hero-video__feat {
   position: relative;
+  width: 100%;
+  opacity: 0;
+  animation: zoomOut 1.25s forwards 0.25s;
 }
 .hero-video__image {
-  line-height: 0;
   position: relative;
+  line-height: 0;
   overflow: hidden;
 }
-.hero-video__image .video-player,
-.hero-video__image .native-player {
+.hero-video__image:after {
+  content: "";
+  background: rgba(0, 0, 0, 0.35);
   position: absolute;
   inset: 0;
-  border: none;
-  object-fit: cover;
-  pointer-events: none;
+  z-index: 2;
 }
-.hero-video__image img {
+.hero-video__image .banner-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1/0.85;
-  line-height: 0;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
-@media (min-width: 450px) {
-  .hero-video__image img {
-    aspect-ratio: 1/0.55;
-  }
+.hero-video__image .video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  border: none;
+  pointer-events: none;
 }
-.hero-video h2 {
-  font-size: var(--wp--preset--font-size--font-64);
-  font-weight: 400;
-  line-height: 1.15;
-  margin: 0 0 0.6ch 0;
+.hero-video__content {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
 }
-.hero-video p {
-  font-size: var(--wp--preset--font-size--font-22);
-  line-height: 1.45;
+.hero-video__content > div {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-video__content h1, .hero-video__content h2 {
+  font-size: var(--wp--preset--font-size--font-60);
+  font-weight: 500;
   margin: 0;
-  color: #272928;
+  color: #fff;
+  opacity: 0;
+  animation: fadeIn 0.75s ease-out forwards 0.65s;
 }
-@media (max-width: 1023px) {
-  .hero-video__iframe {
-    max-width: 80%;
-    padding-top: 1.7rem;
-    padding-bottom: 1.4rem;
-    background: rgba(229, 235, 235, 0.9);
-    border-top-left-radius: 8px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 5;
-  }
-  .hero-video__iframe iframe {
-    width: 240px;
-    height: 139px;
-  }
-  .hero-video__content {
-    padding-top: var(--wp--preset--spacing--normal);
-  }
-  .hero-video #scrolldown,
-  .hero-video .hero-mask,
-  .hero-video .hero-bg {
-    display: none;
-  }
+.hero-video__content p {
+  font-size: var(--wp--preset--font-size--font-26);
+  color: #fff;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 0.75s ease-out forwards 0.85s;
 }
-@media (max-width: 699px) {
-  .hero-video__iframe iframe {
-    width: 170px;
-    height: 93px;
-  }
+.hero-video__content .wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  position: relative;
 }
-@media (min-width: 1024px) {
-  .hero-video {
-    padding-left: var(--wp--preset--spacing--contentgap);
-    padding-right: var(--wp--preset--spacing--contentgap);
-  }
-  .hero-video .has-global-padding {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .hero-video .inner {
-    max-width: var(--wp--style--global--content-size);
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-  }
-  .hero-video .hero-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-  }
-  .hero-video .video-clip {
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    clip-path: url(#heroClip);
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
-  .hero-video .video-clip .banner-image,
-  .hero-video .video-clip .video-player {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero-video.home .hero-video__image {
+  height: 100vh;
+  min-height: 400px;
+  max-height: 920px;
+}
+.hero-video.home .hero-video__content > .wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bordeR: 1px solid red;
+}
+.hero-video.home .hero-video__content h2 {
+  font-size: var(--wp--preset--font-size--font-80);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+}
+.hero-video.home .hero-video__content h2 + p {
+  margin-top: var(--wp--preset--spacing--small);
+}
+.hero-video.home .hero-video__content p {
+  text-align: center;
+}
+.hero-video.home .hero-video__content .content-inner {
+  width: 95%;
+  max-width: 70rem;
+  text-align: center;
+}
+.hero-video.home .hero-video__iframe {
+  width: 98%;
+  max-width: 340px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 6;
+}
+.hero-video.home .hero-video__iframe .content-iframe {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+.hero-video.home .hero-video__iframe .content-iframe .lmn-iframe {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px solid #FF6139;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1.25s forwards 0.65s;
+}
+.hero-video.home .hero-video__iframe .content-iframe .lmn-iframe:before {
+  content: "";
+  border-radius: 50%;
+  background: #FF6139;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  animation: inset 1.75s forwards 0.55s;
+}
+.hero-video.home .hero-video__iframe .content-iframe .inner {
+  position: relative;
+  z-index: 3;
+  margin-top: -10px;
+}
+.hero-video.home #scrolldown {
+  display: none;
+}
+@media (min-width: 782px) {
+  .hero-video.home #scrolldown {
     display: block;
-  }
-  .hero-video__content {
+    width: 62px;
+    height: 62px;
     position: absolute;
-    inset: 0;
-  }
-}
-@media (min-width: 1024px) and (max-width: 1249px) {
-  .hero-video__content > div {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: var(--wp--preset--spacing--normal);
-  }
-  .hero-video__content > div h2 {
-    width: 40%;
-    font-size: 5.8rem;
-    padding-right: 5%;
-  }
-  .hero-video__content > div p {
-    width: 60%;
-    font-size: 2rem;
-    padding: 2.8rem 3% 0 2%;
-    color: #fff;
-  }
-}
-@media (min-width: 1024px) {
-  .hero-video__feat {
-    width: 100%;
-    aspect-ratio: 1097/751;
-    overflow: hidden;
-    position: relative;
-  }
-  .hero-video__image {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .hero-video__image img {
-    height: 100%;
-    aspect-ratio: unset;
-  }
-  .hero-video__image .hero-bg {
-    position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .hero-video__iframe {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  .hero-video__iframe iframe {
-    width: 240px;
-    height: 139px;
-  }
-  .hero-video #scrolldown {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    cursor: pointer;
+    bottom: 6rem;
     animation: bounce 2.25s cubic-bezier(0.25, 0.1, 0.25, 1) 5s infinite;
   }
-  .hero-video #scrolldown circle {
+  .hero-video.home #scrolldown .outline {
     transition: stroke 0.35s ease-in-out;
   }
-}
-@media (min-width: 1024px) and (max-width: 1249px) {
-  .hero-video #scrolldown path {
-    fill: #fff;
+  .hero-video.home #scrolldown:hover .outline {
+    stroke: #fff;
+    cursor: pointer;
   }
 }
-@media (min-width: 1024px) {
-  .hero-video #scrolldown:hover circle {
-    stroke: #384332;
-  }
+.hero-video:not(.home) .hero-video__image {
+  opacity: 0;
+  animation: fadeIn 0.75s ease-out forwards 0.35s;
 }
-@media (min-width: 1250px) {
-  .hero-video .inner {
-    padding-left: 220px;
-  }
-  .hero-video #scrolldown {
-    bottom: 20px;
-    left: 0;
-  }
-  .hero-video__content {
-    padding-top: var(--wp--preset--spacing--normal);
-  }
-  .hero-video h2 {
-    font-size: 6.4rem;
-  }
-  .hero-video p {
-    width: 34%;
-  }
+.hero-video:not(.home) .hero-video__image .banner-image {
+  height: 100vh;
+  min-height: 400px;
+  max-height: 920px;
 }
-@media (min-width: 1450px) {
-  .hero-video__content {
-    padding-top: var(--wp--preset--spacing--l);
-  }
-  .hero-video h2 {
-    font-size: 7.2rem;
-  }
-  .hero-video p span {
-    display: block;
-  }
+.hero-video:not(.home) h1 {
+  font-size: var(--wp--preset--font-size--font-60);
+  margin-bottom: var(--wp--preset--spacing--m);
 }
 
+/*
+.hero-video {
+	&__feat {
+		position: relative;
+	}
+
+	&__image {
+		line-height: 0;
+		position: relative;
+		overflow: hidden;
+
+		.video-player,
+		.native-player {
+			position: absolute;
+			inset: 0;
+			border: none;
+			object-fit: cover;
+			pointer-events: none;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 1 / .85;
+			line-height: 0;
+			object-fit: cover;
+			object-position: center;
+
+			@media (min-width: 450px) {
+				aspect-ratio: 1 / .55;
+			}
+		}
+	}
+
+	h2 {
+		font-size: $font-64;
+		font-weight: 400;
+		line-height: 1.15;
+		margin: 0 0 .6ch 0;
+	}
+
+	p {
+		font-size: $font-22;
+		line-height: 1.45;
+		margin: 0;
+		color: $primary;
+	}
+
+// mobile and tablet
+	@media (max-width: 1023px) {
+		&__iframe {
+			max-width: 80%;
+			padding-top: 1.7rem;
+			padding-bottom: 1.4rem;
+			background: rgba($cloud, .9);
+			border-top-left-radius: $br;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: 5;
+
+			iframe {
+				width: 240px;
+				height: 139px;
+			}
+		}
+
+		&__content {
+			padding-top: $space-n;
+		}
+
+		#scrolldown,
+		.hero-mask,
+		.hero-bg {
+			display: none;
+		}
+	}
+
+	@media (max-width: 699px) {
+		&__iframe {
+			iframe {
+				width: 170px;
+				height: 93px;
+			}
+		}
+	}
+
+// desktop styles
+	@media (min-width: 1024px) {
+		padding-left: $content-gap;
+		padding-right: $content-gap;
+
+		.has-global-padding {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.inner {
+			max-width: $content-width;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+		}
+
+// svg mask
+		.hero-mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: -1;
+		}
+
+// video clipping with responsive mask
+		.video-clip {
+			width: calc(100% - 20px);
+			height: calc(100% - 20px);
+			clip-path: url(#heroClip);
+			position: absolute;
+			top: 10px;
+			left: 10px;
+
+
+			.banner-image,
+			.video-player {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+
+		&__content {
+			position: absolute;
+			inset: 0;
+
+			@media (max-width: 1249px) {
+				> div {
+					display: flex;
+					flex-wrap: wrap;
+					padding-top: $space-n;
+
+					h2 {
+						width: 40%;
+						font-size: 5.8rem;
+						padding-right: 5%;
+					}
+
+					p {
+						width: 60%;
+						font-size: 2rem;
+						padding: 2.8rem 3% 0 2%;
+						color: $white;
+					}
+				}
+			}
+		}
+
+		&__feat {
+			width: 100%;
+			aspect-ratio: 1097 / 751; // to match background SVG
+			overflow: hidden;
+			position: relative;
+		}
+
+		&__image {
+			position: relative;
+			width: 100%;
+			height: 100%;
+
+			img {
+				height: 100%;
+				aspect-ratio: unset;
+			}
+
+			.hero-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__iframe {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			iframe {
+				width: 240px;
+				height: 139px;
+			}
+		}
+
+		#scrolldown {
+			position: absolute;
+			bottom: 30px;
+			left: 30px;
+			cursor: pointer;
+			animation: bounce 2.25s cubic-bezier(0.25, 0.1, 0.25, 1) 5s infinite;
+
+			circle {
+				transition: stroke $speed $ease; 
+			}
+
+			@media (max-width: 1249px) {
+				path {
+					fill: $white;
+				}
+			}
+
+			&:hover {
+				circle {
+					stroke: $moss;
+				}
+			}
+		}
+	}
+
+	@media (min-width: 1250px) {
+		.inner {
+			padding-left: 220px;
+		}
+
+		#scrolldown {
+			bottom: 20px;
+			left: 0;
+		}
+
+		&__content {
+			padding-top: $space-n;
+		}
+
+		h2 {
+			font-size: 6.4rem;
+		}
+
+		p {
+			width: 34%;
+		}
+	}
+
+	@media (min-width: 1450px) {
+
+		&__content {
+			padding-top: $space-l;
+		}
+
+		h2 {
+			font-size: 7.2rem;
+		}
+
+		p {
+			span {
+				display: block;
+			}
+		}
+	}
+}
+*/
 @media (min-width: 990px) {
   .animate-1 {
     animation-delay: 0.275s !important;
