@@ -74,7 +74,7 @@
 
                 > li {
                     margin-bottom: 10px;
-                    padding: .9ch 1ch;
+                    padding: 1.1ch 1ch;
                     background: rgba($moss, .55);
                     border-radius: 2px;
                     
@@ -83,6 +83,14 @@
                         
                         &:hover {
                             padding-left: .5ch;
+                        }
+                    }
+                    
+                    &.current-menu-item,
+                    &.current-page-parent {
+                        > a {
+                            font-weight: 500;
+                            color: lighten($secondary, 20%);
                         }
                     }
                     
@@ -117,7 +125,7 @@
                                 &.current-menu-item {
                                     a {
                                         font-weight: 500;
-                                        color: $secondary;
+                                        color: lighten($secondary, 10%);
                                     }
                                 }
 

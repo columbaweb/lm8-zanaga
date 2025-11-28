@@ -13,7 +13,8 @@
 @use "inc/forms";
 // @use "inc/error404"; 
 @use "inc/login";
-// @use "inc/gdpr";
+@use "inc/gdpr";
+@use "inc/search";
 
 
 @use "banners/banners";
@@ -22,8 +23,3 @@
 
 
 @use "inc/custom";
-
-
-
-
-//@import "inc/search";

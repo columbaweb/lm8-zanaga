@@ -13,8 +13,8 @@
 .wp-block-quote:before {
   content: "";
   display: block;
-  width: 30px;
-  height: 22px;
+  width: 31px;
+  height: 23px;
   margin-bottom: 2.5rem;
   background: #FF6139;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='31' height='23' fill='none'%3E%3Cpath stroke='%23FF6139' d='m8.036 1.629 2.7 2.436.33.297-.256.363L8.364 8.2h4.238v14.3H.5V8.493l.146-.146 6.702-6.7.336-.336.352.318Zm17.899 0 2.7 2.436.329.297-.255.363L26.263 8.2H30.5v14.3H18.398V8.493l.147-.146 6.701-6.7.336-.336.353.318Z'/%3E%3C/svg%3E");

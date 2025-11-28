@@ -18,7 +18,7 @@ $i = 0;
             $link = get_sub_field('url');
             $link_url = $link['url'] ?? '';
             $link_title = $link['title'] ?? 'Visit website';
-            $link_target = $link['target'] ?? '_self';
+            $link_target = !empty($link['target']) && $link['target'] === '_blank' ? '_blank' : '_self';
         ?>
         
         <<?= $link ? 'a' : 'div' ?> 

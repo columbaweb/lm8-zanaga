@@ -16,7 +16,7 @@ $className = 'icon-list'
         <li class="icon-list-item">
             <?= wp_get_attachment_image($icon, 'full'); ?>
             
-            <span class="list-content">
+            <div class="list-content">
                 <?php if ($title) {
                     echo '<h3>'.$title.'</h3>';  
                 } ?>
@@ -24,7 +24,7 @@ $className = 'icon-list'
                 <?php if ($subtitle) {
                     echo $subtitle;  
                 } ?>
-            </span>
+            </div>
         </li>
     <?php endwhile; ?>
 </ul>

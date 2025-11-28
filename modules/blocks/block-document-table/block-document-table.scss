@@ -242,6 +242,11 @@
 	.tab-group.acc .tab-panel > input:checked + .acc-title + .acc-panel.file-table {
 		margin: 0;
 	}
+	
+	.tab-panel > input + .acc-title + .acc-panel > * {
+		transition: none!important;
+		opacity: 1!important;
+	}
 }
 
 // archived docs in an accordion

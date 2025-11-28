@@ -2,7 +2,8 @@
 @use "../abstracts/button" as *;
 
 #moove_gdpr_cookie_info_bar.gdpr_infobar_postion_bottom_left:not(.gdpr-full-screen-infobar) {
-    background: darken($cloud, 10%)!important;
+    max-width: 480px !important;
+    background: $linen!important;
     border: none!important;
     border-radius: 5px!important;
     box-shadow: 0 10px 10px -5px rgba(0,0,0, .05);
@@ -17,6 +18,10 @@
 
     p {
         color: $primary!important;
+        
+        + p {
+            margin-top: 1ch!important;
+        }
     }
 
     @media (min-width: 768px) {
@@ -75,6 +80,30 @@
     }
 }
 
-#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button {
-    font-weight: 500!important;
+
+
+
+#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a, #moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button,
+#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a {
+    color: $moss!important;
+    transition: text-decoration $speed $ease!important;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+#moove_gdpr_cookie_modal .moove-gdpr-modal-content.moove_gdpr_modal_theme_v1 .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton, #moove_gdpr_cookie_modal .moove-gdpr-modal-content.moove_gdpr_modal_theme_v1 .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton,
+#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a span.gdpr-nav-tab-title, #moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button span.gdpr-nav-tab-title {
+    font-family: $ff-body!important;
+    font-weight: 600!important;
+}
+
+
+#moove_gdpr_save_popup_settings_button,
+#moove_gdpr_save_popup_settings_button span.moove_gdpr_icon {
+    background: $secondary!important;
+}
+#moove_gdpr_save_popup_settings_button span.moove_gdpr_icon svg {
+    height: 28px!important;
 }

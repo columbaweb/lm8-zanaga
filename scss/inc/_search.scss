@@ -1,9 +1,4 @@
-.search {
-    #content {
-        padding-bottom: $space-xl;
-        margin-bottom: calc($space-xl * 2);
-    }
-}
+@use "../abstracts/vars" as *;
 
 ul.search-results {
     display: flex;
@@ -16,28 +11,23 @@ ul.search-results {
 
     li {
         margin: 0;
-        border: 1px solid rgba($primary, .1);
     }
 
     a {
         display: block;
-        padding: 2rem;
-        transition: background $speed $ease;
+        text-decoration: none!important;
 
         h2 {
-            font-size: $font-20;
-            font-weight: 400;
+            font-family: $ff-body;
+            font-size: $font-22;
+            font-weight: 500;
+            line-height: 1.55;
+            color: $black;
         }
 
         p {
             margin: 0;
             color: $primary;
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-            background: rgba($primary, .05);
         }
     }
 
@@ -54,6 +44,26 @@ ul.search-results {
 
         li {
             width: calc(50% - 2rem);
+        }
+    }
+}
+
+
+.no-res {
+    h2 {
+        font-family: $ff-body;
+        font-size: $font-32;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 1.5ch;
+        color: $black;
+    }
+    
+    p {
+        text-align: center;
+         
+        + p {
+            margin-top: 0!important;
         }
     }
 }

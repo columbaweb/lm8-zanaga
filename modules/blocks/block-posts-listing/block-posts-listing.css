@@ -106,7 +106,7 @@
     white-space: pre;
   }
 }
-@media (max-width: 399px) {
+@media (max-width: 489px) {
   .posts-filter .category-buttons {
     flex-direction: column;
     gap: 1rem;
