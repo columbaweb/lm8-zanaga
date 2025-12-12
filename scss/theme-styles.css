@@ -2790,12 +2790,13 @@ ul.search-results a p {
   position: relative;
   width: 100%;
   opacity: 0;
-  animation: zoomOut 1.25s forwards 0.25s;
+  animation: zoomOutLg 1.25s forwards 0.25s;
 }
 .hero-video__image {
-  position: relative;
+  margin-top: -30px;
   line-height: 0;
   overflow: hidden;
+  position: relative;
 }
 .hero-video__image:after {
   content: "";
@@ -3600,6 +3601,16 @@ ul.search-results a p {
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+@keyframes zoomOutLg {
+  0% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
   }
 }
 @keyframes zoomOutSm {

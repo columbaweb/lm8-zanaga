@@ -1,0 +1,12 @@
+{
+  "identifier" : "C2B4EE31-B5F2-459D-A472-E92C0F0DC359",
+  "ignoredFilePatterns" : [
+    ".git ",
+    ".gitignore",
+    ".nova",
+    "node_modules"
+  ],
+  "remotePath" : "\/public_html\/wp-content\/themes\/lm8-zanaga",
+  "server" : "Zanaga - LIVE",
+  "usesPublishing" : true
+}

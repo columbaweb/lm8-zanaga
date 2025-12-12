@@ -10,15 +10,14 @@
 		position: relative;
 		width: 100%;
 		opacity: 0;
-		animation: zoomOut 1.25s forwards .25s;
+		animation: zoomOutLg 1.25s forwards .25s;
 	}
 
 	&__image {
-		position: relative;
+		margin-top: -30px;
 		line-height: 0;
 		overflow: hidden;
-		// opacity: 0;
-		// animation: zoomOut 1.25s forwards .25s;
+		position: relative;
 
 		&:after {
 			content: "";
